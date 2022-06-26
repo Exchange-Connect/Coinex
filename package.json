@@ -5,6 +5,7 @@
   "description": "Coinex ( https://www.coinex.com ) SDK",
   "main": "index.js",
   "scripts": {
+    "doc": "npx jsdoc -c ./jsdoc.json -r",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
