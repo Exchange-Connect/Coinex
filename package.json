@@ -1,0 +1,39 @@
+{
+  "name": "@exchange-connect/coinex",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "description": "Coinex ( https://www.coinex.com ) SDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exchange-Connect/coinex.git"
+  },
+  "keywords": [
+    "crypto",
+    "exchange",
+    "coinex",
+    "sdk"
+  ],
+  "author": "Mohammad Hosein Balkhani <mohammadhb@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Exchange-Connect/coinex/issues"
+  },
+  "homepage": "https://github.com/Exchange-Connect/coinex#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@constants": "./constants",
+    "@errors": "./errors"
+  },
+  "devDependencies": {
+    "docdash": "^1.2.0",
+    "jsdoc": "^3.6.10"
+  }
+}

@@ -1,0 +1,81 @@
+{
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "recurseDepth": 10,
+    "source": {
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_",
+        "exclude": [
+            "node_modules"
+        ],
+        "include": [
+            "http"
+        ]
+    },
+    "sourceType": "module",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "template": "node_modules/docdash",
+        "encoding": "utf8",
+        "destination": "./docs/",
+        "recurse": true,
+        "verbose": true
+    },
+    "docdash": {
+        "static": [true],
+        "sort": [true],
+        "sectionOrder": [
+            "Classes",
+            "Modules",
+            "Externals",
+            "Events",
+            "Namespaces",
+            "Mixins",
+            "Tutorials",
+            "Interfaces"
+        ],
+        "disqus": "",
+        "openGraph": {
+            "title": "Coinex Exchange Connect SDK",
+            "type": "website",
+            "image": "",
+            "site_name": "",
+            "url": ""
+        },
+        "meta": {
+            "title": "Exchange Connect | Coinex",
+            "description": "Coinex Exchange Connect SDK",
+            "keyword": "exchange connect sdk coinex crypto"
+        },
+        "search": [true],
+        "collapse": [false],
+        "wrap": [false],
+        "typedefs": [true],
+        "scripts": [],
+        "menu": {
+            "Project Website": {
+                "href":"https://myproject.com",
+                "target":"_blank",
+                "class":"menu-item",
+                "id":"website_link"
+            },
+            "Forum": {
+                "href":"https://myproject.com.forum",
+                "target":"_blank",
+                "class":"menu-item",
+                "id":"forum_link"
+            }
+        }
+    }
+}
