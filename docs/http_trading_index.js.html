@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>constants/http.js - Exchange Connect | Coinex</title>
+    <title>http/trading/index.js - Exchange Connect | Coinex</title>
     
     <meta name="description" content="Coinex Exchange Connect SDK" />
     
@@ -46,7 +46,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">constants/http.js</h1>
+    <h1 class="page-title">http/trading/index.js</h1>
     
 
     
@@ -57,25 +57,13 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @namespace HTTPConstants
+ * @fileOverview Trading API Endpoints
+ * @module Trading
+ * @requires axios
  */
 
-/**
- * Enum for Http Method Types.
- * @readonly
- * @enum {string}
- * @memberof HTTPConstants
- */
-module.exports.METHOD_TYPE = {
-    /** GET HTTP Request */
-    GET:"get",
-    /** POST HTTP Request */
-    POST:"post",
-    /** DELETE HTTP Request */
-    DELETE:"delete",
-    /** PUT HTTP Request */
-    PUT:"PUT",
-};</code></pre>
+const axios = require("axios").default;
+const { METHOD_TYPE } = require("@constants/index");</code></pre>
         </article>
     </section>
 

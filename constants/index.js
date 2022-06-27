@@ -1,4 +1,4 @@
-import { METHOD_TYPE } from "./http";
-export {
-    METHOD_TYPE
+const http = require("./http");
+module.exports = {
+    ...http
 };

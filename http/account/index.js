@@ -1,10 +1,11 @@
 /**
- * @fileOverview Market API Endpoints
- * @module AccountAPIs
+ * @fileOverview Account API Endpoints
+ * @module Account
  * @requires axios
  */
- const axios = require("axios").default;
 
+const axios = require("axios").default;
+const { METHOD_TYPE } = require("@constants/index");
 
 module.exports.acquireAccountBalanceInfo = function(){
 	return axios({
@@ -119,136 +120,108 @@ module.exports.updateDepositAddress = function(){
 		url:"",
 	})
 }
-//Update below later
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.inquireDepositAddress = function(){
 	return axios({
 		url:"",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.transferRecordBetweenSpotFinancialAccount = function(){
 	return axios({
 		url:"",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.acquireTransferRecordBetweenMainAndSubAccount = function(){
 	return axios({
-		url:"",
+		url:"/sub_account/transfer/history",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.acquireLoanRecordInMarginAccount = function(){
 	return axios({
-		url:"",
+		url:"/margin/loan/history",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.transferRecordBetweenSpotPerpetualAccount = function(){
 	return axios({
-		url:"",
+		url:"/contract/transfer/history",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.transferRecordBetweenMarginSpotAccount = function(){
 	return axios({
-		url:"",
+		url:"/margin/transfer/history",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.acquireWithdrawalHistory = function(){
 	return axios({
-		url:"",
+		url:"/balance/coin/withdraw",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.createSubAccount = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.POST,
+		url:"/sub_account/register",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.unfreezeSubAccount = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.POST,
+		url:"/sub_account/unfrozen",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.freezeSubAccount = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.POST,
+		url: "/sub_account/frozen",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.editAccountSettings = function(cet_discount){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.PUT,
+		url: "/v1/account/settings",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.createSubAccountAPIKEY = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.POST,
+		url: "/sub_account/auth/api",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.acquireSubAccountAPIKEYList = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.GET,
+		url: "/sub_account/auth/api",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.acquireSubAccountAPIKEYDetail = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.GET,
+		url: "/sub_account/auth/api/<int:user_auth_id>",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.editSubAccountAPIKEY = function(){
 	return axios({
-		url:"",
+		method: METHOD_TYPE.PUT,
+		url: "/sub_account/auth/api/<int:user_auth_id>",
 	})
 }
 
-module.exports.acquireAccountBalanceInfo = function(){
+module.exports.deleteSubAccountAPIKEY = function(){
 	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
-	})
-}
-
-module.exports.acquireAccountBalanceInfo = function(){
-	return axios({
-		url:"",
+		method: METHOD_TYPE.DELETE,
+		url: "/sub_account/auth/api/<int:user_auth_id>",
 	})
 }
