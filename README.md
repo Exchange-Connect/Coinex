@@ -21,27 +21,27 @@ See [Documentation](https://exchange-connect.github.io/Coinex/) For more informa
 
 ## Roadmap
 
-[ ] Full Rest API Support
+- [x] Full Rest API Support
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/25)
 
-[ ] Full WebSocket API Support
+- [ ] Full WebSocket API Support
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-[ ] Document All of the SDKs
+- [ ] Document All of the SDKs
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/10)
+<img title="" src="https://us-central1-progress-markdown.cloudfunctions.net/progress/10" alt="" data-align="inline">
 
-[ ] Error handling
-
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
-
-[ ] Error types
+- [ ] Error handling
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-[ ] Rate Limiter
+- [ ] Error types
+
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+
+- [ ] Rate Limiter
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
