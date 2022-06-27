@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>index.js - Exchange Connect | Coinex</title>
+    <title>http/market/types.js - Exchange Connect | Coinex</title>
     
     <meta name="description" content="Coinex Exchange Connect SDK" />
     
@@ -37,16 +37,16 @@
 
 <label for="nav-trigger" class="overlay"></label>
 
-<nav class="wrap">
+<nav >
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Exchange-Connect/Coinex" target="_blank" class="menu-item" id="website_link" >Github Repository</a></h2><h3>Global</h3><ul><li><a href="global.html#acquireAllMarketInfo">acquireAllMarketInfo</a></li><li><a href="global.html#acquireAllMarketList">acquireAllMarketList</a></li><li><a href="global.html#acquireAllMarketStatistics">acquireAllMarketStatistics</a></li><li><a href="global.html#acquireAMMMarketList">acquireAMMMarketList</a></li><li><a href="global.html#acquireAssetAllocation">acquireAssetAllocation</a></li><li><a href="global.html#acquireCurrencyRate">acquireCurrencyRate</a></li><li><a href="global.html#acquireKlineData">acquireKlineData</a></li><li><a href="global.html#acquireMarginMarketList">acquireMarginMarketList</a></li><li><a href="global.html#acquireMarketDepth">acquireMarketDepth</a></li><li><a href="global.html#acquireSingleMarketInfo">acquireSingleMarketInfo</a></li><li><a href="global.html#acquireSingleMarketStatistics">acquireSingleMarketStatistics</a></li><li><a href="global.html#AllMarketStatisticsResults">AllMarketStatisticsResults</a></li><li><a href="global.html#CurrencyRateResults">CurrencyRateResults</a></li><li><a href="global.html#KlineDataResults">KlineDataResults</a></li><li><a href="global.html#MarketDepthResult">MarketDepthResult</a></li><li><a href="global.html#MarketInfoResult">MarketInfoResult</a></li><li><a href="global.html#MarketInfoResults">MarketInfoResults</a></li><li><a href="global.html#MarketListResults">MarketListResults</a></li><li><a href="global.html#SingleMarketStatisticsResult">SingleMarketStatisticsResult</a></li><li><a href="global.html#TransactionDataResults">TransactionDataResults</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Exchange-Connect/Coinex" target="_blank" class="menu-item" id="website_link" >Github Repository</a></h2><h3>Modules</h3><ul><li><a href="module-AccountAPIs.html">AccountAPIs</a></li><li><a href="module-MarketAPIs.html">MarketAPIs</a><ul class='methods'><li data-type='method'><a href="module-MarketAPIs.html#~acquireAllMarketInfo">acquireAllMarketInfo</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireAllMarketList">acquireAllMarketList</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireAllMarketStatistics">acquireAllMarketStatistics</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireAMMMarketList">acquireAMMMarketList</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireAssetAllocation">acquireAssetAllocation</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireCurrencyRate">acquireCurrencyRate</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireKlineData">acquireKlineData</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireMarginMarketList">acquireMarginMarketList</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireSingleMarketInfo">acquireSingleMarketInfo</a></li><li data-type='method'><a href="module-MarketAPIs.html#~acquireSingleMarketStatistics">acquireSingleMarketStatistics</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="HTTPConstants.html">HTTPConstants</a><ul class='members'><li data-type='member'><a href="HTTPConstants.html#.module.exports.METHOD_TYPE">module.exports.METHOD_TYPE</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#AllMarketStatisticsResults">AllMarketStatisticsResults</a></li><li><a href="global.html#AMMMarketResults">AMMMarketResults</a></li><li><a href="global.html#AssetAllocationResults">AssetAllocationResults</a></li><li><a href="global.html#CurrencyRateResults">CurrencyRateResults</a></li><li><a href="global.html#KlineDataResults">KlineDataResults</a></li><li><a href="global.html#MarginMarketResults">MarginMarketResults</a></li><li><a href="global.html#MarketDepthResult">MarketDepthResult</a></li><li><a href="global.html#MarketInfoResult">MarketInfoResult</a></li><li><a href="global.html#MarketInfoResults">MarketInfoResults</a></li><li><a href="global.html#MarketListResults">MarketListResults</a></li><li><a href="global.html#SingleMarketStatisticsResult">SingleMarketStatisticsResult</a></li><li><a href="global.html#TransactionDataResults">TransactionDataResults</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">index.js</h1>
+    <h1 class="page-title">http/market/types.js</h1>
     
 
     
@@ -56,28 +56,26 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-const axios = require("axios").default;
-
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * Coinex Market List Results
  * @typedef {Object} MarketListResults
  * @property {Number} code - Indicates the coresponding Endpoint Error Code.
  * @property {Boolean} message - Response message.
  * @property {Array&lt;String>} data - List All of the market's pairs, applicable to spot and margin markets.
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": [
+ *         "LTCBCH",
+ *         "ETHBCH",
+ *         "ZECBCH",
+ *         "DASHBCH"
+ *     ],
+ *     "message": "Ok"
+ * }
  */
+//  module.exports.acquireAllMarketList
 
-/**
- * Acquire All Market List
- * @async
- * @function acquireAllMarketList
- * @returns {Promise&lt;MarketListResults>} Promise object represents the result of the request
- */
-module.exports.acquireAllMarketList = function(){
-    return axios({
-        url:"/market/list",
-    })
-}
 
 /**
  * Coinex Market Info Results
@@ -94,19 +92,38 @@ module.exports.acquireAllMarketList = function(){
  * @property {Number} data.market.trading_decimal - Trading currency decimal
  * @property {String} data.market.pricing_name - Pricing currency
  * @property {Number} data.market.pricing_decimal - Pricing currency decimal
+ * @example
+ * {
+ *   "code": 0,
+ *   "message": "Ok",
+ *   "data":
+ *   {
+ *     "XRPBTC": 
+ *     {
+ *       "taker_fee_rate": "0.001",
+ *       "pricing_name": "BTC",
+ *       "trading_name": "XRP",
+ *       "min_amount": "0.001",
+ *       "name": "XRPBTC",
+ *       "trading_decimal": 8,
+ *       "maker_fee_rate": "0.001",
+ *       "pricing_decimal": 8
+ *     } ,
+ *     "CETUSDC": 
+ *     {
+ *       "taker_fee_rate": "0.001",
+ *       "pricing_name": "USDC",
+ *       "trading_name": "CET",
+ *       "min_amount": "0.001",
+ *       "name": " CETUSDC",
+ *       "trading_decimal": 8,
+ *       "maker_fee_rate": "0.001",
+ *       "pricing_decimal": 8
+ *     }
+ *   }
+ * }
  */
-
-/**
- * Acquire All Market Info
- * @async
- * @function acquireAllMarketInfo
- * @returns {Promise&lt;MarketInfoResults>} Promise object represents the result of the request
- */
-module.exports.acquireAllMarketInfo = function(){
-    return axios({
-        url:"/market/info",
-    })
-}
+//  module.exports.acquireAllMarketInfo
 
 /**
  * Coinex Market Info Result
@@ -122,23 +139,26 @@ module.exports.acquireAllMarketInfo = function(){
  * @property {Number} data.trading_decimal - Trading currency decimal
  * @property {String} data.pricing_name - Pricing currency
  * @property {Number} data.pricing_decimal - Pricing currency decimal
+ * @example
+ * {
+ *   "code": 0,
+ *   "message": "Ok",
+ *   "data":
+ *     {
+ *       "taker_fee_rate": "0.001",
+ *       "pricing_name": "USDT",
+ *       "trading_name": "BTC" ,
+ *       "min_amount": "0.001",
+ *       "name": "BTCUSDT",
+ *       "trading_decimal": 8,
+ *       "maker_fee_rate": "0.001",
+ *       "pricing_decimal": 8
+ *     }
+ * }
  */
 
-/**
- * Acquire Single Market Info
- * @async
- * @function acquireSingleMarketInfo
- * @param {String} market Market Name
- * @returns {Promise&lt;MarketInfoResult>} Promise object represents the result of the request
- */
-module.exports.acquireSingleMarketInfo = function(market){
-    return axios({
-        url:"/market/detail",
-        params:{
-            market
-        }
-    })
-}
+//  module.exports.acquireSingleMarketInfo
+
 
 /**
  * Coinex Market Depth Result
@@ -154,27 +174,30 @@ module.exports.acquireSingleMarketInfo = function(market){
  * @property {Array&lt;Array&lt;String>>} data.bids - Trading currency decimal
  * @property {String} data.bids[][0] - Pricing currency
  * @property {Number} data.bids[][1] - Pricing currency decimal
+ * @example
+ * {
+ *   "code": 0,
+ *   "data": {
+ *     "last": "10.00",
+ *     "time": 1539764050033,
+ *     "asks": [
+ *       [
+ *         "10.00", 
+ *         "0.9999"
+ *       ]
+ *     ],
+ *     "bids": [
+ *       [
+ *         "10.00",
+ *         "1.0000"
+ *       ]
+ *     ]
+ *   },
+ *   "message": "Ok"
+ * }
  */
 
-/**
- * Acquire Market Depth
- * @async
- * @function acquireMarketDepth
- * @param {String} market Market Name
- * @param {'0'|'0.1'|'0.01'|'0.001'|'0.0001'|'0.00001'|'0.000001'|'0.0000001'|'0.00000001'} merge Depth Sequence Merge
- * @param {5|10|20|50} [limit=20]
- * @returns {Promise&lt;MarketDepthResult>} Promise object represents the result of the request
- */
-module.exports.acquireMarketDepth = function(market, merge, limit=20){
-    return axios({
-        url:"/market/depth",
-        params:{
-            market,
-            merge,
-            limit
-        }
-    })
-}
+//  module.exports.acquireMarketDepth
 
 /**
  * Coinex Transaction Data Results
@@ -188,28 +211,24 @@ module.exports.acquireMarketDepth = function(market, merge, limit=20){
  * @property {String} data.amount - Trading volume
  * @property {String} data.price - Transaction price
  * @property {"buy"|"sell"} data.type - Transaction direction type
+ * @example
+ * {
+ *   "code": 0,
+ *   "data": [
+ *     {
+ *       "amount": "0.0001",        # Transaction amount 
+ *       "date": 1494214689,        # Transaction time(s) 
+ *       "date_ms": 1494214689067,  # Transaction time(ms)
+ *       "id": 5,                   # Transaction No
+ *       "price": "10.00",          # Transaction price
+ *       "type": "buy"              # Transaction type: buy, sell
+ *     }
+ *   ],
+ *   "message" : "Ok"
+ * }
  */
 
-/**
- * Acquire Latest Transaction Data
- * @async
- * @function acquireMarketDepth
- * @description Get the latest transaction data of a single market, applicable to spot and margin markets
- * @param {String} market Market Name
- * @param {Number} last_id Transaction ID, 0 means get from the latest record
- * @param {Number} [limit=100] ( Max. 1000 )
- * @returns {Promise&lt;TransactionDataResults>} Promise object represents the result of the request
- */
-module.exports.acquireLatestTransactionData = function(market, last_id, limit=100){
-    return axios({
-        url:"/market/deals",
-        params:{
-            market,
-            last_id,
-            limit
-        }
-    })
-}
+//  module.exports.acquireLatestTransactionData
 
 /**
  * Coinex K-Line Data Results
@@ -243,43 +262,7 @@ module.exports.acquireLatestTransactionData = function(market, last_id, limit=10
  * }
  */
 
-/**
- * Acquire K-Line Data
- * @async
- * @function acquireKlineData
- * @description Get k-line data of a single market, applicable to spot and margin markets
- * @param {String} market Market Name
- * @param {"1min"|"3min"|"5min"|"15min"|"30min"|"1hour"|"4hour"|"6hour"|"1day"|"3day"|"1week"} type Timeframe
- * @param {Number} [limit=100] ( Max. 1000 )
- * @example
- * 
- * {
- *   "code": 0,
- *   "data": [
- *     [
- *       1492358400,
- *       "10.0",
- *       "10.0",
- *       "10.0",
- *       "10.0",
- *       "10",
- *       "100",
- *     ]
- *   ],
- *   "message": "Ok"
- * }
- * @returns {Promise&lt;KlineDataResults>} Promise object represents the result of the request
- */
-module.exports.acquireKlineData = function(market, type, limit=100){
-    return axios({
-        url:"/market/kline",
-        params:{
-            market,
-            type,
-            limit
-        }
-    })
-}
+//  module.exports.acquireKlineData
 
 /**
  * Coinex Single Market Statistics Result
@@ -320,21 +303,7 @@ module.exports.acquireKlineData = function(market, type, limit=100){
  * }
  */
 
-/**
- * Acquire Single Market Statistics
- * @async
- * @function acquireSingleMarketStatistics
- * @param {String} market Market Name
- * @returns {Promise&lt;SingleMarketStatisticsResult>} Promise object represents the result of the request
- */
-module.exports.acquireSingleMarketStatistics = function(market){
-    return axios({
-        url:"/market/ticker",
-        params:{
-            market
-        }
-    })
-}
+//  module.exports.acquireSingleMarketStatistics
 
 /**
  * Coinex All Market Statistics Results
@@ -378,18 +347,7 @@ module.exports.acquireSingleMarketStatistics = function(market){
  * }
  */
 
-/**
- * Acquire All Market Statistics
- * @async
- * @function acquireAllMarketStatistics
- * @returns {Promise&lt;AllMarketStatisticsResults>} Promise object represents the result of the request
- */
-module.exports.acquireAllMarketStatistics = function(){
-    return axios({
-        url:"/market/ticker/all",
-    })
-}
-
+//  module.exports.acquireAllMarketStatistics
 
 /**
  * Coinex Acquire Currency Rate Results
@@ -413,99 +371,127 @@ module.exports.acquireAllMarketStatistics = function(){
  * }
  */
 
-/**
- * Acquire Currency Rate
- * @async
- * @function acquireCurrencyRate
- * @returns {Promise&lt;CurrencyRateResults>} Promise object represents the result of the request
- */
-module.exports.acquireCurrencyRate = function(){
-    return axios({
-        url:"/common/currency/rate",
-    })
-}
+//  module.exports.acquireCurrencyRate
 
 /**
- * Coinex All Market Statistics Results
- * @typedef {Object} AllMarketStatisticsResults
+ * Coinex Asset Allocation Results
+ * @typedef {Object} AssetAllocationResults
  * @property {Number} code - Indicates the coresponding Endpoint Error Code.
  * @property {Boolean} message - Response message.
  * @property {Object} data - Results
- * @property {String} data.date - Server time
- * @property {Object} data.ticker - Ticker Data
- * @property {Object} data.ticker.market - Example "market"
- * @property {String} data.ticker.market.last - Latest transaction price
- * @property {String} data.ticker.market.buy - Bid1 price
- * @property {String} data.ticker.market.buy_amount - Bid1 amount
- * @property {String} data.ticker.market.sell - Ask1 price
- * @property {String} data.ticker.market.sell_amount - Ask1 amount
- * @property {String} data.ticker.market.open - 24H opening price
- * @property {String} data.ticker.market.high - 24H highest price
- * @property {String} data.ticker.market.low - 24H lowest price
- * @property {String} data.ticker.market.vol - 24H volume
+ * @property {Object} data.Example-Exampl3 - Allocation Data
+ * @property {String} data.Example-Exampl3.can_deposit - Deposit status
+ * @property {String} data.Example-Exampl3.can_withdraw - Withdrawal status
+ * @property {String} data.Example-Exampl3.deposit_least_amount - Min. deposit amount
+ * @property {String} data.Example-Exampl3.withdraw_least_amount - 	Min. withdrawal amount
+ * @property {String} data.Example-Exampl3.withdraw_tx_fee - Withdrawal rate
+ * @property {String} data.Example-Exampl3.withdrawal_precision - Withdrawal precision
+ * @property {String} data.Example-Exampl3.asset - Coin
+ * @property {String} data.Example-Exampl3.chain - The protocol type of the coin
  * @example
  * 
  * {
  *     "code": 0,
  *     "data": {
- *         "date": 1513865441609,       # server time when returning
- *         "ticker": {
- *             "martket": {
- *                 "buy": "10.00",          # buy 1
- *                 "buy_amount": " 10.00",  # buy 1 amount
- *                 "open": "10",            # highest price
- *                 "high": "10",            # highest price
- *                 "last": "10.00",         # latest price 
- *                 "low": "10 ",            # lowest price
- *                 "sell": "10.00",         # sell 1
- *                 "sell_amount": "0.78",   # sell 1 amount
- *                 "vol": "110"             # 24H volume
- *             }
+ *         "CET-CSC": {
+ *             "asset": "CET",
+ *             "chain": "CSC",
+ *             "can_deposit": true,
+ *             "can_withdraw ": false,
+ *             "deposit_least_amount": "1",
+ *             "withdraw_least_amount": "1",
+ *             "withdraw_tx_fee": "0.1"
+ *         },
+ *         "CET-ERC20": {
+ *             "asset": "CET",
+ *             "chain": "ERC20",
+ *             "can_deposit": true,
+ *             "can_withdraw": false,
+ *             "deposit_least_amount": "14",
+ *             "withdraw_least_amount": "14",
+ *             "withdraw_tx_fee": "14"
  *         }
  *     },
- *   "message" : "Ok"
+ *     "message": "Success"
  * }
  */
 
-/**
- * Acquire Asset Allocation
- * @async
- * @function acquireAssetAllocation
- * @param {String} coin_type Coin name
- * @returns {Promise&lt;MarketDepthResult>} Promise object represents the result of the request
- */
-module.exports.acquireAssetAllocation = function(coin_type){
-    return axios({
-        url:"/common/asset/config",
-        params:{
-            coin_type
-        }
-    })
-}
+//  module.exports.acquireAssetAllocation
 
 /**
- * Acquire AMM Market List
- * @async
- * @function acquireAMMMarketList
- * @returns {Promise&lt;MarketDepthResult>} Promise object represents the result of the request
+ * Coinex AMM Market Results
+ * @typedef {Object} AMMMarketResults
+ * @property {Number} code - Indicates the coresponding Endpoint Error Code.
+ * @property {Boolean} message - Response message.
+ * @property {Array&lt;String>} data - Results
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": [
+ *         "CETUSDT",
+ *         "USDCUSDT",
+ *         "ETHBTC",
+ *         "ACMUSDT",
+ *         "ARDRUSDT",
+ *         "ARDRTUSD",
+ *         "AYAUSDT",
+ *         "AYAETH",
+ *         "KUNBTC",
+ *         "KUNBCH",
+ *         "KUNETH",
+ *         "KUNTUSD",
+ *         "LFTBTC",
+ *         "PAXUSDT",
+ *         "SNXUSDT",
+ *         "SNXBTC",
+ *         "SNXBCH",
+ *         "SNXETH",
+ *         "SYSUSDT",
+ *         "XRPUSDC",
+ *         "XRPETH"
+ *     ],
+ *     "message": "Success"
+ * }
  */
-module.exports.acquireAMMMarketList = function(){
-    return axios({
-        url:"/amm/market",
-    })
-}
+
+//  module.exports.acquireAMMMarketList
 
 /**
- * Acquire Margin Market List
- * @async
- * @function acquireMarginMarketList
- * @returns {Promise&lt;MarketDepthResult>} Promise object represents the result of the request
+ * Coinex Margin Market Results
+ * @typedef {Object} MarginMarketResults
+ * @property {Number} code - Indicates the coresponding Endpoint Error Code.
+ * @property {Boolean} message - Response message.
+ * @property {Object} data - Results
+ * @property {Number} data.ExampleExampl3 - Pair's Result
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": {
+ *         "CETBCH": 3,
+ *         "BTCUSDC": 4,
+ *         "XRPPAX": 7,
+ *         "ETHUSDC": 9,
+ *         "BCHUSDT": 10,
+ *         "LTCUSDT": 11,
+ *         "XRPUSDT": 12,
+ *         "HCBTC": 13,
+ *         "ETHUSDT": 1,
+ *         "ETCUSDT": 15,
+ *         "BTCUSDT": 2,
+ *         "ETHBTC": 16,
+ *         "HCUSDT": 17,
+ *         "BSVUSDT": 19,
+ *         "OMGUSDT": 20,
+ *         "OMGUSDC": 22,
+ *         "OMGTUSD": 23,
+ *         "BANUSDT": 24,
+ *         "BANUSDC": 25
+ *     },
+ *     "message": "Success"
+ * }
  */
-module.exports.acquireMarginMarketList = function(){
-    return axios({
-        url:"/margin/market",
-    })
-}</code></pre>
+
+//  module.exports.acquireMarginMarketList</code></pre>
         </article>
     </section>
 
@@ -519,7 +505,7 @@ module.exports.acquireMarginMarketList = function(){
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Mon Jun 27 2022 02:38:04 GMT+0430 (Iran Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Mon Jun 27 2022 05:12:32 GMT+0430 (Iran Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
@@ -528,8 +514,6 @@ module.exports.acquireMarginMarketList = function(){
 
 <script src="scripts/search.js" defer></script>
 
-
-<script src="scripts/collapse.js" defer></script>
 
 
 </body>

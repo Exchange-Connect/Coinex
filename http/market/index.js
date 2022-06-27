@@ -1,18 +1,9 @@
 /**
- * Market module.
- * @module http/market
- * @see module:http/market
+ * @fileOverview Market API Endpoints
+ * @module MarketAPIs
+ * @requires axios
  */
-
 const axios = require("axios").default;
-
-/**
- * Coinex Market List Results
- * @typedef {Object} MarketListResults
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Array<String>} data - List All of the market's pairs, applicable to spot and margin markets.
- */
 
 /**
  * Acquire All Market List
@@ -27,22 +18,6 @@ module.exports.acquireAllMarketList = function(){
 }
 
 /**
- * Coinex Market Info Results
- * @typedef {Object} MarketInfoResults
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - Acquire all market details, applicable to spot and margin markets.
- * @property {String} data.name - 	Market name
- * @property {String} data.taker_fee_rate - Taker rate
- * @property {String} data.maker_fee_rate - Maker rate
- * @property {String} data.min_amount - Min. transaction volume
- * @property {String} data.trading_name - Trading currency
- * @property {Number} data.trading_decimal - Trading currency decimal
- * @property {String} data.pricing_name - Pricing currency
- * @property {Number} data.pricing_decimal - Pricing currency decimal
- */
-
-/**
  * Acquire All Market Info
  * @async
  * @function acquireAllMarketInfo
@@ -54,27 +29,160 @@ module.exports.acquireAllMarketInfo = function(){
     })
 }
 
-
-module.exports.acquireAllMarketInfo = function(){
+/**
+ * Acquire Single Market Info
+ * @async
+ * @function acquireSingleMarketInfo
+ * @param {String} market Market Name
+ * @returns {Promise<MarketInfoResult>} Promise object represents the result of the request
+ */
+module.exports.acquireSingleMarketInfo = function(market){
     return axios({
         url:"/market/detail",
+        params:{
+            market
+        }
     })
 }
 
-module.exports.acquireAllMarketInfo = function(){
+/**
+ * Acquire Market Depth
+ * @async
+ * @function acquireMarketDepth
+ * @param {String} market Market Name
+ * @param {'0'|'0.1'|'0.01'|'0.001'|'0.0001'|'0.00001'|'0.000001'|'0.0000001'|'0.00000001'} merge Depth Sequence Merge
+ * @param {5|10|20|50} [limit=20]
+ * @returns {Promise<MarketDepthResult>} Promise object represents the result of the request
+ */
+module.exports.acquireMarketDepth = function(market, merge, limit=20){
     return axios({
         url:"/market/depth",
+        params:{
+            market,
+            merge,
+            limit
+        }
     })
 }
 
-module.exports.acquireAllMarketInfo = function(){
+/**
+ * Acquire Latest Transaction Data
+ * @async
+ * @function acquireMarketDepth
+ * @description Get the latest transaction data of a single market, applicable to spot and margin markets
+ * @param {String} market Market Name
+ * @param {Number} last_id Transaction ID, 0 means get from the latest record
+ * @param {Number} [limit=100] ( Max. 1000 )
+ * @returns {Promise<TransactionDataResults>} Promise object represents the result of the request
+ */
+module.exports.acquireLatestTransactionData = function(market, last_id, limit=100){
     return axios({
         url:"/market/deals",
+        params:{
+            market,
+            last_id,
+            limit
+        }
     })
 }
 
-module.exports.acquireAllMarketInfo = function(){
+/**
+ * Acquire K-Line Data
+ * @async
+ * @function acquireKlineData
+ * @description Get k-line data of a single market, applicable to spot and margin markets
+ * @param {String} market Market Name
+ * @param {"1min"|"3min"|"5min"|"15min"|"30min"|"1hour"|"4hour"|"6hour"|"1day"|"3day"|"1week"} type Timeframe
+ * @param {Number} [limit=100] ( Max. 1000 )
+ * @returns {Promise<KlineDataResults>} Promise object represents the result of the request
+ */
+module.exports.acquireKlineData = function(market, type, limit=100){
     return axios({
         url:"/market/kline",
+        params:{
+            market,
+            type,
+            limit
+        }
+    })
+}
+
+/**
+ * Acquire Single Market Statistics
+ * @async
+ * @function acquireSingleMarketStatistics
+ * @param {String} market Market Name
+ * @returns {Promise<SingleMarketStatisticsResult>} Promise object represents the result of the request
+ */
+module.exports.acquireSingleMarketStatistics = function(market){
+    return axios({
+        url:"/market/ticker",
+        params:{
+            market
+        }
+    })
+}
+
+/**
+ * Acquire All Market Statistics
+ * @async
+ * @function acquireAllMarketStatistics
+ * @returns {Promise<AllMarketStatisticsResults>} Promise object represents the result of the request
+ */
+module.exports.acquireAllMarketStatistics = function(){
+    return axios({
+        url:"/market/ticker/all",
+    })
+}
+
+/**
+ * Acquire Currency Rate
+ * @async
+ * @function acquireCurrencyRate
+ * @returns {Promise<CurrencyRateResults>} Promise object represents the result of the request
+ */
+module.exports.acquireCurrencyRate = function(){
+    return axios({
+        url:"/common/currency/rate",
+    })
+}
+
+/**
+ * Acquire Asset Allocation
+ * @async
+ * @function acquireAssetAllocation
+ * @param {String} coin_type Coin name
+ * @returns {Promise<AssetAllocationResults>} Promise object represents the result of the request
+ */
+module.exports.acquireAssetAllocation = function(coin_type){
+    return axios({
+        url:"/common/asset/config",
+        params:{
+            coin_type
+        }
+    })
+}
+
+/**
+ * Acquire AMM Market List
+ * @async
+ * @function acquireAMMMarketList
+ * @returns {Promise<AMMMarketResults>} Promise object represents the result of the request
+ */
+module.exports.acquireAMMMarketList = function(){
+    return axios({
+        url:"/amm/market",
+    })
+}
+
+/**
+ * Acquire Margin Market List
+ * @async
+ * @function acquireMarginMarketList
+ * @returns {Promise<MarginMarketResults>} Promise object represents the result of the request
+ */
+module.exports.acquireMarginMarketList = function(){
+    return axios({
+        url:"/margin/market",
     })
 }

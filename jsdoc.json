@@ -10,7 +10,8 @@
             "node_modules"
         ],
         "include": [
-            "http"
+            "http",
+            "constants"
         ]
     },
     "sourceType": "module",
@@ -33,8 +34,8 @@
         "verbose": true
     },
     "docdash": {
-        "static": [true],
-        "sort": [true],
+        "static": true,
+        "sort": true,
         "sectionOrder": [
             "Classes",
             "Modules",
@@ -58,23 +59,17 @@
             "description": "Coinex Exchange Connect SDK",
             "keyword": "exchange connect sdk coinex crypto"
         },
-        "search": [true],
-        "collapse": [false],
-        "wrap": [false],
-        "typedefs": [true],
+        "search": true,
+        "collapse": false,
+        "wrap": false,
+        "typedefs": true,
         "scripts": [],
         "menu": {
-            "Project Website": {
-                "href":"https://myproject.com",
+            "Github Repository": {
+                "href":"https://github.com/Exchange-Connect/Coinex",
                 "target":"_blank",
                 "class":"menu-item",
                 "id":"website_link"
-            },
-            "Forum": {
-                "href":"https://myproject.com.forum",
-                "target":"_blank",
-                "class":"menu-item",
-                "id":"forum_link"
             }
         }
     }
