@@ -587,3 +587,59 @@ module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, accou
         url: "/order/market/trade/info",
     })
 }
+
+/**
+ * [Modify a normal order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade022_modify_order}
+ * @async
+ * @function modifyanormalorder
+ * @param {String} access_id access_id
+ * @param {String} market Market name
+ * @param {String} id Order No.
+ * @param {String} [amount] Order amount, the minimum order amount is determined by the market
+ * @param {String} [price] Order price, determined by the market
+ * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
+ * @returns {Promise<>} Promise object represents the result of the request
+ */
+ module.exports.modifyanormalorder = function(access_id, market, id, amount, price, tonce=Date.now()){
+    return axios({
+        method: METHOD_TYPE.POST,
+        url: "/order/modify",
+        params: {
+            access_id,
+            market,
+            id,
+            amount,
+            price,
+            tonce,
+        }
+    })
+}
+
+/**
+ * [Modify Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade023_modify_stop_order}
+ * @async
+ * @function modifyStopOrder
+ * @param {String} access_id Key Id
+ * @param {String} market Market name
+ * @param {String} id Order No.
+ * @param {String} [amount] Order amount, the minimum order amount is determined by the market
+ * @param {String} [price] Order price, accurate to 8 decimals
+ * @param {String} [stop_price] Stop price, accurate to 8 decimals
+ * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
+ * @returns {Promise<>} Promise object represents the result of the request
+ */
+ module.exports.modifyStopOrder = function(access_id, market, id, amount, price, stop_price, tonce=Date.now()){
+    return axios({
+        method: METHOD_TYPE.POST,
+        url: "/order/stop/modify",
+        params: {
+            access_id,
+            market,
+            id,
+            amount,
+            price,
+            stop_price,
+            tonce,
+        }
+    })
+}
