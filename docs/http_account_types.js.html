@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>HTTPConstants - Exchange Connect | Coinex</title>
+    <title>http/account/types.js - Exchange Connect | Coinex</title>
     
     <meta name="description" content="Coinex Exchange Connect SDK" />
     
@@ -46,301 +46,78 @@
 
 <div id="main">
     
-    <h1 class="page-title">HTTPConstants</h1>
+    <h1 class="page-title">http/account/types.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        HTTPConstants
-        </h2>
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants_http.js.html">constants/http.js</a>, <a href="constants_http.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-            
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".module.exports.METHOD_TYPE"><span class="type-signature">(static, readonly) </span>module.exports.METHOD_TYPE<span class="type-signature"> :string</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants_http.js.html">constants/http.js</a>, <a href="constants_http.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>GET</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>GET HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>POST</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>POST HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DELETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>DELETE HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>PUT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>PUT HTTP Request</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<div class="description usertext">
-    <p>Enum for Http Method Types.</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Coinex Account Balance Info Results
+ * @typedef {Object} AccountBalanceInfoResults
+ * @property {Number} code - Indicates the coresponding Endpoint Error Code.
+ * @property {Boolean} message - Response message.
+ * @property {Object} data - List All of the market's pairs, applicable to spot and margin markets.
+ * @property {Object} data.example - Example Currency
+ * @property {Object} data.example.available - Amount available
+ * @property {Object} data.example.frozen - Amount frozen
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": {
+ *         "BTC": {
+ *             "available": "9080.84156954",
+ *             "frozen": "1"
+ *         },
+ *         "USDT": {
+ *             "available" : "43724611.65252752",
+ *             "frozen": "1897.84472856"
+ *         },
+ *         "CET": {
+ *             "available": "6524.13695056",
+ *             "frozen": "0"
+ *         },
+ *         "ETH": {
+ *             " available": "10000",
+ *             "frozen": "0"
+ *         }
+ *     },
+ *     "message": "Success"
+ * }
+ */
+// module.exports.acquireAccountBalanceInfo
+
+/**
+ * Coinex Sub Account Balance Info Results
+ * @typedef {Object} SubAccountBalanceInfoResults
+ * @property {Number} code - Indicates the coresponding Endpoint Error Code.
+ * @property {Boolean} message - Response message.
+ * @property {Object} data - List All of the market's pairs, applicable to spot and margin markets.
+ * @property {Object} data.account - Example Sub-Account
+ * @property {Object} data.account.example - Example Currency
+ * @property {Object} data.account.example.available - Amount available
+ * @property {Object} data.account.example.frozen - Amount frozen
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": {
+ *         "sun": {
+ *             "BTC": {
+ *                 "available": "99",
+ *                 "frozen": "0"
+ *             }
+ *         }
+ *     },
+ *     "message": "Success"
+ * }
+ */
+// module.exports.acquireBalanceInSubAccount</code></pre>
+        </article>
+    </section>
 
 
 

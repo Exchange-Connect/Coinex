@@ -21,7 +21,7 @@ See [Documentation](https://exchange-connect.github.io/Coinex/) For more informa
 
 ## Roadmap
 
-- [x] Full Rest API Support
+- [ ] Full Rest API Support
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/25)
 

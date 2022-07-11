@@ -1,6 +1,6 @@
 /**
  * @fileOverview Market API Endpoints
- * @module MarketAPIs
+ * @module Market
  * @requires axios
  */
 const axios = require("axios").default;

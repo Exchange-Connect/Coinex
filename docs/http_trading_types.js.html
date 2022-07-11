@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>HTTPConstants - Exchange Connect | Coinex</title>
+    <title>http/trading/types.js - Exchange Connect | Coinex</title>
     
     <meta name="description" content="Coinex Exchange Connect SDK" />
     
@@ -46,301 +46,78 @@
 
 <div id="main">
     
-    <h1 class="page-title">HTTPConstants</h1>
+    <h1 class="page-title">http/trading/types.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        HTTPConstants
-        </h2>
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants_http.js.html">constants/http.js</a>, <a href="constants_http.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-            
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".module.exports.METHOD_TYPE"><span class="type-signature">(static, readonly) </span>module.exports.METHOD_TYPE<span class="type-signature"> :string</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constants_http.js.html">constants/http.js</a>, <a href="constants_http.js.html#line11">line 11</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>GET</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>GET HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>POST</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>POST HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DELETE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>DELETE HTTP Request</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>PUT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>PUT HTTP Request</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<div class="description usertext">
-    <p>Enum for Http Method Types.</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** Coinex Submit Limit Order Result
+ * @typedef {Object} SubmitLimitOrderResult
+ * @property {Number} code
+ * @property {Object} data
+ * @property {Number} data.id
+ * @property {Number} data.create_time
+ * @property {null}   data.finished_time
+ * @property {String} data.amount
+ * @property {String} data.price
+ * @property {String} data.deal_amount
+ * @property {String} data.deal_money
+ * @property {String} data.deal_fee
+ * @property {String} data.stock_fee
+ * @property {String} data.money_fee
+ * @property {String} data.asset_fee
+ * @property {String} data.fee_asset
+ * @property {String} data.fee_discount
+ * @property {String} data.avg_price
+ * @property {String} data.market
+ * @property {String} data.left
+ * @property {String} data.maker_fee_rate
+ * @property {String} data.taker_fee_rate
+ * @property {String} data.order_type
+ * @property {String} data.type
+ * @property {String} data.status
+ * @property {String} data.client_id
+ * @property {String} data.source_id
+ * @property {String} message
+ * @example
+ * {
+ *     "code": 0,
+ *     "data": {
+ *         "id": 35435972,
+ *         "create_time": 1636019392,
+ *         "finished_time": null,
+ *         "amount": "0.01000000",
+ *         "price": " 56000",
+ *         "deal_amount": "0.01",
+ *         "deal_money": "560.0000000000000000",
+ *         "deal_fee": "0",
+ *         "stock_fee": "0",
+ *         "money_fee": "0",
+ *         " asset_fee": "0.313600000000000000000000",
+ *         "fee_asset": "CET",
+ *         "fee_discount": "0.70",
+ *         "avg_price": "56000",
+ *         "market": "BTCUSDT",
+ *         "left": "0.00000000 ",
+ *         "maker_fee_rate": "0.0016",
+ *         "taker_fee_rate": "0.0016",
+ *         "order_type": "limit",
+ *         "type": "buy",
+ *         "status": "done",
+ *         "client_id ": "abcd222",
+ *         "source_id": "1234"
+ *     },
+ *     "message": "Success"
+ * }
+ */
+//  module.exports.submitLimitOrder</code></pre>
+        </article>
+    </section>
 
 
 
