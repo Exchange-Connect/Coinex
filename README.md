@@ -21,26 +21,25 @@ See [Documentation](https://exchange-connect.github.io/Coinex/) For more informa
 
 ## Roadmap
 
-- [ ] Full Rest API Support ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+- [x] Full Rest API Support ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Account ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Futures ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Market ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Trading ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Spot ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Full WebSocket API Support
+- [ ] Full WebSocket API Support ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
+    - [x] Futures ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [ ] Spot ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
+- [ ] Document All of the SDKs ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/25)
+    - [ ] HTTP API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
+    - [ ] Web Socket API
 
-- [ ] Document All of the SDKs
+- [ ] Error handling ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
+- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-- [ ] Error handling
-
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
-
-- [ ] Error types
-
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
-
-- [ ] Rate Limiter
-
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+- [ ] Rate Limiter ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
 
