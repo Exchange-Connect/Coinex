@@ -7,7 +7,6 @@
 const axios = require("axios").default;
 const { METHOD_TYPE } = require("@constants/index");
 
-
 /**
  * [Submit Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade001_limit_order}
  * @async
@@ -25,25 +24,37 @@ const { METHOD_TYPE } = require("@constants/index");
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<SubmitLimitOrderResult>} Promise object represents the result of the request
  */
-module.exports.submitLimitOrder = function(access_id, market, type, amount, price, source_id, account_id, client_id, hide, option, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/limit",
-        params: {
-            access_id,
-            market,
-            type,
-            amount,
-            price,
-            source_id,
-            account_id,
-            client_id,
-            hide,
-            option,
-            tonce,
-        }
-    })
-}
+module.exports.submitLimitOrder = function (
+	access_id,
+	market,
+	type,
+	amount,
+	price,
+	source_id,
+	account_id,
+	client_id,
+	hide,
+	option,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/limit",
+		params: {
+			access_id,
+			market,
+			type,
+			amount,
+			price,
+			source_id,
+			account_id,
+			client_id,
+			hide,
+			option,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit Limit Orders In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade002_batch_limit_orders}
@@ -56,19 +67,19 @@ module.exports.submitLimitOrder = function(access_id, market, type, amount, pric
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitLimitOrdersInBatch = function(access_id, batch_orders, market, account_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/limit/batch",
-        params: {
-            access_id,
-            batch_orders,
-            market,
-            account_id,
-            tonce,
-        }
-    })
-}
+module.exports.submitLimitOrdersInBatch = function (access_id, batch_orders, market, account_id, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/limit/batch",
+		params: {
+			access_id,
+			batch_orders,
+			market,
+			account_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade003_market_order}
@@ -83,21 +94,29 @@ module.exports.submitLimitOrdersInBatch = function(access_id, batch_orders, mark
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitMarketOrder = function(access_id, market, type, amount, account_id, client_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/market",
-        params: {
-            access_id,
-            market,
-            type,
-            amount,
-            account_id,
-            client_id,
-            tonce,
-        }
-    })
-}
+module.exports.submitMarketOrder = function (
+	access_id,
+	market,
+	type,
+	amount,
+	account_id,
+	client_id,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/market",
+		params: {
+			access_id,
+			market,
+			type,
+			amount,
+			account_id,
+			client_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit IOC Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade004_IOC_order}
@@ -114,23 +133,33 @@ module.exports.submitMarketOrder = function(access_id, market, type, amount, acc
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitIOCOrder = function(access_id, market, type, amount, price, source_id, account_id, client_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/ioc",
-        params: {
-            access_id,
-            market,
-            type,
-            amount,
-            price,
-            source_id,
-            account_id,
-            client_id,
-            tonce,
-        }
-    })
-}
+module.exports.submitIOCOrder = function (
+	access_id,
+	market,
+	type,
+	amount,
+	price,
+	source_id,
+	account_id,
+	client_id,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/ioc",
+		params: {
+			access_id,
+			market,
+			type,
+			amount,
+			price,
+			source_id,
+			account_id,
+			client_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit Stop-Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade005_stop_limit_order}
@@ -150,26 +179,39 @@ module.exports.submitIOCOrder = function(access_id, market, type, amount, price,
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitStopLimitOrder = function(access_id, market, type, amount, price, stop_price, source_id, account_id, client_id, hide, option, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/stop/limit",
-        params: {
-            access_id,
-            market,
-            type,
-            amount,
-            price,
-            stop_price,
-            source_id,
-            account_id,
-            client_id,
-            hide,
-            option,
-            tonce,
-        }
-    })
-}
+module.exports.submitStopLimitOrder = function (
+	access_id,
+	market,
+	type,
+	amount,
+	price,
+	stop_price,
+	source_id,
+	account_id,
+	client_id,
+	hide,
+	option,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/stop/limit",
+		params: {
+			access_id,
+			market,
+			type,
+			amount,
+			price,
+			stop_price,
+			source_id,
+			account_id,
+			client_id,
+			hide,
+			option,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit Stop-Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade006_stop_market_order}
@@ -188,25 +230,37 @@ module.exports.submitStopLimitOrder = function(access_id, market, type, amount, 
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitStopMarketOrder = function(access_id, market, type, amount, stop_price, source_id, account_id, client_id, hide, option, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/stop/market",
-        params: {
-            access_id,
-            market,
-            type,
-            amount,
-            stop_price,
-            source_id,
-            account_id,
-            client_id,
-            hide,
-            option,
-            tonce,
-        }
-    })
-}
+module.exports.submitStopMarketOrder = function (
+	access_id,
+	market,
+	type,
+	amount,
+	stop_price,
+	source_id,
+	account_id,
+	client_id,
+	hide,
+	option,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/stop/market",
+		params: {
+			access_id,
+			market,
+			type,
+			amount,
+			stop_price,
+			source_id,
+			account_id,
+			client_id,
+			hide,
+			option,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Order Status]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade007_order_status}
@@ -218,19 +272,18 @@ module.exports.submitStopMarketOrder = function(access_id, market, type, amount,
  * @param {String} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.inquireOrderStatus = function(access_id, id, market, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/status",
-        params: {
-            access_id,
-            id,
-            market,
-            tonce,
-        }
-    })
-}
-
+module.exports.inquireOrderStatus = function (access_id, id, market, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/status",
+		params: {
+			access_id,
+			id,
+			market,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Order Status In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade008_batch_orders_status}
@@ -242,18 +295,18 @@ module.exports.submitStopMarketOrder = function(access_id, market, type, amount,
  * @param {String} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.inquireOrderStatusInBatch = function(access_id, batch_ids, market, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/status/batch",
-        params: {
-            access_id,
-            batch_ids,
-            market,
-            tonce,
-        }
-    })
-}
+module.exports.inquireOrderStatusInBatch = function (access_id, batch_ids, market, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/status/batch",
+		params: {
+			access_id,
+			batch_ids,
+			market,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Executed Order Detail]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade009_order_deals}
@@ -267,20 +320,27 @@ module.exports.submitStopMarketOrder = function(access_id, market, type, amount,
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireExecutedOrderDetail = function(access_id, id, account_id, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/deals",
-        params: {
-            access_id,
-            id,
-            account_id,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireExecutedOrderDetail = function (
+	access_id,
+	id,
+	account_id,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/deals",
+		params: {
+			access_id,
+			id,
+			account_id,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Stop Order History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade010_stop_finished_order}
@@ -294,20 +354,27 @@ module.exports.inquireExecutedOrderDetail = function(access_id, id, account_id, 
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireStopOrderHistory = function(access_id, market, account_id, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/stop/finished",
-        params: {
-            access_id,
-            market,
-            account_id,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireStopOrderHistory = function (
+	access_id,
+	market,
+	account_id,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/stop/finished",
+		params: {
+			access_id,
+			market,
+			account_id,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Unexecuted Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade011_pending_order}
@@ -323,22 +390,31 @@ module.exports.inquireStopOrderHistory = function(access_id, market, account_id,
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUnexecutedOrder = function(access_id, market, account_id, type, client_id, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/pending",
-        params: {
-            access_id,
-            market,
-            account_id,
-            type,
-            client_id,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireUnexecutedOrder = function (
+	access_id,
+	market,
+	account_id,
+	type,
+	client_id,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/pending",
+		params: {
+			access_id,
+			market,
+			account_id,
+			type,
+			client_id,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Order History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade012_finished_order}
@@ -357,25 +433,37 @@ module.exports.inquireUnexecutedOrder = function(access_id, market, account_id, 
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireOrderHistory = function(access_id, start_time, end_time, market, account_id, type, client_id, stop_order_id, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/finished",
-        params: {
-            access_id,
-            start_time,
-            end_time,
-            market,
-            account_id,
-            type,
-            client_id,
-            stop_order_id,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireOrderHistory = function (
+	access_id,
+	start_time,
+	end_time,
+	market,
+	account_id,
+	type,
+	client_id,
+	stop_order_id,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/finished",
+		params: {
+			access_id,
+			start_time,
+			end_time,
+			market,
+			account_id,
+			type,
+			client_id,
+			stop_order_id,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Unexecuted Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade013_stop_pending_order}
@@ -390,21 +478,29 @@ module.exports.inquireOrderHistory = function(access_id, start_time, end_time, m
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUnexecutedStopOrder = function(access_id, market, account_id, type, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/stop/pending",
-        params: {
-            access_id,
-            market,
-            account_id,
-            type,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireUnexecutedStopOrder = function (
+	access_id,
+	market,
+	account_id,
+	type,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/stop/pending",
+		params: {
+			access_id,
+			market,
+			account_id,
+			type,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire User Transaction Records]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade014_user_deals}
@@ -421,23 +517,33 @@ module.exports.inquireUnexecutedStopOrder = function(access_id, market, account_
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUserTransactionRecords = function(access_id, market, account_id, type, start_time, end_time, page=1, limit=10, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/user/deals",
-        params: {
-            access_id,
-            market,
-            account_id,
-            type,
-            start_time,
-            end_time,
-            page,
-            limit,
-            tonce,
-        }
-    })
-}
+module.exports.inquireUserTransactionRecords = function (
+	access_id,
+	market,
+	account_id,
+	type,
+	start_time,
+	end_time,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/user/deals",
+		params: {
+			access_id,
+			market,
+			account_id,
+			type,
+			start_time,
+			end_time,
+			page,
+			limit,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Cancel Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade015_cancel_order}
@@ -451,20 +557,20 @@ module.exports.inquireUserTransactionRecords = function(access_id, market, accou
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrder = function(access_id, market, id, account_id, type, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.DELETE,
-        url: "/order/pending",
-        params: {
-            access_id,
-            market,
-            id,
-            account_id,
-            type,
-            tonce,
-        }
-    })
-}
+module.exports.cancelOrder = function (access_id, market, id, account_id, type, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.DELETE,
+		url: "/order/pending",
+		params: {
+			access_id,
+			market,
+			id,
+			account_id,
+			type,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Cancel Orders In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade016_batch_cancel_order}
@@ -477,19 +583,19 @@ module.exports.cancelOrder = function(access_id, market, id, account_id, type, t
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrdersInBatch = function(access_id, batch_ids, market, account_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.DELETE,
-        url: "/order/pending/batch",
-        params: {
-            access_id,
-            batch_ids,
-            market,
-            account_id,
-            tonce,
-        }
-    })
-}
+module.exports.cancelOrdersInBatch = function (access_id, batch_ids, market, account_id, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.DELETE,
+		url: "/order/pending/batch",
+		params: {
+			access_id,
+			batch_ids,
+			market,
+			account_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Cancel All Orders]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade017_cancel_all_orders}
@@ -501,18 +607,18 @@ module.exports.cancelOrdersInBatch = function(access_id, batch_ids, market, acco
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllOrders = function(access_id, market, account_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.DELETE,
-        url: "/order/pending",
-        params: {
-            access_id,
-            market,
-            account_id,
-            tonce,
-        }
-    })
-}
+module.exports.cancelAllOrders = function (access_id, market, account_id, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.DELETE,
+		url: "/order/pending",
+		params: {
+			access_id,
+			market,
+			account_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Cancel Unexecuted Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade018_cancle_stop_pending_order}
@@ -525,19 +631,19 @@ module.exports.cancelAllOrders = function(access_id, market, account_id, tonce=D
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelUnexecutedStopOrder = function(access_id, market, account_id, type, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.DELETE,
-        url: "/order/stop/pending/<int:order_id>",
-        params: {
-            access_id,
-            market,
-            account_id,
-            type,
-            tonce,
-        }
-    })
-}
+module.exports.cancelUnexecutedStopOrder = function (access_id, market, account_id, type, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.DELETE,
+		url: "/order/stop/pending/<int:order_id>",
+		params: {
+			access_id,
+			market,
+			account_id,
+			type,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Cancel All Unexecuted Stop Orders]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade019_cancel_all_stop_pending_order}
@@ -549,18 +655,18 @@ module.exports.cancelUnexecutedStopOrder = function(access_id, market, account_i
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, account_id, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.DELETE,
-        url: "/order/stop/pending",
-        params: {
-            access_id,
-            market,
-            account_id,
-            tonce,
-        }
-    })
-}
+module.exports.cancelAllUnexecutedStopOrders = function (access_id, market, account_id, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.DELETE,
+		url: "/order/stop/pending",
+		params: {
+			access_id,
+			market,
+			account_id,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Acquire User Trading Fee Rate]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade020_user_trade_fee}
@@ -568,12 +674,12 @@ module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, accou
  * @function acquireUserTradingFeeRate
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.acquireUserTradingFeeRate = function(){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/user/trade/fee",
-    })
-}
+module.exports.acquireUserTradingFeeRate = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/user/trade/fee",
+	});
+};
 
 /**
  * [Acquire Market Transaction Info]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade021_market_trade_info}
@@ -581,12 +687,12 @@ module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, accou
  * @function acquireMarketTransactionInfo
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.acquireMarketTransactionInfo = function(){
-    return axios({
-        method: METHOD_TYPE.GET,
-        url: "/order/market/trade/info",
-    })
-}
+module.exports.acquireMarketTransactionInfo = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/market/trade/info",
+	});
+};
 
 /**
  * [Modify a normal order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade022_modify_order}
@@ -600,20 +706,20 @@ module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, accou
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.modifyanormalorder = function(access_id, market, id, amount, price, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/modify",
-        params: {
-            access_id,
-            market,
-            id,
-            amount,
-            price,
-            tonce,
-        }
-    })
-}
+module.exports.modifyanormalorder = function (access_id, market, id, amount, price, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/modify",
+		params: {
+			access_id,
+			market,
+			id,
+			amount,
+			price,
+			tonce,
+		},
+	});
+};
 
 /**
  * [Modify Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade023_modify_stop_order}
@@ -628,18 +734,18 @@ module.exports.cancelAllUnexecutedStopOrders = function(access_id, market, accou
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.modifyStopOrder = function(access_id, market, id, amount, price, stop_price, tonce=Date.now()){
-    return axios({
-        method: METHOD_TYPE.POST,
-        url: "/order/stop/modify",
-        params: {
-            access_id,
-            market,
-            id,
-            amount,
-            price,
-            stop_price,
-            tonce,
-        }
-    })
-}
+module.exports.modifyStopOrder = function (access_id, market, id, amount, price, stop_price, tonce = Date.now()) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/stop/modify",
+		params: {
+			access_id,
+			market,
+			id,
+			amount,
+			price,
+			stop_price,
+			tonce,
+		},
+	});
+};

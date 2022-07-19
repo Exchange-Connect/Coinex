@@ -15,16 +15,16 @@ const { METHOD_TYPE } = require("@constants/index");
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<AccountBalanceInfoResults>} Promise object represents the result of the request
  */
-module.exports.acquireAccountBalanceInfo = function(access_id, tonce=Date.now()){
+module.exports.acquireAccountBalanceInfo = function (access_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
-		url:"/balance/info",
-		params:{
+		url: "/balance/info",
+		params: {
 			access_id,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * Acquire Balance In Sub Account
@@ -36,7 +36,7 @@ module.exports.acquireAccountBalanceInfo = function(access_id, tonce=Date.now())
  * @param {String} [coin_type] Coin name
  * @returns {Promise<SubAccountBalanceInfoResults>} Promise object represents the result of the request
  */
-module.exports.acquireBalanceInSubAccount = function(access_id, tonce=Date.now(), sub_user_name, coin_type){
+module.exports.acquireBalanceInSubAccount = function (access_id, tonce = Date.now(), sub_user_name, coin_type) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/balance",
@@ -44,10 +44,10 @@ module.exports.acquireBalanceInSubAccount = function(access_id, tonce=Date.now()
 			access_id,
 			tonce,
 			sub_user_name,
-			coin_type
-		}
-	})
-}
+			coin_type,
+		},
+	});
+};
 
 /**
  * Acquire Balance in AMM Account
@@ -57,16 +57,16 @@ module.exports.acquireBalanceInSubAccount = function(access_id, tonce=Date.now()
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireBalanceInAMMAccount = function(access_id, tonce=Date.now()){
+module.exports.acquireBalanceInAMMAccount = function (access_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
-		url:"/account/amm/balance",
+		url: "/account/amm/balance",
 		params: {
 			access_id,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * Acquire Balance in Financial Account
@@ -76,16 +76,16 @@ module.exports.acquireBalanceInAMMAccount = function(access_id, tonce=Date.now()
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireBalanceInFinancialAccount = function(access_id, tonce=Date.now()){
+module.exports.acquireBalanceInFinancialAccount = function (access_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/account/investment/balance",
 		params: {
 			access_id,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * Acquire Credit Info in Account
@@ -95,16 +95,16 @@ module.exports.acquireBalanceInFinancialAccount = function(access_id, tonce=Date
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireCreditInfoInAccount = function(access_id, tonce=Date.now()){
+module.exports.acquireCreditInfoInAccount = function (access_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/credit/info",
 		params: {
 			access_id,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * Acquire Market Info in Margin Account
@@ -115,7 +115,7 @@ module.exports.acquireCreditInfoInAccount = function(access_id, tonce=Date.now()
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireMarketInfoInMarginAccount = function(access_id, market, tonce=Date.now()){
+module.exports.acquireMarketInfoInMarginAccount = function (access_id, market, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/margin/account",
@@ -123,9 +123,9 @@ module.exports.acquireMarketInfoInMarginAccount = function(access_id, market, to
 			access_id,
 			market,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * Inquire Margin Account Settings
@@ -136,7 +136,7 @@ module.exports.acquireMarketInfoInMarginAccount = function(access_id, market, to
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireMarginAccountSettings = function(access_id, market, tonce=Date.now()){
+module.exports.inquireMarginAccountSettings = function (access_id, market, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/margin/config",
@@ -144,9 +144,9 @@ module.exports.inquireMarginAccountSettings = function(access_id, market, tonce=
 			access_id,
 			market,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * Acquire Balance in Credit Account
@@ -156,16 +156,16 @@ module.exports.inquireMarginAccountSettings = function(access_id, market, tonce=
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireBalanceInCreditAccount = function(access_id, tonce=Date.now()){
+module.exports.acquireBalanceInCreditAccount = function (access_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/credit/balance",
 		params: {
 			access_id,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Deposit Record]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account009_deposit_list}
@@ -179,7 +179,7 @@ module.exports.acquireBalanceInCreditAccount = function(access_id, tonce=Date.no
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireDepositRecord = function(access_id, page=1, Limit=10, State, coin_type, tonce=Date.now()){
+module.exports.acquireDepositRecord = function (access_id, page = 1, Limit = 10, State, coin_type, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/balance/coin/deposit",
@@ -190,9 +190,9 @@ module.exports.acquireDepositRecord = function(access_id, page=1, Limit=10, Stat
 			State,
 			coin_type,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Inquire User Operation History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account010_balance_history}
@@ -209,10 +209,20 @@ module.exports.acquireDepositRecord = function(access_id, page=1, Limit=10, Stat
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUserOperationHistory = function(access_id, page=1, Limit=10, start_time, end_time, asset, account_id, business, tonce=Date.now()){
+module.exports.inquireUserOperationHistory = function (
+	access_id,
+	page = 1,
+	Limit = 10,
+	start_time,
+	end_time,
+	asset,
+	account_id,
+	business,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
-		url:"/account/balance/history",
+		url: "/account/balance/history",
 		params: {
 			access_id,
 			page,
@@ -223,9 +233,9 @@ module.exports.inquireUserOperationHistory = function(access_id, page=1, Limit=1
 			account_id,
 			business,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Trading Fee Rate]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account011_market_fee}
@@ -237,18 +247,18 @@ module.exports.inquireUserOperationHistory = function(access_id, page=1, Limit=1
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireTradingFeeRate = function(access_id, market, business_type="SPOT", tonce=Date.now()){
+module.exports.acquireTradingFeeRate = function (access_id, market, business_type = "SPOT", tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
-		url:"/account/market/fee",
+		url: "/account/market/fee",
 		params: {
 			access_id,
 			market,
 			business_type,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Spot Asset Transfer Between Main and Sub-Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account012_subaccount_transfer}
@@ -262,21 +272,27 @@ module.exports.acquireTradingFeeRate = function(access_id, market, business_type
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.spotAssetTransferBetweenMainAndSubAccount = function(access_id, coin_type, amount, transfer_side="in", transfer_account, tonce=Date.now()){
+module.exports.spotAssetTransferBetweenMainAndSubAccount = function (
+	access_id,
+	coin_type,
+	amount,
+	transfer_side = "in",
+	transfer_account,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.POST,
-		url:"/sub_account/transfer",
+		url: "/sub_account/transfer",
 		params: {
 			access_id,
 			coin_type,
 			amount,
 			transfer_side,
 			transfer_account,
-			tonce
-		}
-	})
-}
-
+			tonce,
+		},
+	});
+};
 
 /**
  * [Asset Transfer Between Spot - Margin Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account013_margin_transfer}
@@ -290,20 +306,27 @@ module.exports.spotAssetTransferBetweenMainAndSubAccount = function(access_id, c
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.assetTransferBetweenSpotMarginAccount = function(access_id, from_account, to_account, coin_type, amount, tonce=Date.now()){
+module.exports.assetTransferBetweenSpotMarginAccount = function (
+	access_id,
+	from_account,
+	to_account,
+	coin_type,
+	amount,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.POST,
-		url:"/margin/transfer",
+		url: "/margin/transfer",
 		params: {
 			access_id,
 			from_account,
 			to_account,
 			coin_type,
 			amount,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Asset Transfer Between Spot - Perpetual Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account014_balance_contract_transfer}
@@ -316,19 +339,25 @@ module.exports.assetTransferBetweenSpotMarginAccount = function(access_id, from_
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.assetTransferBetweenSpotPerpetualAccount = function(access_id, coin_type, transfer_side, amount, tonce=Date.now()){
+module.exports.assetTransferBetweenSpotPerpetualAccount = function (
+	access_id,
+	coin_type,
+	transfer_side,
+	amount,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.POST,
-		url:"/contract/balance/transfer",
+		url: "/contract/balance/transfer",
 		params: {
 			access_id,
 			coin_type,
 			transfer_side,
 			amount,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Submit Withdrawal Request]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account015_submit_withdraw}
@@ -343,10 +372,18 @@ module.exports.assetTransferBetweenSpotMarginAccount = function(access_id, from_
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitWithdrawalRequest = function(access_id, coin_type, actual_amount, coin_address, smart_contract_name, transfer_method, tonce=Date.now()){
+module.exports.submitWithdrawalRequest = function (
+	access_id,
+	coin_type,
+	actual_amount,
+	coin_address,
+	smart_contract_name,
+	transfer_method,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.POST,
-		url:"/balance/coin/withdraw",
+		url: "/balance/coin/withdraw",
 		params: {
 			access_id,
 			coin_type,
@@ -354,10 +391,10 @@ module.exports.submitWithdrawalRequest = function(access_id, coin_type, actual_a
 			coin_address,
 			smart_contract_name,
 			transfer_method,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * Cancel Withdrawal Request
@@ -368,17 +405,17 @@ module.exports.submitWithdrawalRequest = function(access_id, coin_type, actual_a
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelWithdrawalRequest = function(access_id, coin_withdraw_id, tonce=Date.now()){
+module.exports.cancelWithdrawalRequest = function (access_id, coin_withdraw_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url:"/balance/coin/withdraw",
+		url: "/balance/coin/withdraw",
 		params: {
 			access_id,
 			coin_withdraw_id,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Margin Loan]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account017_margin_loan}
@@ -392,20 +429,20 @@ module.exports.cancelWithdrawalRequest = function(access_id, coin_withdraw_id, t
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.marginLoan = function(access_id, market, coin_type, amount, renew, tonce=Date.now()){
+module.exports.marginLoan = function (access_id, market, coin_type, amount, renew, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.POST,
-		url:"/margin/loan",
+		url: "/margin/loan",
 		params: {
 			access_id,
 			market,
 			coin_type,
 			amount,
 			renew,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Margin Repayment]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account018_margin_flat}
@@ -419,20 +456,20 @@ module.exports.marginLoan = function(access_id, market, coin_type, amount, renew
  * @param {Number} [loan_id] The ID of loan record, which is blank when the remaining amount of loan in the current market is paid off.
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.marginRepayment = function(access_id, tonce, market, coin_type, amount, loan_id){
+module.exports.marginRepayment = function (access_id, tonce, market, coin_type, amount, loan_id) {
 	return axios({
-		method:METHOD_TYPE.POST,
-		url:"/margin/flat",
+		method: METHOD_TYPE.POST,
+		url: "/margin/flat",
 		params: {
 			access_id,
 			tonce,
 			market,
 			coin_type,
 			amount,
-			loan_id
-		}
-	})
-}
+			loan_id,
+		},
+	});
+};
 
 /**
  * [Update Deposit Address]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account019_update_deposit_address}
@@ -443,17 +480,17 @@ module.exports.marginRepayment = function(access_id, tonce, market, coin_type, a
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.updateDepositAddress = function(access_id, smart_contract_name, tonce=Date.now()){
+module.exports.updateDepositAddress = function (access_id, smart_contract_name, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.PUT,
 		url: "/balance/deposit/address/<string:coin_type>",
 		params: {
 			access_id,
 			smart_contract_name,
-			tonce
-	   }
-   })
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Inquire Deposit Address]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account020_query_deposit_address}
@@ -464,7 +501,7 @@ module.exports.marginRepayment = function(access_id, tonce, market, coin_type, a
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.inquireDepositAddress = function(access_id, smart_contract_name, tonce=Date.now()){
+module.exports.inquireDepositAddress = function (access_id, smart_contract_name, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/balance/deposit/address/<string:coin_type>",
@@ -472,9 +509,9 @@ module.exports.marginRepayment = function(access_id, tonce, market, coin_type, a
 			access_id,
 			smart_contract_name,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Transfer Record Between Spot - Financial Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account021_spot_invest_transfer_histoty}
@@ -488,7 +525,14 @@ module.exports.marginRepayment = function(access_id, tonce, market, coin_type, a
  * @param {Number} [limit=10] Number of items per page
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_type, start_time, end_time, page=1, limit=10){
+module.exports.transferRecordBetweenSpotFinancialAccount = function (
+	asset,
+	op_type,
+	start_time,
+	end_time,
+	page = 1,
+	limit = 10
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/investment/transfer/history",
@@ -499,9 +543,9 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
 			end_time,
 			page,
 			limit,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Transfer Record Between Main and Sub-Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account022_sub_account_transfer_history}
@@ -515,7 +559,14 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.acquireTransferRecordBetweenMainAndSubAccount = function(access_id, sub_user_name, coin_type, page=1, limit=10, tonce=Date.now()){
+module.exports.acquireTransferRecordBetweenMainAndSubAccount = function (
+	access_id,
+	sub_user_name,
+	coin_type,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/transfer/history",
@@ -526,9 +577,9 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
 			page,
 			limit,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Loan Record in Margin Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account023_margin_loan_history}
@@ -542,7 +593,14 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.acquireLoanRecordInMarginAccount = function(access_id, market, status, page=1, limit=10, tonce=Date.now()){
+module.exports.acquireLoanRecordInMarginAccount = function (
+	access_id,
+	market,
+	status,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/margin/loan/history",
@@ -553,9 +611,9 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
 			page,
 			limit,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Transfer Record Between Spot - Perpetual Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account024_contract_transfer_history}
@@ -571,7 +629,16 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function(asset, op_ty
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, transfer_type, start_time, end_time, page=1, limit=10, access_id, tonce=Date.now()){
+module.exports.transferRecordBetweenSpotPerpetualAccount = function (
+	asset,
+	transfer_type,
+	start_time,
+	end_time,
+	page = 1,
+	limit = 10,
+	access_id,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/contract/transfer/history",
@@ -583,10 +650,10 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			page,
 			limit,
 			access_id,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Transfer Record Between Margin - Spot Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account025_margin_transfer_history}
@@ -603,7 +670,17 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.transferRecordBetweenMarginSpotAccount = function(access_id, asset, market, transfer_type, page=1, limit=10, start_time, end_time, tonce=Date.now()){
+module.exports.transferRecordBetweenMarginSpotAccount = function (
+	access_id,
+	asset,
+	market,
+	transfer_type,
+	page = 1,
+	limit = 10,
+	start_time,
+	end_time,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/margin/transfer/history",
@@ -616,10 +693,10 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			limit,
 			start_time,
 			end_time,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Acquire Withdrawal History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account026_withdraw_list}
@@ -633,7 +710,14 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.acquireWithdrawalHistory = function(access_id, coin_type, coin_withdraw_id, page=1, limit=10, tonce=Date.now()){
+module.exports.acquireWithdrawalHistory = function (
+	access_id,
+	coin_type,
+	coin_withdraw_id,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/balance/coin/withdraw",
@@ -644,9 +728,9 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			page,
 			limit,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Create Sub-Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account027_create_sub_account}
@@ -658,7 +742,7 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.createSubAccount = function(access_id, sub_user_name, password, tonce=Date.now()){
+module.exports.createSubAccount = function (access_id, sub_user_name, password, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/register",
@@ -667,9 +751,9 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			sub_user_name,
 			password,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Unfreeze Sub-Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account028_unfronzen_sub_account}
@@ -680,7 +764,7 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.unfreezeSubAccount = function(access_id, sub_user_name, tonce=Date.now()){
+module.exports.unfreezeSubAccount = function (access_id, sub_user_name, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/unfrozen",
@@ -688,9 +772,9 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			access_id,
 			sub_user_name,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Freeze Sub-Account]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account029_fronzen_sub_account}
@@ -701,7 +785,7 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.freezeSubAccount = function(access_id, sub_user_name, tonce=Date.now()){
+module.exports.freezeSubAccount = function (access_id, sub_user_name, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/frozen",
@@ -709,9 +793,9 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
 			access_id,
 			sub_user_name,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Edit Account Settings]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account030_account_settings}
@@ -720,15 +804,15 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function(asset, trans
  * @param {undefined} [cet_discount] Whether to activate CET deduction
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.editAccountSettings = function(cet_discount){
+module.exports.editAccountSettings = function (cet_discount) {
 	return axios({
 		method: METHOD_TYPE.PUT,
 		url: "/v1/account/settings",
 		params: {
-			cet_discount
-		}
-	})
-}
+			cet_discount,
+		},
+	});
+};
 
 /**
  * [Create Sub-Account APIKEY]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account031_create_sub_account_api_key}
@@ -742,7 +826,14 @@ module.exports.editAccountSettings = function(cet_discount){
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.createSubAccountAPIKEY = function(access_id, allow_trade, allowed_ips, sub_user_name, remark, tonce=Date.now()){
+module.exports.createSubAccountAPIKEY = function (
+	access_id,
+	allow_trade,
+	allowed_ips,
+	sub_user_name,
+	remark,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/auth/api",
@@ -753,9 +844,9 @@ module.exports.createSubAccountAPIKEY = function(access_id, allow_trade, allowed
 			remark,
 			sub_user_name,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Sub-Account APIKEY List]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account032_get_sub_account_api_key_list}
@@ -768,7 +859,13 @@ module.exports.createSubAccountAPIKEY = function(access_id, allow_trade, allowed
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireSubAccountAPIKEYList = function(access_id, sub_user_name, page=1, limit=10, tonce=Date.now()){
+module.exports.acquireSubAccountAPIKEYList = function (
+	access_id,
+	sub_user_name,
+	page = 1,
+	limit = 10,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/auth/api",
@@ -778,9 +875,9 @@ module.exports.acquireSubAccountAPIKEYList = function(access_id, sub_user_name, 
 			page,
 			limit,
 			tonce,
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Acquire Sub-Account APIKEY Detail]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account033_get_sub_account_api_key_detail}
@@ -791,16 +888,16 @@ module.exports.acquireSubAccountAPIKEYList = function(access_id, sub_user_name, 
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.acquireSubAccountAPIKEYDetail = function(access_id, user_auth_id, tonce=Date.now()){
+module.exports.acquireSubAccountAPIKEYDetail = function (access_id, user_auth_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params: {
 			access_id,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};
 
 /**
  * [Edit Sub-Account APIKEY]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account034_edit_sub_account_api_key}
@@ -815,7 +912,15 @@ module.exports.acquireSubAccountAPIKEYDetail = function(access_id, user_auth_id,
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.editSubAccountAPIKEY = function(access_id, user_auth_id, allow_trade, allowed_ips, sub_user_name, remark, tonce=Date.now()){
+module.exports.editSubAccountAPIKEY = function (
+	access_id,
+	user_auth_id,
+	allow_trade,
+	allowed_ips,
+	sub_user_name,
+	remark,
+	tonce = Date.now()
+) {
 	return axios({
 		method: METHOD_TYPE.PUT,
 		url: `/sub_account/auth/api/${user_auth_id}`,
@@ -826,10 +931,9 @@ module.exports.acquireSubAccountAPIKEYDetail = function(access_id, user_auth_id,
 			sub_user_name,
 			remark,
 			tonce,
-			
-		}
-	})
-}
+		},
+	});
+};
 
 /**
  * [Delete Sub-Account APIKEY]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot002_account035_delete_sub_account_api_key}
@@ -840,13 +944,13 @@ module.exports.acquireSubAccountAPIKEYDetail = function(access_id, user_auth_id,
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
- module.exports.deleteSubAccountAPIKEY = function(access_id, user_auth_id, tonce=Date.now()){
+module.exports.deleteSubAccountAPIKEY = function (access_id, user_auth_id, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.DELETE,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params: {
 			access_id,
-			tonce
-		}
-	})
-}
+			tonce,
+		},
+	});
+};

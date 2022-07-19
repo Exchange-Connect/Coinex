@@ -11,11 +11,11 @@ const axios = require("axios").default;
  * @function acquireAllMarketList
  * @returns {Promise<MarketListResults>} Promise object represents the result of the request
  */
-module.exports.acquireAllMarketList = function(){
-    return axios({
-        url:"/market/list",
-    })
-}
+module.exports.acquireAllMarketList = function () {
+	return axios({
+		url: "/market/list",
+	});
+};
 
 /**
  * Acquire All Market Info
@@ -23,11 +23,11 @@ module.exports.acquireAllMarketList = function(){
  * @function acquireAllMarketInfo
  * @returns {Promise<MarketInfoResults>} Promise object represents the result of the request
  */
-module.exports.acquireAllMarketInfo = function(){
-    return axios({
-        url:"/market/info",
-    })
-}
+module.exports.acquireAllMarketInfo = function () {
+	return axios({
+		url: "/market/info",
+	});
+};
 
 /**
  * Acquire Single Market Info
@@ -36,14 +36,14 @@ module.exports.acquireAllMarketInfo = function(){
  * @param {String} market Market Name
  * @returns {Promise<MarketInfoResult>} Promise object represents the result of the request
  */
-module.exports.acquireSingleMarketInfo = function(market){
-    return axios({
-        url:"/market/detail",
-        params:{
-            market
-        }
-    })
-}
+module.exports.acquireSingleMarketInfo = function (market) {
+	return axios({
+		url: "/market/detail",
+		params: {
+			market,
+		},
+	});
+};
 
 /**
  * Acquire Market Depth
@@ -54,16 +54,16 @@ module.exports.acquireSingleMarketInfo = function(market){
  * @param {5|10|20|50} [limit=20]
  * @returns {Promise<MarketDepthResult>} Promise object represents the result of the request
  */
-module.exports.acquireMarketDepth = function(market, merge, limit=20){
-    return axios({
-        url:"/market/depth",
-        params:{
-            market,
-            merge,
-            limit
-        }
-    })
-}
+module.exports.acquireMarketDepth = function (market, merge, limit = 20) {
+	return axios({
+		url: "/market/depth",
+		params: {
+			market,
+			merge,
+			limit,
+		},
+	});
+};
 
 /**
  * Acquire Latest Transaction Data
@@ -75,16 +75,16 @@ module.exports.acquireMarketDepth = function(market, merge, limit=20){
  * @param {Number} [limit=100] ( Max. 1000 )
  * @returns {Promise<TransactionDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireLatestTransactionData = function(market, last_id, limit=100){
-    return axios({
-        url:"/market/deals",
-        params:{
-            market,
-            last_id,
-            limit
-        }
-    })
-}
+module.exports.acquireLatestTransactionData = function (market, last_id, limit = 100) {
+	return axios({
+		url: "/market/deals",
+		params: {
+			market,
+			last_id,
+			limit,
+		},
+	});
+};
 
 /**
  * Acquire K-Line Data
@@ -96,16 +96,16 @@ module.exports.acquireLatestTransactionData = function(market, last_id, limit=10
  * @param {Number} [limit=100] ( Max. 1000 )
  * @returns {Promise<KlineDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireKlineData = function(market, type, limit=100){
-    return axios({
-        url:"/market/kline",
-        params:{
-            market,
-            type,
-            limit
-        }
-    })
-}
+module.exports.acquireKlineData = function (market, type, limit = 100) {
+	return axios({
+		url: "/market/kline",
+		params: {
+			market,
+			type,
+			limit,
+		},
+	});
+};
 
 /**
  * Acquire Single Market Statistics
@@ -114,14 +114,14 @@ module.exports.acquireKlineData = function(market, type, limit=100){
  * @param {String} market Market Name
  * @returns {Promise<SingleMarketStatisticsResult>} Promise object represents the result of the request
  */
-module.exports.acquireSingleMarketStatistics = function(market){
-    return axios({
-        url:"/market/ticker",
-        params:{
-            market
-        }
-    })
-}
+module.exports.acquireSingleMarketStatistics = function (market) {
+	return axios({
+		url: "/market/ticker",
+		params: {
+			market,
+		},
+	});
+};
 
 /**
  * Acquire All Market Statistics
@@ -129,11 +129,11 @@ module.exports.acquireSingleMarketStatistics = function(market){
  * @function acquireAllMarketStatistics
  * @returns {Promise<AllMarketStatisticsResults>} Promise object represents the result of the request
  */
-module.exports.acquireAllMarketStatistics = function(){
-    return axios({
-        url:"/market/ticker/all",
-    })
-}
+module.exports.acquireAllMarketStatistics = function () {
+	return axios({
+		url: "/market/ticker/all",
+	});
+};
 
 /**
  * Acquire Currency Rate
@@ -141,11 +141,11 @@ module.exports.acquireAllMarketStatistics = function(){
  * @function acquireCurrencyRate
  * @returns {Promise<CurrencyRateResults>} Promise object represents the result of the request
  */
-module.exports.acquireCurrencyRate = function(){
-    return axios({
-        url:"/common/currency/rate",
-    })
-}
+module.exports.acquireCurrencyRate = function () {
+	return axios({
+		url: "/common/currency/rate",
+	});
+};
 
 /**
  * Acquire Asset Allocation
@@ -154,14 +154,14 @@ module.exports.acquireCurrencyRate = function(){
  * @param {String} coin_type Coin name
  * @returns {Promise<AssetAllocationResults>} Promise object represents the result of the request
  */
-module.exports.acquireAssetAllocation = function(coin_type){
-    return axios({
-        url:"/common/asset/config",
-        params:{
-            coin_type
-        }
-    })
-}
+module.exports.acquireAssetAllocation = function (coin_type) {
+	return axios({
+		url: "/common/asset/config",
+		params: {
+			coin_type,
+		},
+	});
+};
 
 /**
  * Acquire AMM Market List
@@ -169,11 +169,11 @@ module.exports.acquireAssetAllocation = function(coin_type){
  * @function acquireAMMMarketList
  * @returns {Promise<AMMMarketResults>} Promise object represents the result of the request
  */
-module.exports.acquireAMMMarketList = function(){
-    return axios({
-        url:"/amm/market",
-    })
-}
+module.exports.acquireAMMMarketList = function () {
+	return axios({
+		url: "/amm/market",
+	});
+};
 
 /**
  * Acquire Margin Market List
@@ -181,8 +181,8 @@ module.exports.acquireAMMMarketList = function(){
  * @function acquireMarginMarketList
  * @returns {Promise<MarginMarketResults>} Promise object represents the result of the request
  */
-module.exports.acquireMarginMarketList = function(){
-    return axios({
-        url:"/margin/market",
-    })
-}
+module.exports.acquireMarginMarketList = function () {
+	return axios({
+		url: "/margin/market",
+	});
+};
