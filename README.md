@@ -23,15 +23,15 @@ See [Documentation](https://exchange-connect.github.io/Coinex/) For more informa
 
 - [ ] Full Rest API Support
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/25)
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
 - [ ] Full WebSocket API Support
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
 
 - [ ] Document All of the SDKs
 
-<img title="" src="https://us-central1-progress-markdown.cloudfunctions.net/progress/10" alt="" data-align="inline">
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
 
 - [ ] Error handling
 
