@@ -21,6 +21,7 @@ See [API Refrence](https://exchange-connect.github.io/Coinex/) For more informat
 
 ## Folder Structure
 
+```
 src/                Source code
 ├─ constants/       Constant variables
 ├─ errors/          Classified-Errors folder
@@ -36,7 +37,7 @@ src/                Source code
 │  ├─ futures/      Futures WS Functions
 │  ├─ spot/         Spot WS Functions
 docs/               JSDoc-Generated Documentations
-
+```
 
 ## Roadmap
 
