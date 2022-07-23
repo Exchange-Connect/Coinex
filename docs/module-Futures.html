@@ -1,0 +1,6037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Futures - Exchange Connect | Coinex</title>
+    
+    <meta name="description" content="Coinex Exchange Connect SDK" />
+    
+        <meta name="keywords" content="exchange connect sdk coinex crypto" />
+        <meta name="keyword" content="exchange connect sdk coinex crypto" />
+    
+    
+    
+    <meta property="og:title" content="Coinex Exchange Connect SDK"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    
+    <meta property="og:url" content=""/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Exchange-Connect/Coinex" target="_blank" class="menu-item" id="website_link" >Github Repository</a></h2><h3>Modules</h3><ul><li><a href="module-Account.html">Account</a><ul class='methods'><li data-type='method'><a href="module-Account.html#~acquireAccountBalanceInfo">acquireAccountBalanceInfo</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInAMMAccount">acquireBalanceInAMMAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInCreditAccount">acquireBalanceInCreditAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInFinancialAccount">acquireBalanceInFinancialAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInSubAccount">acquireBalanceInSubAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireCreditInfoInAccount">acquireCreditInfoInAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireDepositRecord">acquireDepositRecord</a></li><li data-type='method'><a href="module-Account.html#~acquireLoanRecordInMarginAccount">acquireLoanRecordInMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireMarketInfoInMarginAccount">acquireMarketInfoInMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireSubAccountAPIKEYDetail">acquireSubAccountAPIKEYDetail</a></li><li data-type='method'><a href="module-Account.html#~acquireSubAccountAPIKEYList">acquireSubAccountAPIKEYList</a></li><li data-type='method'><a href="module-Account.html#~acquireTradingFeeRate">acquireTradingFeeRate</a></li><li data-type='method'><a href="module-Account.html#~acquireTransferRecordBetweenMainAndSubAccount">acquireTransferRecordBetweenMainAndSubAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireWithdrawalHistory">acquireWithdrawalHistory</a></li><li data-type='method'><a href="module-Account.html#~assetTransferBetweenSpotMarginAccount">assetTransferBetweenSpotMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~assetTransferBetweenSpotPerpetualAccount">assetTransferBetweenSpotPerpetualAccount</a></li><li data-type='method'><a href="module-Account.html#~cancelWithdrawalRequest">cancelWithdrawalRequest</a></li><li data-type='method'><a href="module-Account.html#~createSubAccount">createSubAccount</a></li><li data-type='method'><a href="module-Account.html#~createSubAccountAPIKEY">createSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~deleteSubAccountAPIKEY">deleteSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~editAccountSettings">editAccountSettings</a></li><li data-type='method'><a href="module-Account.html#~editSubAccountAPIKEY">editSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~freezeSubAccount">freezeSubAccount</a></li><li data-type='method'><a href="module-Account.html#~inquireDepositAddress">inquireDepositAddress</a></li><li data-type='method'><a href="module-Account.html#~inquireMarginAccountSettings">inquireMarginAccountSettings</a></li><li data-type='method'><a href="module-Account.html#~inquireUserOperationHistory">inquireUserOperationHistory</a></li><li data-type='method'><a href="module-Account.html#~marginLoan">marginLoan</a></li><li data-type='method'><a href="module-Account.html#~marginRepayment">marginRepayment</a></li><li data-type='method'><a href="module-Account.html#~spotAssetTransferBetweenMainAndSubAccount">spotAssetTransferBetweenMainAndSubAccount</a></li><li data-type='method'><a href="module-Account.html#~submitWithdrawalRequest">submitWithdrawalRequest</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenMarginSpotAccount">transferRecordBetweenMarginSpotAccount</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenSpotFinancialAccount">transferRecordBetweenSpotFinancialAccount</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenSpotPerpetualAccount">transferRecordBetweenSpotPerpetualAccount</a></li><li data-type='method'><a href="module-Account.html#~unfreezeSubAccount">unfreezeSubAccount</a></li><li data-type='method'><a href="module-Account.html#~updateDepositAddress">updateDepositAddress</a></li></ul></li><li><a href="module-Futures.html">Futures</a><ul class='methods'><li data-type='method'><a href="module-Futures.html#~adjustLeverage">adjustLeverage</a></li><li data-type='method'><a href="module-Futures.html#~allMarketStatus">allMarketStatus</a></li><li data-type='method'><a href="module-Futures.html#~assetQuery">assetQuery</a></li><li data-type='method'><a href="module-Futures.html#~cancelAllOrders">cancelAllOrders</a></li><li data-type='method'><a href="module-Futures.html#~cancelAllStopOrders">cancelAllStopOrders</a></li><li data-type='method'><a href="module-Futures.html#~cancelOrder">cancelOrder</a></li><li data-type='method'><a href="module-Futures.html#~cancelOrderInBatch">cancelOrderInBatch</a></li><li data-type='method'><a href="module-Futures.html#~cancelStopOrder">cancelStopOrder</a></li><li data-type='method'><a href="module-Futures.html#~estimatedAmountOfPositionsToBeOpened">estimatedAmountOfPositionsToBeOpened</a></li><li data-type='method'><a href="module-Futures.html#~latestTransactionInTheMarket">latestTransactionInTheMarket</a></li><li data-type='method'><a href="module-Futures.html#~marketDepth">marketDepth</a></li><li data-type='method'><a href="module-Futures.html#~marketKLine">marketKLine</a></li><li data-type='method'><a href="module-Futures.html#~marketList">marketList</a></li><li data-type='method'><a href="module-Futures.html#~marketStatus">marketStatus</a></li><li data-type='method'><a href="module-Futures.html#~orderStatus">orderStatus</a></li><li data-type='method'><a href="module-Futures.html#~ping">ping</a></li><li data-type='method'><a href="module-Futures.html#~positionLevel">positionLevel</a></li><li data-type='method'><a href="module-Futures.html#~queryPendingOrders">queryPendingOrders</a></li><li data-type='method'><a href="module-Futures.html#~submitLimitOrder">submitLimitOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitMarketOrder">submitMarketOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitStopLimitOrder">submitStopLimitOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitStopMarketOrder">submitStopMarketOrder</a></li><li data-type='method'><a href="module-Futures.html#~systemTime">systemTime</a></li><li data-type='method'><a href="module-Futures.html#~userTransaction">userTransaction</a></li></ul></li><li><a href="module-Market.html">Market</a><ul class='methods'><li data-type='method'><a href="module-Market.html#~acquireAllMarketInfo">acquireAllMarketInfo</a></li><li data-type='method'><a href="module-Market.html#~acquireAllMarketList">acquireAllMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireAllMarketStatistics">acquireAllMarketStatistics</a></li><li data-type='method'><a href="module-Market.html#~acquireAMMMarketList">acquireAMMMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireAssetAllocation">acquireAssetAllocation</a></li><li data-type='method'><a href="module-Market.html#~acquireCurrencyRate">acquireCurrencyRate</a></li><li data-type='method'><a href="module-Market.html#~acquireKlineData">acquireKlineData</a></li><li data-type='method'><a href="module-Market.html#~acquireMarginMarketList">acquireMarginMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-Market.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-Market.html#~acquireSingleMarketInfo">acquireSingleMarketInfo</a></li><li data-type='method'><a href="module-Market.html#~acquireSingleMarketStatistics">acquireSingleMarketStatistics</a></li></ul></li><li><a href="module-Trading.html">Trading</a><ul class='methods'><li data-type='method'><a href="module-Trading.html#~acquireMarketTransactionInfo">acquireMarketTransactionInfo</a></li><li data-type='method'><a href="module-Trading.html#~acquireUserTradingFeeRate">acquireUserTradingFeeRate</a></li><li data-type='method'><a href="module-Trading.html#~cancelAllOrders">cancelAllOrders</a></li><li data-type='method'><a href="module-Trading.html#~cancelAllUnexecutedStopOrders">cancelAllUnexecutedStopOrders</a></li><li data-type='method'><a href="module-Trading.html#~cancelOrder">cancelOrder</a></li><li data-type='method'><a href="module-Trading.html#~cancelOrdersInBatch">cancelOrdersInBatch</a></li><li data-type='method'><a href="module-Trading.html#~cancelUnexecutedStopOrder">cancelUnexecutedStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireExecutedOrderDetail">inquireExecutedOrderDetail</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderHistory">inquireOrderHistory</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderStatus">inquireOrderStatus</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderStatusInBatch">inquireOrderStatusInBatch</a></li><li data-type='method'><a href="module-Trading.html#~inquireStopOrderHistory">inquireStopOrderHistory</a></li><li data-type='method'><a href="module-Trading.html#~inquireUnexecutedOrder">inquireUnexecutedOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireUnexecutedStopOrder">inquireUnexecutedStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireUserTransactionRecords">inquireUserTransactionRecords</a></li><li data-type='method'><a href="module-Trading.html#~modifyanormalorder">modifyanormalorder</a></li><li data-type='method'><a href="module-Trading.html#~modifyStopOrder">modifyStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitIOCOrder">submitIOCOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitLimitOrder">submitLimitOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitLimitOrdersInBatch">submitLimitOrdersInBatch</a></li><li data-type='method'><a href="module-Trading.html#~submitMarketOrder">submitMarketOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitStopLimitOrder">submitStopLimitOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitStopMarketOrder">submitStopMarketOrder</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="HTTPConstants.html">HTTPConstants</a><ul class='members'><li data-type='member'><a href="HTTPConstants.html#.module.exports.METHOD_TYPE">module.exports.METHOD_TYPE</a></li></ul></li><li><a href="Streams.html">Streams</a></li><li><a href="Streams.spot.html">Streams.spot</a></li><li><a href="Streams.spot.assets.html">assets</a><ul class='methods'><li data-type='method'><a href="Streams.spot.assets.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.assets.html#.queryAccount">queryAccount</a></li><li data-type='method'><a href="Streams.spot.assets.html#.queryAll">queryAll</a></li><li data-type='method'><a href="Streams.spot.assets.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.assets.html#.unsubscribe">unsubscribe</a></li></ul></li><li><a href="Streams.spot.depth.html">depth</a><ul class='methods'><li data-type='method'><a href="Streams.spot.depth.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.depth.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.depth.html#.unsubscribe">unsubscribe</a></li><li data-type='method'><a href="Streams.spot.depth.html#.unsubscribeMulti">unsubscribeMulti</a></li></ul></li><li><a href="Streams.spot.indexPrice.html">indexPrice</a><ul class='methods'><li data-type='method'><a href="Streams.spot.indexPrice.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.queryAll">queryAll</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.unsubscribe">unsubscribe</a></li></ul></li><li><a href="Streams.spot.kline.html">kline</a><ul class='methods'><li data-type='method'><a href="Streams.spot.kline.html#.query">query</a></li></ul></li><li><a href="Streams.spot.latestTransaction.html">latestTransaction</a><ul class='methods'><li data-type='method'><a href="Streams.spot.latestTransaction.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.queryUser">queryUser</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.unsubscribe">unsubscribe</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#AccountBalanceInfoResults">AccountBalanceInfoResults</a></li><li><a href="global.html#AllMarketStatisticsResults">AllMarketStatisticsResults</a></li><li><a href="global.html#AMMMarketResults">AMMMarketResults</a></li><li><a href="global.html#AssetAllocationResults">AssetAllocationResults</a></li><li><a href="global.html#CurrencyRateResults">CurrencyRateResults</a></li><li><a href="global.html#KlineDataResults">KlineDataResults</a></li><li><a href="global.html#MarginMarketResults">MarginMarketResults</a></li><li><a href="global.html#MarketDepthResult">MarketDepthResult</a></li><li><a href="global.html#MarketInfoResult">MarketInfoResult</a></li><li><a href="global.html#MarketInfoResults">MarketInfoResults</a></li><li><a href="global.html#MarketListResults">MarketListResults</a></li><li><a href="global.html#SingleMarketStatisticsResult">SingleMarketStatisticsResult</a></li><li><a href="global.html#SubAccountBalanceInfoResults">SubAccountBalanceInfoResults</a></li><li><a href="global.html#SubmitLimitOrderResult">SubmitLimitOrderResult</a></li><li><a href="global.html#TransactionDataResults">TransactionDataResults</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Futures</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>Futures API Endpoints</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+        <h3 class="subsection-title">Requires</h3>
+
+        <ul>
+            <li>module:axios</li>
+        </ul>
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~adjustLeverage"><span class="type-signature">(async, inner) </span>adjustLeverage<span class="signature">(market, leverage, position_type, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line182">line 182</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http014_adjust_leverage">Adjust Leverage</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>leverage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Margin</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>position_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Position Type (1 Isolated Margin, 2 Cross Margin)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~allMarketStatus"><span class="type-signature">(async, inner) </span>allMarketStatus<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line79">line 79</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http009_market_ticker_all">All Market Status</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~assetQuery"><span class="type-signature">(async, inner) </span>assetQuery<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line240">line 240</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http016_asset_query">Asset Query</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~cancelAllOrders"><span class="type-signature">(async, inner) </span>cancelAllOrders<span class="signature">(market, timestamp, side<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line486">line 486</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http022_cancel_all">Cancel All Orders</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Order type (0: All 1: Sell, 2: Buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~cancelAllStopOrders"><span class="type-signature">(async, inner) </span>cancelAllStopOrders<span class="signature">(market, timestamp, side<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line540">line 540</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http024_cancel_stop_all">Cancel All Stop Orders</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Order type (0: All 1: Sell, 2: Buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~cancelOrder"><span class="type-signature">(async, inner) </span>cancelOrder<span class="signature">(market, order_id, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line459">line 459</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http021_cancel_order">Cancel Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>order_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Unexecuted order ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~cancelOrderInBatch"><span class="type-signature">(async, inner) </span>cancelOrderInBatch<span class="signature">(market, order_ids, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line432">line 432</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http021-0_cancel_order_batch">Cancel Order In Batch</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>order_ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>In the ID list of unexecuted orders, use “p” to separate multiple IDs</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~cancelStopOrder"><span class="type-signature">(async, inner) </span>cancelStopOrder<span class="signature">(market, order_id, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line513">line 513</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http023_cancel_stop_order">Cancel Stop Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>order_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Unexecuted order ID</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~estimatedAmountOfPositionsToBeOpened"><span class="type-signature">(async, inner) </span>estimatedAmountOfPositionsToBeOpened<span class="signature">(market, price, side, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line211">line 211</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http015_position_expect">Estimated Amount Of Positions To Be Opened</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Price</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>1: sell 2: buy</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~latestTransactionInTheMarket"><span class="type-signature">(async, inner) </span>latestTransactionInTheMarket<span class="signature">(market, last_id<span class="signature-attributes">opt</span>, limit<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http011_market_deals">Latest Transaction In The Market</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>last_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The largest ID of the last returned result</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Number of query</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~marketDepth"><span class="type-signature">(async, inner) </span>marketDepth<span class="signature">(market, merge, limit)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http010_market_depth">Market Depth</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Market name, such as: “BTCUSD” contract market</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>merge</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">"10"</span>
+|
+
+<span class="param-type">"1"</span>
+|
+
+<span class="param-type">"0"</span>
+|
+
+<span class="param-type">"0.1"</span>
+|
+
+<span class="param-type">"0.01"</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Accuracy combined, the value is one of the values in [&quot;10&quot;, &quot;1&quot;, &quot;0&quot;, &quot;0.1&quot;, &quot;0.01&quot;]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">5</span>
+|
+
+<span class="param-type">10</span>
+|
+
+<span class="param-type">20</span>
+|
+
+<span class="param-type">50</span>
+|
+
+<span class="param-type">100</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of obtained items, the value is one of the values in [5, 10, 20, 50, 100]</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~marketKLine"><span class="type-signature">(async, inner) </span>marketKLine<span class="signature">(market, type, limit<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line134">line 134</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http012_market_kline">Market K-Line</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Market market</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">"1min"</span>
+|
+
+<span class="param-type">"5min"</span>
+|
+
+<span class="param-type">"15min"</span>
+|
+
+<span class="param-type">"30min"</span>
+|
+
+<span class="param-type">"1hour"</span>
+|
+
+<span class="param-type">"2hour"</span>
+|
+
+<span class="param-type">"4hour"</span>
+|
+
+<span class="param-type">"6hour"</span>
+|
+
+<span class="param-type">"12hour"</span>
+|
+
+<span class="param-type">"1day"</span>
+|
+
+<span class="param-type">"3day"</span>
+|
+
+<span class="param-type">"1week"</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>K-line information category, supports the following parameters: 1min, 5min, 15min, 30min, 1hour, 2hour, 4hour, 6hour, 12hour, 1day, 3day, 1week</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1000</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Get the K-line number, cannot exceed 1000 and the default is 1000</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~marketList"><span class="type-signature">(async, inner) </span>marketList<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http006_market_list">Market List</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~marketStatus"><span class="type-signature">(async, inner) </span>marketStatus<span class="signature">(market)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http008_market_ticker">Market Status</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~orderStatus"><span class="type-signature">(async, inner) </span>orderStatus<span class="signature">(market, order_id, timestamp, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line598">line 598</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http026_order_status">Order Status</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>order_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Order id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~ping"><span class="type-signature">(async, inner) </span>ping<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http004_ping">Ping</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~positionLevel"><span class="type-signature">(async, inner) </span>positionLevel<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http007_market_limit">Position Level</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~queryPendingOrders"><span class="type-signature">(async, inner) </span>queryPendingOrders<span class="signature">(market, side, offset, timestamp, windowtime<span class="signature-attributes">opt</span>, limit<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line567">line 567</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http025_query_pending">Query Pending Orders</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Order type (0: All 1: Sell, 2: Buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Offset, that is, from which one to get</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Time window (unit: milliseconds)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>20</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Limit The number of records obtained at one time, the default is 20 and the maximum is 100</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~submitLimitOrder"><span class="type-signature">(async, inner) </span>submitLimitOrder<span class="signature">(market, side, amount, price, timestamp, effect_type<span class="signature-attributes">opt</span>, option<span class="signature-attributes">opt</span>, client_id<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line257">line 257</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http017_put_limit">Submit Limit Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Order type (1: short sell, 2: long buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Amount</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Price</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>effect_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>option</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>client_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~submitMarketOrder"><span class="type-signature">(async, inner) </span>submitMarketOrder<span class="signature">(market, side, amount, timestamp, client_id<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line304">line 304</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http018_put_market">Submit Market Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Order type (1: short sell, 2: long buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Amount</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>client_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Custom id, limited to 64 bytes, valid characters are uppercase and lowercase English letters, numbers, _-</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~submitStopLimitOrder"><span class="type-signature">(async, inner) </span>submitStopLimitOrder<span class="signature">(market, side, stop_type, amount, stop_price, price, timestamp, effect_type<span class="signature-attributes">opt</span>, option<span class="signature-attributes">opt</span>, client_id<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line335">line 335</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http019_put_limit_stop">Submit Stop-Limit Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Order type (1:short sell, 2:long buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stop_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Trigger type (1: Triggered by the latest transaction price, 2: Triggered by the mark price, 3: Triggered by the index price)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Amount</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stop_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Stop Price</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Price</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>effect_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>option</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>client_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~submitStopMarketOrder"><span class="type-signature">(async, inner) </span>submitStopMarketOrder<span class="signature">(market, side, stop_type, amount, stop_price, timestamp, client_id<span class="signature-attributes">opt</span>, windowtime<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line388">line 388</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http020_put_market_stop">Submit Stop-Market Order</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Order type (1: short sell, 2: long buy)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stop_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+|
+
+<span class="param-type">3</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Trigger type (1: Triggered by the latest transaction price, 2: Triggered by the mark price, 3: Triggered by the index price)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Amount</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>stop_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Stop Price</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client timestamp, unit: milliseconds</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>client_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Client id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>windowtime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Time window, unit: milliseconds</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~systemTime"><span class="type-signature">(async, inner) </span>systemTime<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http005_system_time">System Time</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~userTransaction"><span class="type-signature">(async, inner) </span>userTransaction<span class="signature">(market, side, offset, limit, start_time<span class="signature-attributes">opt</span>, end_time<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="http_futures_index.js.html">http/futures/index.js</a>, <a href="http_futures_index.js.html#line155">line 155</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p><a href="https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http013_user_deals">User Transaction</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>market</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Market name</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>side</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">0</span>
+|
+
+<span class="param-type">1</span>
+|
+
+<span class="param-type">2</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>0 unlimited, 1 sell, 2 buy</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Offset</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Number of query</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>start_time</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Start</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>end_time</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>End</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sat Jul 23 2022 12:49:24 GMT+0430 (Iran Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

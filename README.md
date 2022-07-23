@@ -15,9 +15,28 @@
 > 
 > Stay tuned!
 
-## Documentation
+## API Refrence
 
-See [Documentation](https://exchange-connect.github.io/Coinex/) For more information on SDK.
+See [API Refrence](https://exchange-connect.github.io/Coinex/) For more information on SDK.
+
+## Folder Structure
+
+src/                Source code
+├─ constants/       Constant variables
+├─ errors/          Classified-Errors folder
+│  ├─ http/         Server-Generated HTTP Response Errors
+│  ├─ stream/       Server-Generated Web Socket Errors
+├─ http/            HTTP API Requests
+│  ├─ account/      "account" Requests
+│  ├─ futures/      "futures" Requests
+│  ├─ market/       "market" Requests
+│  ├─ spot/         "spot" Requests
+│  ├─ trading/      "trading" Requests
+├─ stream/          Web Socket Functionalities
+│  ├─ futures/      Futures WS Functions
+│  ├─ spot/         Spot WS Functions
+docs/               JSDoc-Generated Documentations
+
 
 ## Roadmap
 
@@ -28,17 +47,17 @@ See [Documentation](https://exchange-connect.github.io/Coinex/) For more informa
     - [x] Trading ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
     - [x] Spot ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Full WebSocket API Support ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
+- [x] Full WebSocket API Support ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
     - [x] Futures ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
-    - [ ] Spot ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+    - [x] Spot ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Document All of the SDKs ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/25)
-    - [ ] HTTP API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
-    - [ ] Web Socket API
+- [x] Document All of the SDKs ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] HTTP API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
+    - [x] Web Socket API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
 - [ ] Error handling ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 
-- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/10)
 
 - [ ] Rate Limiter ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>http/futures/index.js - Exchange Connect | Coinex</title>
+    
+    <meta name="description" content="Coinex Exchange Connect SDK" />
+    
+        <meta name="keywords" content="exchange connect sdk coinex crypto" />
+        <meta name="keyword" content="exchange connect sdk coinex crypto" />
+    
+    
+    
+    <meta property="og:title" content="Coinex Exchange Connect SDK"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    
+    <meta property="og:url" content=""/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Exchange-Connect/Coinex" target="_blank" class="menu-item" id="website_link" >Github Repository</a></h2><h3>Modules</h3><ul><li><a href="module-Account.html">Account</a><ul class='methods'><li data-type='method'><a href="module-Account.html#~acquireAccountBalanceInfo">acquireAccountBalanceInfo</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInAMMAccount">acquireBalanceInAMMAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInCreditAccount">acquireBalanceInCreditAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInFinancialAccount">acquireBalanceInFinancialAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireBalanceInSubAccount">acquireBalanceInSubAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireCreditInfoInAccount">acquireCreditInfoInAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireDepositRecord">acquireDepositRecord</a></li><li data-type='method'><a href="module-Account.html#~acquireLoanRecordInMarginAccount">acquireLoanRecordInMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireMarketInfoInMarginAccount">acquireMarketInfoInMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireSubAccountAPIKEYDetail">acquireSubAccountAPIKEYDetail</a></li><li data-type='method'><a href="module-Account.html#~acquireSubAccountAPIKEYList">acquireSubAccountAPIKEYList</a></li><li data-type='method'><a href="module-Account.html#~acquireTradingFeeRate">acquireTradingFeeRate</a></li><li data-type='method'><a href="module-Account.html#~acquireTransferRecordBetweenMainAndSubAccount">acquireTransferRecordBetweenMainAndSubAccount</a></li><li data-type='method'><a href="module-Account.html#~acquireWithdrawalHistory">acquireWithdrawalHistory</a></li><li data-type='method'><a href="module-Account.html#~assetTransferBetweenSpotMarginAccount">assetTransferBetweenSpotMarginAccount</a></li><li data-type='method'><a href="module-Account.html#~assetTransferBetweenSpotPerpetualAccount">assetTransferBetweenSpotPerpetualAccount</a></li><li data-type='method'><a href="module-Account.html#~cancelWithdrawalRequest">cancelWithdrawalRequest</a></li><li data-type='method'><a href="module-Account.html#~createSubAccount">createSubAccount</a></li><li data-type='method'><a href="module-Account.html#~createSubAccountAPIKEY">createSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~deleteSubAccountAPIKEY">deleteSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~editAccountSettings">editAccountSettings</a></li><li data-type='method'><a href="module-Account.html#~editSubAccountAPIKEY">editSubAccountAPIKEY</a></li><li data-type='method'><a href="module-Account.html#~freezeSubAccount">freezeSubAccount</a></li><li data-type='method'><a href="module-Account.html#~inquireDepositAddress">inquireDepositAddress</a></li><li data-type='method'><a href="module-Account.html#~inquireMarginAccountSettings">inquireMarginAccountSettings</a></li><li data-type='method'><a href="module-Account.html#~inquireUserOperationHistory">inquireUserOperationHistory</a></li><li data-type='method'><a href="module-Account.html#~marginLoan">marginLoan</a></li><li data-type='method'><a href="module-Account.html#~marginRepayment">marginRepayment</a></li><li data-type='method'><a href="module-Account.html#~spotAssetTransferBetweenMainAndSubAccount">spotAssetTransferBetweenMainAndSubAccount</a></li><li data-type='method'><a href="module-Account.html#~submitWithdrawalRequest">submitWithdrawalRequest</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenMarginSpotAccount">transferRecordBetweenMarginSpotAccount</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenSpotFinancialAccount">transferRecordBetweenSpotFinancialAccount</a></li><li data-type='method'><a href="module-Account.html#~transferRecordBetweenSpotPerpetualAccount">transferRecordBetweenSpotPerpetualAccount</a></li><li data-type='method'><a href="module-Account.html#~unfreezeSubAccount">unfreezeSubAccount</a></li><li data-type='method'><a href="module-Account.html#~updateDepositAddress">updateDepositAddress</a></li></ul></li><li><a href="module-Futures.html">Futures</a><ul class='methods'><li data-type='method'><a href="module-Futures.html#~adjustLeverage">adjustLeverage</a></li><li data-type='method'><a href="module-Futures.html#~allMarketStatus">allMarketStatus</a></li><li data-type='method'><a href="module-Futures.html#~assetQuery">assetQuery</a></li><li data-type='method'><a href="module-Futures.html#~cancelAllOrders">cancelAllOrders</a></li><li data-type='method'><a href="module-Futures.html#~cancelAllStopOrders">cancelAllStopOrders</a></li><li data-type='method'><a href="module-Futures.html#~cancelOrder">cancelOrder</a></li><li data-type='method'><a href="module-Futures.html#~cancelOrderInBatch">cancelOrderInBatch</a></li><li data-type='method'><a href="module-Futures.html#~cancelStopOrder">cancelStopOrder</a></li><li data-type='method'><a href="module-Futures.html#~estimatedAmountOfPositionsToBeOpened">estimatedAmountOfPositionsToBeOpened</a></li><li data-type='method'><a href="module-Futures.html#~latestTransactionInTheMarket">latestTransactionInTheMarket</a></li><li data-type='method'><a href="module-Futures.html#~marketDepth">marketDepth</a></li><li data-type='method'><a href="module-Futures.html#~marketKLine">marketKLine</a></li><li data-type='method'><a href="module-Futures.html#~marketList">marketList</a></li><li data-type='method'><a href="module-Futures.html#~marketStatus">marketStatus</a></li><li data-type='method'><a href="module-Futures.html#~orderStatus">orderStatus</a></li><li data-type='method'><a href="module-Futures.html#~ping">ping</a></li><li data-type='method'><a href="module-Futures.html#~positionLevel">positionLevel</a></li><li data-type='method'><a href="module-Futures.html#~queryPendingOrders">queryPendingOrders</a></li><li data-type='method'><a href="module-Futures.html#~submitLimitOrder">submitLimitOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitMarketOrder">submitMarketOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitStopLimitOrder">submitStopLimitOrder</a></li><li data-type='method'><a href="module-Futures.html#~submitStopMarketOrder">submitStopMarketOrder</a></li><li data-type='method'><a href="module-Futures.html#~systemTime">systemTime</a></li><li data-type='method'><a href="module-Futures.html#~userTransaction">userTransaction</a></li></ul></li><li><a href="module-Market.html">Market</a><ul class='methods'><li data-type='method'><a href="module-Market.html#~acquireAllMarketInfo">acquireAllMarketInfo</a></li><li data-type='method'><a href="module-Market.html#~acquireAllMarketList">acquireAllMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireAllMarketStatistics">acquireAllMarketStatistics</a></li><li data-type='method'><a href="module-Market.html#~acquireAMMMarketList">acquireAMMMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireAssetAllocation">acquireAssetAllocation</a></li><li data-type='method'><a href="module-Market.html#~acquireCurrencyRate">acquireCurrencyRate</a></li><li data-type='method'><a href="module-Market.html#~acquireKlineData">acquireKlineData</a></li><li data-type='method'><a href="module-Market.html#~acquireMarginMarketList">acquireMarginMarketList</a></li><li data-type='method'><a href="module-Market.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-Market.html#~acquireMarketDepth">acquireMarketDepth</a></li><li data-type='method'><a href="module-Market.html#~acquireSingleMarketInfo">acquireSingleMarketInfo</a></li><li data-type='method'><a href="module-Market.html#~acquireSingleMarketStatistics">acquireSingleMarketStatistics</a></li></ul></li><li><a href="module-Trading.html">Trading</a><ul class='methods'><li data-type='method'><a href="module-Trading.html#~acquireMarketTransactionInfo">acquireMarketTransactionInfo</a></li><li data-type='method'><a href="module-Trading.html#~acquireUserTradingFeeRate">acquireUserTradingFeeRate</a></li><li data-type='method'><a href="module-Trading.html#~cancelAllOrders">cancelAllOrders</a></li><li data-type='method'><a href="module-Trading.html#~cancelAllUnexecutedStopOrders">cancelAllUnexecutedStopOrders</a></li><li data-type='method'><a href="module-Trading.html#~cancelOrder">cancelOrder</a></li><li data-type='method'><a href="module-Trading.html#~cancelOrdersInBatch">cancelOrdersInBatch</a></li><li data-type='method'><a href="module-Trading.html#~cancelUnexecutedStopOrder">cancelUnexecutedStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireExecutedOrderDetail">inquireExecutedOrderDetail</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderHistory">inquireOrderHistory</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderStatus">inquireOrderStatus</a></li><li data-type='method'><a href="module-Trading.html#~inquireOrderStatusInBatch">inquireOrderStatusInBatch</a></li><li data-type='method'><a href="module-Trading.html#~inquireStopOrderHistory">inquireStopOrderHistory</a></li><li data-type='method'><a href="module-Trading.html#~inquireUnexecutedOrder">inquireUnexecutedOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireUnexecutedStopOrder">inquireUnexecutedStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~inquireUserTransactionRecords">inquireUserTransactionRecords</a></li><li data-type='method'><a href="module-Trading.html#~modifyanormalorder">modifyanormalorder</a></li><li data-type='method'><a href="module-Trading.html#~modifyStopOrder">modifyStopOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitIOCOrder">submitIOCOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitLimitOrder">submitLimitOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitLimitOrdersInBatch">submitLimitOrdersInBatch</a></li><li data-type='method'><a href="module-Trading.html#~submitMarketOrder">submitMarketOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitStopLimitOrder">submitStopLimitOrder</a></li><li data-type='method'><a href="module-Trading.html#~submitStopMarketOrder">submitStopMarketOrder</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="HTTPConstants.html">HTTPConstants</a><ul class='members'><li data-type='member'><a href="HTTPConstants.html#.module.exports.METHOD_TYPE">module.exports.METHOD_TYPE</a></li></ul></li><li><a href="Streams.html">Streams</a></li><li><a href="Streams.spot.html">Streams.spot</a></li><li><a href="Streams.spot.assets.html">assets</a><ul class='methods'><li data-type='method'><a href="Streams.spot.assets.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.assets.html#.queryAccount">queryAccount</a></li><li data-type='method'><a href="Streams.spot.assets.html#.queryAll">queryAll</a></li><li data-type='method'><a href="Streams.spot.assets.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.assets.html#.unsubscribe">unsubscribe</a></li></ul></li><li><a href="Streams.spot.depth.html">depth</a><ul class='methods'><li data-type='method'><a href="Streams.spot.depth.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.depth.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.depth.html#.unsubscribe">unsubscribe</a></li><li data-type='method'><a href="Streams.spot.depth.html#.unsubscribeMulti">unsubscribeMulti</a></li></ul></li><li><a href="Streams.spot.indexPrice.html">indexPrice</a><ul class='methods'><li data-type='method'><a href="Streams.spot.indexPrice.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.queryAll">queryAll</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.indexPrice.html#.unsubscribe">unsubscribe</a></li></ul></li><li><a href="Streams.spot.kline.html">kline</a><ul class='methods'><li data-type='method'><a href="Streams.spot.kline.html#.query">query</a></li></ul></li><li><a href="Streams.spot.latestTransaction.html">latestTransaction</a><ul class='methods'><li data-type='method'><a href="Streams.spot.latestTransaction.html#.query">query</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.queryUser">queryUser</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.subscribe">subscribe</a></li><li data-type='method'><a href="Streams.spot.latestTransaction.html#.unsubscribe">unsubscribe</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#AccountBalanceInfoResults">AccountBalanceInfoResults</a></li><li><a href="global.html#AllMarketStatisticsResults">AllMarketStatisticsResults</a></li><li><a href="global.html#AMMMarketResults">AMMMarketResults</a></li><li><a href="global.html#AssetAllocationResults">AssetAllocationResults</a></li><li><a href="global.html#CurrencyRateResults">CurrencyRateResults</a></li><li><a href="global.html#KlineDataResults">KlineDataResults</a></li><li><a href="global.html#MarginMarketResults">MarginMarketResults</a></li><li><a href="global.html#MarketDepthResult">MarketDepthResult</a></li><li><a href="global.html#MarketInfoResult">MarketInfoResult</a></li><li><a href="global.html#MarketInfoResults">MarketInfoResults</a></li><li><a href="global.html#MarketListResults">MarketListResults</a></li><li><a href="global.html#SingleMarketStatisticsResult">SingleMarketStatisticsResult</a></li><li><a href="global.html#SubAccountBalanceInfoResults">SubAccountBalanceInfoResults</a></li><li><a href="global.html#SubmitLimitOrderResult">SubmitLimitOrderResult</a></li><li><a href="global.html#TransactionDataResults">TransactionDataResults</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">http/futures/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @fileOverview Futures API Endpoints
+ * @module Futures
+ * @requires axios
+ */
+
+const axios = require("axios").default;
+const { METHOD_TYPE } = require("@constants/index");
+
+/**
+ * [Ping]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http004_ping}
+ * @async
+ * @function ping
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.ping = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/ping",
+	});
+};
+
+/**
+ * [System Time]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http005_system_time}
+ * @async
+ * @function systemTime
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.systemTime = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/time",
+	});
+};
+
+/**
+ * [Market List]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http006_market_list}
+ * @async
+ * @function marketList
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.marketList = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/list",
+	});
+};
+
+/**
+ * [Position Level]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http007_market_limit}
+ * @async
+ * @function positionLevel
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.positionLevel = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/limit_config",
+	});
+};
+
+/**
+ * [Market Status]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http008_market_ticker}
+ * @async
+ * @function marketStatus
+ * @param {String} market Market name
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.marketStatus = function (market) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "https://api.coinex.com/perpetual/v1/market/ticker",
+		params: {
+			market,
+		},
+	});
+};
+
+/**
+ * [All Market Status]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http009_market_ticker_all}
+ * @async
+ * @function allMarketStatus
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.allMarketStatus = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/ticker/all",
+	});
+};
+
+/**
+ * [Market Depth]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http010_market_depth}
+ * @async
+ * @function marketDepth
+ * @param {String} market Market name, such as: “BTCUSD” contract market
+ * @param {"10"|"1"|"0"|"0.1"|"0.01"} merge Accuracy combined, the value is one of the values in ["10", "1", "0", "0.1", "0.01"]
+ * @param {5|10|20|50|100} limit The number of obtained items, the value is one of the values in [5, 10, 20, 50, 100]
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.marketDepth = function (market, merge, limit) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/depth",
+		params: {
+			market,
+			merge,
+			limit,
+		},
+	});
+};
+
+/**
+ * [Latest Transaction In The Market]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http011_market_deals}
+ * @async
+ * @function latestTransactionInTheMarket
+ * @param {String} market Market name
+ * @param {Number} [last_id] The largest ID of the last returned result
+ * @param {Number} [limit] Number of query
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.latestTransactionInTheMarket = function (market, last_id, limit) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/deals",
+		params: {
+			market,
+			last_id,
+			limit,
+		},
+	});
+};
+
+/**
+ * [Market K-Line]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http012_market_kline}
+ * @async
+ * @function marketKLine
+ * @param {String} market Market market
+ * @param {"1min"|"5min"|"15min"|"30min"|"1hour"|"2hour"|"4hour"|"6hour"|"12hour"|"1day"|"3day"|"1week"} type K-line information category, supports the following parameters: 1min, 5min, 15min, 30min, 1hour, 2hour, 4hour, 6hour, 12hour, 1day, 3day, 1week
+ * @param {Number} [limit=1000] Get the K-line number, cannot exceed 1000 and the default is 1000
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.marketKLine = function (market, type, limit = 1000) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/kline",
+		params: {
+			market,
+			type,
+			limit,
+		},
+	});
+};
+
+/**
+ * [User Transaction]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http013_user_deals}
+ * @async
+ * @function userTransaction
+ * @param {String} market Market name
+ * @param {0|1|2} side 0 unlimited, 1 sell, 2 buy
+ * @param {Number} offset Offset
+ * @param {Number} limit Number of query
+ * @param {Number} [start_time] Start
+ * @param {Number} [end_time] End
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.userTransaction = function (market, side, offset, limit, start_time, end_time) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/market/user_deals",
+		params: {
+			market,
+			side,
+			offset,
+			limit,
+			start_time,
+			end_time,
+		},
+	});
+};
+
+/**
+ * [Adjust Leverage]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http014_adjust_leverage}
+ * @async
+ * @function adjustLeverage
+ * @param {String} market Market name
+ * @param {String} leverage Margin
+ * @param {1|2} position_type Position Type (1 Isolated Margin, 2 Cross Margin)
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.adjustLeverage = function (market, leverage, position_type, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/market/adjust_leverage",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			leverage,
+			position_type,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Estimated Amount Of Positions To Be Opened]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http015_position_expect}
+ * @async
+ * @function estimatedAmountOfPositionsToBeOpened
+ * @param {String} market Market name
+ * @param {String} price Price
+ * @param {1|2} side 1: sell 2: buy
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, side, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/market/position_expect",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			price,
+			side,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Asset Query]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http016_asset_query}
+ * @async
+ * @function assetQuery
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.assetQuery = function () {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/asset/query",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+	});
+};
+
+/**
+ * [Submit Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http017_put_limit}
+ * @async
+ * @function submitLimitOrder
+ * @param {String} market Market name
+ * @param {1|2} side Order type (1: short sell, 2: long buy)
+ * @param {String} amount Amount
+ * @param {String} price Price
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {1|2|3} [effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
+ * @param {0|1|2|3} [option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
+ * @param {String} [client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.submitLimitOrder = function (
+	market,
+	side,
+	amount,
+	price,
+	timestamp,
+	effect_type = 1,
+	option = 0,
+	client_id,
+	windowtime
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/put_limit",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			side,
+			amount,
+			price,
+			timestamp,
+			effect_type,
+			option,
+			client_id,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Submit Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http018_put_market}
+ * @async
+ * @function submitMarketOrder
+ * @param {String} market Market name
+ * @param {1|2} side Order type (1: short sell, 2: long buy)
+ * @param {String} amount Amount
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {String} [client_id] Custom id, limited to 64 bytes, valid characters are uppercase and lowercase English letters, numbers, _-
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.submitMarketOrder = function (market, side, amount, timestamp, client_id, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/put_market",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			side,
+			amount,
+			timestamp,
+			client_id,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Submit Stop-Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http019_put_limit_stop}
+ * @async
+ * @function submitStopLimitOrder
+ * @param {String} market Market name
+ * @param {1|2} side Order type (1:short sell, 2:long buy)
+ * @param {1|2|3} stop_type Trigger type (1: Triggered by the latest transaction price, 2: Triggered by the mark price, 3: Triggered by the index price)
+ * @param {String} amount Amount
+ * @param {String} stop_price Stop Price
+ * @param {String} price Price
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {1|2|3} [effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
+ * @param {0|1|2|3} [option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
+ * @param {String} [client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.submitStopLimitOrder = function (
+	market,
+	side,
+	stop_type,
+	amount,
+	stop_price,
+	price,
+	timestamp,
+	effect_type = 1,
+	option = 1,
+	client_id,
+	windowtime
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/put_stop_limit",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			side,
+			stop_type,
+			amount,
+			stop_price,
+			price,
+			timestamp,
+			effect_type,
+			option,
+			client_id,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Submit Stop-Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http020_put_market_stop}
+ * @async
+ * @function submitStopMarketOrder
+ * @param {String} market Market name
+ * @param {1|2} side Order type (1: short sell, 2: long buy)
+ * @param {1|2|3} stop_type Trigger type (1: Triggered by the latest transaction price, 2: Triggered by the mark price, 3: Triggered by the index price)
+ * @param {String} amount Amount
+ * @param {String} stop_price Stop Price
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {String} [client_id] Client id
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.submitStopMarketOrder = function (
+	market,
+	side,
+	stop_type,
+	amount,
+	stop_price,
+	timestamp,
+	client_id,
+	windowtime
+) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/put_stop_market",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			side,
+			stop_type,
+			amount,
+			stop_price,
+			timestamp,
+			client_id,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Cancel Order In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http021-0_cancel_order_batch}
+ * @async
+ * @function cancelOrderInBatch
+ * @param {String} market Market name
+ * @param {String} order_ids In the ID list of unexecuted orders, use “p” to separate multiple IDs
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/cancel_batch",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			order_ids,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Cancel Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http021_cancel_order}
+ * @async
+ * @function cancelOrder
+ * @param {String} market Market name
+ * @param {Number} order_id Unexecuted order ID
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.cancelOrder = function (market, order_id, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/cancel",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			order_id,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Cancel All Orders]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http022_cancel_all}
+ * @async
+ * @function cancelAllOrders
+ * @param {String} market Market name
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {0|1|2} [side] Order type (0: All 1: Sell, 2: Buy)
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/cancel_all",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			timestamp,
+			side,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Cancel Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http023_cancel_stop_order}
+ * @async
+ * @function cancelStopOrder
+ * @param {String} market Market name
+ * @param {Number} order_id Unexecuted order ID
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.cancelStopOrder = function (market, order_id, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/cancel_stop",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			order_id,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Cancel All Stop Orders]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http024_cancel_stop_all}
+ * @async
+ * @function cancelAllStopOrders
+ * @param {String} market Market name
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {0|1|2} [side] Order type (0: All 1: Sell, 2: Buy)
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.cancelAllStopOrders = function (market, timestamp, side, windowtime) {
+	return axios({
+		method: METHOD_TYPE.POST,
+		url: "/order/cancel_stop_all",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			timestamp,
+			side,
+			windowtime,
+		},
+	});
+};
+
+/**
+ * [Query Pending Orders]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http025_query_pending}
+ * @async
+ * @function queryPendingOrders
+ * @param {String} market Market name
+ * @param {0|1|2} side Order type (0: All 1: Sell, 2: Buy)
+ * @param {Number} offset Offset, that is, from which one to get
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window (unit: milliseconds)
+ * @param {Number} [limit=20] Limit The number of records obtained at one time, the default is 20 and the maximum is 100
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.queryPendingOrders = function (market, side, offset, timestamp, windowtime, limit = 10) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/pending",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			side,
+			offset,
+			timestamp,
+			windowtime,
+			limit,
+		},
+	});
+};
+
+/**
+ * [Order Status]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http026_order_status}
+ * @async
+ * @function orderStatus
+ * @param {String} market Market name
+ * @param {Number} order_id Order id
+ * @param {Number} timestamp Client timestamp, unit: milliseconds
+ * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @returns {Promise&lt;>} Promise object represents the result of the request
+ */
+module.exports.orderStatus = function (market, order_id, timestamp, windowtime) {
+	return axios({
+		method: METHOD_TYPE.GET,
+		url: "/order/status",
+		headers: {
+			Authorization: "",
+			Access_id: "",
+		},
+		params: {
+			market,
+			order_id,
+			timestamp,
+			windowtime,
+		},
+	});
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sat Jul 23 2022 12:49:24 GMT+0430 (Iran Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
