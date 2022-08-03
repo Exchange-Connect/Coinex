@@ -13,7 +13,7 @@ const methodId = 15;
  * @function subscribe
  * @memberof Streams.futures.assets
  * @param {Array<String>} markets Markets Name
- * @param {Function<Object>} onData On Data Incomming Callback
+ * @param {function} onData On Data Incomming Callback
  */
 module.exports.subscribe = function (markets, onData) {
 	const client = connections.futures;

@@ -12,7 +12,7 @@ const methodId = 15;
  * @async
  * @function subscribe
  * @memberof Streams.spot.indexPrice
- * @param {Function<Object>} onData On Data Incomming Callback
+ * @param {function} onData On Data Incomming Callback
  */
 module.exports.subscribe = function (onData) {
 	const client = connections.spot;

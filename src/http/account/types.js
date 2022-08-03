@@ -1,12 +1,9 @@
 /**
  * Coinex Account Balance Info Results
  * @typedef {Object} AccountBalanceInfoResults
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - List All of the market's pairs, applicable to spot and margin markets.
- * @property {Object} data.example - Example Currency
- * @property {Object} data.example.available - Amount available
- * @property {Object} data.example.frozen - Amount frozen
+ * @property {Object} example - Example Currency
+ * @property {Object} example.available - Amount available
+ * @property {Object} example.frozen - Amount frozen
  * @example
  * {
  *     "code": 0,
@@ -36,13 +33,10 @@
 /**
  * Coinex Sub Account Balance Info Results
  * @typedef {Object} SubAccountBalanceInfoResults
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - List All of the market's pairs, applicable to spot and margin markets.
- * @property {Object} data.account - Example Sub-Account
- * @property {Object} data.account.example - Example Currency
- * @property {Object} data.account.example.available - Amount available
- * @property {Object} data.account.example.frozen - Amount frozen
+ * @property {Object} account - Example Sub-Account
+ * @property {Object} account.example - Example Currency
+ * @property {Object} account.example.available - Amount available
+ * @property {Object} account.example.frozen - Amount frozen
  * @example
  * {
  *     "code": 0,

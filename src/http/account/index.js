@@ -1,11 +1,18 @@
 /**
  * @fileOverview Account API Endpoints
  * @module Account
- * @requires axios
+ * @requires executeRequest
  */
-
-const axios = require("axios").default;
 const { METHOD_TYPE } = require("@root/src/constants/index");
+const { executeRequest } = require("@libs/index");
+
+const {
+	//Invalid Errors
+	InvalidArgumentError,
+	InvalidLeverageError,
+	InvalidPriceSizeError,
+	InvalidCloseAmountError,
+} = require("@errors/index");
 
 /**
  * Acquire Account Balance Info
@@ -14,9 +21,13 @@ const { METHOD_TYPE } = require("@root/src/constants/index");
  * @param {String} access_id Access ID
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<AccountBalanceInfoResults>} Promise object represents the result of the request
+ * @throws {InvalidArgumentError}
+ * @throws {InvalidLeverageError}
+ * @throws {InvalidPriceSizeError}
+ * @throws {InvalidCloseAmountError}
  */
 module.exports.acquireAccountBalanceInfo = function (access_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/balance/info",
 		params: {
@@ -37,7 +48,7 @@ module.exports.acquireAccountBalanceInfo = function (access_id, tonce = Date.now
  * @returns {Promise<SubAccountBalanceInfoResults>} Promise object represents the result of the request
  */
 module.exports.acquireBalanceInSubAccount = function (access_id, tonce = Date.now(), sub_user_name, coin_type) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/balance",
 		params: {
@@ -58,7 +69,7 @@ module.exports.acquireBalanceInSubAccount = function (access_id, tonce = Date.no
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireBalanceInAMMAccount = function (access_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/account/amm/balance",
 		params: {
@@ -77,7 +88,7 @@ module.exports.acquireBalanceInAMMAccount = function (access_id, tonce = Date.no
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireBalanceInFinancialAccount = function (access_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/account/investment/balance",
 		params: {
@@ -96,7 +107,7 @@ module.exports.acquireBalanceInFinancialAccount = function (access_id, tonce = D
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireCreditInfoInAccount = function (access_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/credit/info",
 		params: {
@@ -116,7 +127,7 @@ module.exports.acquireCreditInfoInAccount = function (access_id, tonce = Date.no
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireMarketInfoInMarginAccount = function (access_id, market, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/margin/account",
 		params: {
@@ -137,7 +148,7 @@ module.exports.acquireMarketInfoInMarginAccount = function (access_id, market, t
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.inquireMarginAccountSettings = function (access_id, market, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/margin/config",
 		params: {
@@ -157,7 +168,7 @@ module.exports.inquireMarginAccountSettings = function (access_id, market, tonce
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireBalanceInCreditAccount = function (access_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/credit/balance",
 		params: {
@@ -180,7 +191,7 @@ module.exports.acquireBalanceInCreditAccount = function (access_id, tonce = Date
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireDepositRecord = function (access_id, page = 1, Limit = 10, State, coin_type, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/balance/coin/deposit",
 		params: {
@@ -220,7 +231,7 @@ module.exports.inquireUserOperationHistory = function (
 	business,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/account/balance/history",
 		params: {
@@ -248,7 +259,7 @@ module.exports.inquireUserOperationHistory = function (
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireTradingFeeRate = function (access_id, market, business_type = "SPOT", tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/account/market/fee",
 		params: {
@@ -280,7 +291,7 @@ module.exports.spotAssetTransferBetweenMainAndSubAccount = function (
 	transfer_account,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/transfer",
 		params: {
@@ -314,7 +325,7 @@ module.exports.assetTransferBetweenSpotMarginAccount = function (
 	amount,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/margin/transfer",
 		params: {
@@ -346,7 +357,7 @@ module.exports.assetTransferBetweenSpotPerpetualAccount = function (
 	amount,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/contract/balance/transfer",
 		params: {
@@ -381,7 +392,7 @@ module.exports.submitWithdrawalRequest = function (
 	transfer_method,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/balance/coin/withdraw",
 		params: {
@@ -406,7 +417,7 @@ module.exports.submitWithdrawalRequest = function (
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.cancelWithdrawalRequest = function (access_id, coin_withdraw_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
 		url: "/balance/coin/withdraw",
 		params: {
@@ -430,7 +441,7 @@ module.exports.cancelWithdrawalRequest = function (access_id, coin_withdraw_id, 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.marginLoan = function (access_id, market, coin_type, amount, renew, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/margin/loan",
 		params: {
@@ -457,7 +468,7 @@ module.exports.marginLoan = function (access_id, market, coin_type, amount, rene
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.marginRepayment = function (access_id, tonce, market, coin_type, amount, loan_id) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/margin/flat",
 		params: {
@@ -481,7 +492,7 @@ module.exports.marginRepayment = function (access_id, tonce, market, coin_type, 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.updateDepositAddress = function (access_id, smart_contract_name, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.PUT,
 		url: "/balance/deposit/address/<string:coin_type>",
 		params: {
@@ -502,7 +513,7 @@ module.exports.updateDepositAddress = function (access_id, smart_contract_name, 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.inquireDepositAddress = function (access_id, smart_contract_name, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/balance/deposit/address/<string:coin_type>",
 		params: {
@@ -533,7 +544,7 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function (
 	page = 1,
 	limit = 10
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/investment/transfer/history",
 		params: {
@@ -567,7 +578,7 @@ module.exports.acquireTransferRecordBetweenMainAndSubAccount = function (
 	limit = 10,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/transfer/history",
 		params: {
@@ -601,7 +612,7 @@ module.exports.acquireLoanRecordInMarginAccount = function (
 	limit = 10,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/margin/loan/history",
 		params: {
@@ -639,7 +650,7 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function (
 	access_id,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/contract/transfer/history",
 		params: {
@@ -681,7 +692,7 @@ module.exports.transferRecordBetweenMarginSpotAccount = function (
 	end_time,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/margin/transfer/history",
 		params: {
@@ -718,7 +729,7 @@ module.exports.acquireWithdrawalHistory = function (
 	limit = 10,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/balance/coin/withdraw",
 		params: {
@@ -743,7 +754,7 @@ module.exports.acquireWithdrawalHistory = function (
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.createSubAccount = function (access_id, sub_user_name, password, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/register",
 		params: {
@@ -765,7 +776,7 @@ module.exports.createSubAccount = function (access_id, sub_user_name, password, 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.unfreezeSubAccount = function (access_id, sub_user_name, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/unfrozen",
 		params: {
@@ -786,7 +797,7 @@ module.exports.unfreezeSubAccount = function (access_id, sub_user_name, tonce = 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.freezeSubAccount = function (access_id, sub_user_name, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/frozen",
 		params: {
@@ -805,7 +816,7 @@ module.exports.freezeSubAccount = function (access_id, sub_user_name, tonce = Da
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.editAccountSettings = function (cet_discount) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.PUT,
 		url: "/v1/account/settings",
 		params: {
@@ -834,7 +845,7 @@ module.exports.createSubAccountAPIKEY = function (
 	remark,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/sub_account/auth/api",
 		params: {
@@ -866,7 +877,7 @@ module.exports.acquireSubAccountAPIKEYList = function (
 	limit = 10,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: "/sub_account/auth/api",
 		params: {
@@ -889,7 +900,7 @@ module.exports.acquireSubAccountAPIKEYList = function (
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireSubAccountAPIKEYDetail = function (access_id, user_auth_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params: {
@@ -921,7 +932,7 @@ module.exports.editSubAccountAPIKEY = function (
 	remark,
 	tonce = Date.now()
 ) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.PUT,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params: {
@@ -945,7 +956,7 @@ module.exports.editSubAccountAPIKEY = function (
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.deleteSubAccountAPIKEY = function (access_id, user_auth_id, tonce = Date.now()) {
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params: {

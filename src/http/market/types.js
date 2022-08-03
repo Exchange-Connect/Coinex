@@ -22,18 +22,15 @@
 /**
  * Coinex Market Info Results
  * @typedef {Object} MarketInfoResults
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - Acquire all market details, applicable to spot and margin markets.
- * @property {Object} data.market - An example market (e.g. "BTCUSDT").
- * @property {String} data.market.name - 	Market name
- * @property {String} data.market.taker_fee_rate - Taker rate
- * @property {String} data.market.maker_fee_rate - Maker rate
- * @property {String} data.market.min_amount - Min. transaction volume
- * @property {String} data.market.trading_name - Trading currency
- * @property {Number} data.market.trading_decimal - Trading currency decimal
- * @property {String} data.market.pricing_name - Pricing currency
- * @property {Number} data.market.pricing_decimal - Pricing currency decimal
+ * @property {Object} market - An example market (e.g. "BTCUSDT").
+ * @property {String} market.name - Market name
+ * @property {String} market.taker_fee_rate - Taker rate
+ * @property {String} market.maker_fee_rate - Maker rate
+ * @property {String} market.min_amount - Min. transaction volume
+ * @property {String} market.trading_name - Trading currency
+ * @property {Number} market.trading_decimal - Trading currency decimal
+ * @property {String} market.pricing_name - Pricing currency
+ * @property {Number} market.pricing_decimal - Pricing currency decimal
  * @example
  * {
  *   "code": 0,
@@ -70,17 +67,14 @@
 /**
  * Coinex Market Info Result
  * @typedef {Object} MarketInfoResult
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - Acquire a market detail, applicable to spot and margin markets.
- * @property {String} data.name - 	Market name
- * @property {String} data.taker_fee_rate - Taker rate
- * @property {String} data.maker_fee_rate - Maker rate
- * @property {String} data.min_amount - Min. transaction volume
- * @property {String} data.trading_name - Trading currency
- * @property {Number} data.trading_decimal - Trading currency decimal
- * @property {String} data.pricing_name - Pricing currency
- * @property {Number} data.pricing_decimal - Pricing currency decimal
+ * @property {String} name - Market name
+ * @property {String} taker_fee_rate - Taker rate
+ * @property {String} maker_fee_rate - Maker rate
+ * @property {String} min_amount - Min. transaction volume
+ * @property {String} trading_name - Trading currency
+ * @property {Number} trading_decimal - Trading currency decimal
+ * @property {String} pricing_name - Pricing currency
+ * @property {Number} pricing_decimal - Pricing currency decimal
  * @example
  * {
  *   "code": 0,
@@ -105,17 +99,14 @@
 /**
  * Coinex Market Depth Result
  * @typedef {Object} MarketDepthResult
- * @property {Number} code - Indicates the coresponding Endpoint Error Code.
- * @property {Boolean} message - Response message.
- * @property {Object} data - Acquire market depth in a single market, suitable for spot and margin markets ( Max. depth 50 ).
- * @property {String} data.last - 	Market name
- * @property {String} data.time - Taker rate
- * @property {Array<Array<String>>} data.asks - Maker rate
- * @property {String} data.asks[][0] - Min. transaction volume
- * @property {String} data.asks[][1] - Trading currency
- * @property {Array<Array<String>>} data.bids - Trading currency decimal
- * @property {String} data.bids[][0] - Pricing currency
- * @property {Number} data.bids[][1] - Pricing currency decimal
+ * @property {String} last - Market name
+ * @property {String} time - Taker rate
+ * @property {Array<Array<String>>} asks - Maker rate
+ * @property {String} asks[][0] - Min. transaction volume
+ * @property {String} asks[][1] - Trading currency
+ * @property {Array<Array<String>>} bids - Trading currency decimal
+ * @property {String} bids[][0] - Pricing currency
+ * @property {Number} bids[][1] - Pricing currency decimal
  * @example
  * {
  *   "code": 0,

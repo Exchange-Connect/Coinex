@@ -706,7 +706,7 @@ module.exports.acquireMarketTransactionInfo = function () {
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.modifyanormalorder = function (access_id, market, id, amount, price, tonce = Date.now()) {
+module.exports.modifyANormalOrder = function (access_id, market, id, amount, price, tonce = Date.now()) {
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/modify",

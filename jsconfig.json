@@ -5,7 +5,9 @@
         "baseUrl": ".",
         "paths": {
           "@root/*": ["./*"],
-          "@constants/*": ["src/constants/*"]
+          "@constants/*": ["src/constants/*"],
+          "@libs/*": ["src/libs/*"],
+          "@errors/*": ["src/errors/*"],
         }
     },
     "exclude": [

@@ -11,9 +11,37 @@
 
 ## Usage
 
-> It's currently under development and will be out soon
-> 
-> Stay tuned!
+> Be Cautious: It's currently under development
+
+Installation:
+
+```bash
+
+npm i --save @exchange-connect/coinex
+
+```
+
+Use SDK:
+
+```javascript
+
+const API_KEY = "YOUR_API_KEY";
+const Coinex = require("@exchange-connect/coinex");
+const CoinexSDK = new Coinex(API_KEY);
+
+//Access All of the HTTP/Rest APIs with "CoinexSDK.http"
+//For Example
+try{
+    const allTheMarkets = await CoinexSDK.http.acquireAllMarketInfo();
+}catch(error){
+    //And Even you can recogonize the error just simply by the "instanceof" from the error section
+    if(error instanceof CoinexSDK.errors.INVALID_METHOD){
+        //Handle the error
+    }
+    //Look at the "API Refrence" for more information
+}
+
+```
 
 ## API Refrence
 
@@ -56,9 +84,9 @@ docs/               JSDoc-Generated Documentations
     - [x] HTTP API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
     - [x] Web Socket API ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Error handling ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
+- [x] Error handling ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/10)
+- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
 
 - [ ] Rate Limiter ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 

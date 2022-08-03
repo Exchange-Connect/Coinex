@@ -1,10 +1,14 @@
-const axios = require("axios")
+// const axios = require("axios");
 // import { METHOD_TYPE } from "../http";
 
-const http = "http";
+// const http = "http";
 
-require("./market").
+require("./market");
 
 module.exports = {
-    http
+	...require("./market"),
+	...require("./account"),
+	...require("./futures"),
+	...require("./spot"),
+	...require("./trading"),
 };

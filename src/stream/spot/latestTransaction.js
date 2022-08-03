@@ -13,7 +13,7 @@ const methodId = 16;
  * @function subscribe
  * @memberof Streams.spot.latestTransaction
  * @param {String} market Market Name
- * @param {Function<Object>} onData On Data Incomming Callback
+ * @param {function} onData On Data Incomming Callback
  */
 module.exports.subscribe = function (market, onData) {
 	const client = connections.spot;

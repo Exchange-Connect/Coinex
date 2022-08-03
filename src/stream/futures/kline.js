@@ -14,7 +14,7 @@ const methodId = 5;
  * @memberof Streams.futures.kline
  * @param {String} market Market Name
  * @param {"1min"|"5min"|"15min"|"30min"|"1hour"|"2hour"|"4hour"|"6hour"|"12hour"|"1day"|"3day"|"1week"} period Period
- * @param {Function<Object>} onData On Data Incomming Callback
+ * @param {function} onData On Data Incomming Callback
  */
 module.exports.subscribe = function (market, period, onData) {
 	const client = connections.futures;

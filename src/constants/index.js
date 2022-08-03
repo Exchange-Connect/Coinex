@@ -1,7 +1,7 @@
 const http = require("./http");
-const ws = require("./ws");
+const stream = require("./stream");
 
 module.exports = {
 	...http,
-	...ws,
+	...stream,
 };

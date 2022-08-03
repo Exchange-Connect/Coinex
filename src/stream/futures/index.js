@@ -1,3 +1,9 @@
+/**
+ * @fileOverview Futures Market Realtime Data Streaming
+ * @namespace Streams.futures
+ * @memberof Streams
+ */
+
 module.exports = {
 	status: require("./status"),
 	depth: require("./depth"),
