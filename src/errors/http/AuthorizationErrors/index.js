@@ -1,4 +1,5 @@
 module.exports = {
+	AuthorizationError: require("./AuthorizationError"),
 	AccessIDExpiredError: require("./AccessIDExpiredError"),
 	APIAccessForbiddenError: require("./APIAccessForbiddenError"),
 	AuthorizationFailedError: require("./AuthorizationFailedError"),

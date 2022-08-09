@@ -25,17 +25,20 @@ Use SDK:
 
 ```javascript
 
-const API_KEY = "YOUR_API_KEY";
 const Coinex = require("@exchange-connect/coinex");
-const CoinexSDK = new Coinex(API_KEY);
+const { INVALID_METHOD } = Coinex.errors;
+
+const API_KEY = "YOUR_API_KEY", API_SECRET="YOUR_API_SECRET";
+const CoinexSDK = new Coinex(API_KEY, API_SECRET);
+const { acquireAllMarketInfo } = CoinexSDK.http;
 
 //Access All of the HTTP/Rest APIs with "CoinexSDK.http"
 //For Example
 try{
-    const allTheMarkets = await CoinexSDK.http.acquireAllMarketInfo();
+    const allTheMarkets = await acquireAllMarketInfo();
 }catch(error){
     //And Even you can recogonize the error just simply by the "instanceof" from the error section
-    if(error instanceof CoinexSDK.errors.INVALID_METHOD){
+    if(error instanceof INVALID_METHOD){
         //Handle the error
     }
     //Look at the "API Refrence" for more information
@@ -86,7 +89,7 @@ docs/               JSDoc-Generated Documentations
 
 - [x] Error handling ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
-- [ ] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
+- [x] Error types ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100)
 
 - [ ] Rate Limiter ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0)
 

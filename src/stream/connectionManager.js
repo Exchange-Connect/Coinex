@@ -1,5 +1,5 @@
 const WebSocketClient = require("ws");
-const { WEBSOCKET_CONNECTION_STATES } = require("@root/src/constants/index");
+const { WEBSOCKET_CONNECTION_STATES } = require("@constants/index");
 
 class WebSocket {
 	isConnected = false;

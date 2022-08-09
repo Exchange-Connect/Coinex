@@ -6,17 +6,24 @@
 
 const axios = require("axios").default;
 const { METHOD_TYPE } = require("@root/src/constants/index");
+const { signParams } = require("@utils/index");
 
 /**
  * [Ping]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http004_ping}
  * @async
  * @function ping
- * @returns {Promise<>} Promise object represents the result of the request
+ * @returns {Promise<String>} Promise object represents the result of the request
  */
 module.exports.ping = function () {
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
+		// headers: {
+		// 	authorization: signParams(apiSecret, params),
+		// },
 		url: "/ping",
+		params,
 	});
 };
 
@@ -24,12 +31,15 @@ module.exports.ping = function () {
  * [System Time]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http005_system_time}
  * @async
  * @function systemTime
- * @returns {Promise<>} Promise object represents the result of the request
+ * @returns {Promise<Number>} Promise object represents the result of the request
  */
 module.exports.systemTime = function () {
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/time",
+		params,
 	});
 };
 
@@ -37,12 +47,15 @@ module.exports.systemTime = function () {
  * [Market List]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http006_market_list}
  * @async
  * @function marketList
- * @returns {Promise<>} Promise object represents the result of the request
+ * @returns {Promise<Array<MarketListResult>>} Promise object represents the result of the request
  */
 module.exports.marketList = function () {
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/list",
+		params,
 	});
 };
 
@@ -50,12 +63,15 @@ module.exports.marketList = function () {
  * [Position Level]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http007_market_limit}
  * @async
  * @function positionLevel
- * @returns {Promise<>} Promise object represents the result of the request
+ * @returns {Promise<PositionLevelResults>} Promise object represents the result of the request
  */
 module.exports.positionLevel = function () {
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/limit_config",
+		params,
 	});
 };
 
@@ -67,12 +83,12 @@ module.exports.positionLevel = function () {
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.marketStatus = function (market) {
+	const params = { market };
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "https://api.coinex.com/perpetual/v1/market/ticker",
-		params: {
-			market,
-		},
+		params,
 	});
 };
 
@@ -83,9 +99,12 @@ module.exports.marketStatus = function (market) {
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.allMarketStatus = function () {
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/ticker/all",
+		params,
 	});
 };
 
@@ -99,14 +118,16 @@ module.exports.allMarketStatus = function () {
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.marketDepth = function (market, merge, limit) {
+	const params = {
+		market,
+		merge,
+		limit,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/depth",
-		params: {
-			market,
-			merge,
-			limit,
-		},
+		params,
 	});
 };
 
@@ -115,19 +136,22 @@ module.exports.marketDepth = function (market, merge, limit) {
  * @async
  * @function latestTransactionInTheMarket
  * @param {String} market Market name
- * @param {Number} [last_id] The largest ID of the last returned result
- * @param {Number} [limit] Number of query
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.last_id] The largest ID of the last returned result
+ * @param {Number} [options.limit] Number of query
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.latestTransactionInTheMarket = function (market, last_id, limit) {
+module.exports.latestTransactionInTheMarket = function (market, { last_id, limit } = {}) {
+	const params = {
+		market,
+		last_id,
+		limit,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/deals",
-		params: {
-			market,
-			last_id,
-			limit,
-		},
+		params,
 	});
 };
 
@@ -141,14 +165,16 @@ module.exports.latestTransactionInTheMarket = function (market, last_id, limit) 
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.marketKLine = function (market, type, limit = 1000) {
+	const params = {
+		market,
+		type,
+		limit,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/kline",
-		params: {
-			market,
-			type,
-			limit,
-		},
+		params,
 	});
 };
 
@@ -160,22 +186,25 @@ module.exports.marketKLine = function (market, type, limit = 1000) {
  * @param {0|1|2} side 0 unlimited, 1 sell, 2 buy
  * @param {Number} offset Offset
  * @param {Number} limit Number of query
- * @param {Number} [start_time] Start
- * @param {Number} [end_time] End
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.start_time] Start
+ * @param {Number} [options.end_time] End
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.userTransaction = function (market, side, offset, limit, start_time, end_time) {
+module.exports.userTransaction = function (market, side, offset, limit, { start_time, end_time } = {}) {
+	const params = {
+		market,
+		side,
+		offset,
+		limit,
+		start_time,
+		end_time,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/market/user_deals",
-		params: {
-			market,
-			side,
-			offset,
-			limit,
-			start_time,
-			end_time,
-		},
+		params,
 	});
 };
 
@@ -187,24 +216,28 @@ module.exports.userTransaction = function (market, side, offset, limit, start_ti
  * @param {String} leverage Margin
  * @param {1|2} position_type Position Type (1 Isolated Margin, 2 Cross Margin)
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.adjustLeverage = function (market, leverage, position_type, timestamp, windowtime) {
+module.exports.adjustLeverage = function (market, leverage, position_type, timestamp, { windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		leverage,
+		position_type,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/market/adjust_leverage",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			leverage,
-			position_type,
-			timestamp,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -216,24 +249,28 @@ module.exports.adjustLeverage = function (market, leverage, position_type, times
  * @param {String} price Price
  * @param {1|2} side 1: sell 2: buy
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, side, timestamp, windowtime) {
+module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, side, timestamp, { windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		price,
+		side,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/market/position_expect",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			price,
-			side,
-			timestamp,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -244,12 +281,15 @@ module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.assetQuery = function () {
+	const { apiKey, apiSecret } = this;
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/asset/query",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
 	});
 };
@@ -263,10 +303,11 @@ module.exports.assetQuery = function () {
  * @param {String} amount Amount
  * @param {String} price Price
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {1|2|3} [effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
- * @param {0|1|2|3} [option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
- * @param {String} [client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {1|2|3} [options.effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
+ * @param {0|1|2|3} [options.option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
+ * @param {String} [options.client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitLimitOrder = function (
@@ -275,29 +316,19 @@ module.exports.submitLimitOrder = function (
 	amount,
 	price,
 	timestamp,
-	effect_type = 1,
-	option = 0,
-	client_id,
-	windowtime
+	{ effect_type = 1, option = 0, client_id, windowtime } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = { market, side, amount, price, timestamp, effect_type, option, client_id, windowtime };
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_limit",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			side,
-			amount,
-			price,
-			timestamp,
-			effect_type,
-			option,
-			client_id,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -309,26 +340,30 @@ module.exports.submitLimitOrder = function (
  * @param {1|2} side Order type (1: short sell, 2: long buy)
  * @param {String} amount Amount
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {String} [client_id] Custom id, limited to 64 bytes, valid characters are uppercase and lowercase English letters, numbers, _-
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {String} [options.client_id] Custom id, limited to 64 bytes, valid characters are uppercase and lowercase English letters, numbers, _-
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitMarketOrder = function (market, side, amount, timestamp, client_id, windowtime) {
+module.exports.submitMarketOrder = function (market, side, amount, timestamp, { client_id, windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		side,
+		amount,
+		timestamp,
+		client_id,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_market",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			side,
-			amount,
-			timestamp,
-			client_id,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -343,10 +378,11 @@ module.exports.submitMarketOrder = function (market, side, amount, timestamp, cl
  * @param {String} stop_price Stop Price
  * @param {String} price Price
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {1|2|3} [effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
- * @param {0|1|2|3} [option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
- * @param {String} [client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {1|2|3} [options.effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
+ * @param {0|1|2|3} [options.option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
+ * @param {String} [options.client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopLimitOrder = function (
@@ -357,31 +393,31 @@ module.exports.submitStopLimitOrder = function (
 	stop_price,
 	price,
 	timestamp,
-	effect_type = 1,
-	option = 1,
-	client_id,
-	windowtime
+	{ effect_type = 1, option = 0, client_id, windowtime } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		side,
+		stop_type,
+		amount,
+		stop_price,
+		price,
+		timestamp,
+		effect_type,
+		option,
+		client_id,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_stop_limit",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			side,
-			stop_type,
-			amount,
-			stop_price,
-			price,
-			timestamp,
-			effect_type,
-			option,
-			client_id,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -395,8 +431,9 @@ module.exports.submitStopLimitOrder = function (
  * @param {String} amount Amount
  * @param {String} stop_price Stop Price
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {String} [client_id] Client id
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {String} [options.client_id] Client id
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopMarketOrder = function (
@@ -409,23 +446,26 @@ module.exports.submitStopMarketOrder = function (
 	client_id,
 	windowtime
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		side,
+		stop_type,
+		amount,
+		stop_price,
+		timestamp,
+		client_id,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_stop_market",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			side,
-			stop_type,
-			amount,
-			stop_price,
-			timestamp,
-			client_id,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -436,16 +476,25 @@ module.exports.submitStopMarketOrder = function (
  * @param {String} market Market name
  * @param {String} order_ids In the ID list of unexecuted orders, use “p” to separate multiple IDs
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, windowtime) {
+module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, { windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		order_ids,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/cancel_batch",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
 		params: {
 			market,
@@ -463,23 +512,27 @@ module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, wind
  * @param {String} market Market name
  * @param {Number} order_id Unexecuted order ID
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrder = function (market, order_id, timestamp, windowtime) {
+module.exports.cancelOrder = function (market, order_id, timestamp, { windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		order_id,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/cancel",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			order_id,
-			timestamp,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -489,24 +542,28 @@ module.exports.cancelOrder = function (market, order_id, timestamp, windowtime) 
  * @function cancelAllOrders
  * @param {String} market Market name
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {0|1|2} [side] Order type (0: All 1: Sell, 2: Buy)
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {0|1|2} [options.side] Order type (0: All 1: Sell, 2: Buy)
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		timestamp,
+		side,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/cancel_all",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			timestamp,
-			side,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -517,23 +574,27 @@ module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) 
  * @param {String} market Market name
  * @param {Number} order_id Unexecuted order ID
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelStopOrder = function (market, order_id, timestamp, windowtime) {
+module.exports.cancelStopOrder = function (market, order_id, timestamp, { windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		order_id,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/cancel_stop",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			order_id,
-			timestamp,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -543,24 +604,28 @@ module.exports.cancelStopOrder = function (market, order_id, timestamp, windowti
  * @function cancelAllStopOrders
  * @param {String} market Market name
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {0|1|2} [side] Order type (0: All 1: Sell, 2: Buy)
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {0|1|2} [options.side] Order type (0: All 1: Sell, 2: Buy)
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllStopOrders = function (market, timestamp, side, windowtime) {
+module.exports.cancelAllStopOrders = function (market, timestamp, { side, windowtime } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		timestamp,
+		side,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
 		url: "/order/cancel_stop_all",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			timestamp,
-			side,
-			windowtime,
-		},
+		params,
 	});
 };
 
@@ -572,26 +637,30 @@ module.exports.cancelAllStopOrders = function (market, timestamp, side, windowti
  * @param {0|1|2} side Order type (0: All 1: Sell, 2: Buy)
  * @param {Number} offset Offset, that is, from which one to get
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window (unit: milliseconds)
- * @param {Number} [limit=20] Limit The number of records obtained at one time, the default is 20 and the maximum is 100
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window (unit: milliseconds)
+ * @param {Number} [options.limit=20] Limit The number of records obtained at one time, the default is 20 and the maximum is 100
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.queryPendingOrders = function (market, side, offset, timestamp, windowtime, limit = 10) {
+module.exports.queryPendingOrders = function (market, side, offset, timestamp, { windowtime, limit = 20 } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		side,
+		offset,
+		timestamp,
+		windowtime,
+		limit,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/order/pending",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			side,
-			offset,
-			timestamp,
-			windowtime,
-			limit,
-		},
+		params,
 	});
 };
 
@@ -602,22 +671,26 @@ module.exports.queryPendingOrders = function (market, side, offset, timestamp, w
  * @param {String} market Market name
  * @param {Number} order_id Order id
  * @param {Number} timestamp Client timestamp, unit: milliseconds
- * @param {Number} [windowtime] Time window, unit: milliseconds
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.windowtime] Time window, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.orderStatus = function (market, order_id, timestamp, windowtime) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		order_id,
+		timestamp,
+		windowtime,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
 		url: "/order/status",
 		headers: {
-			Authorization: "",
-			Access_id: "",
+			Authorization: signParams(apiSecret, params),
+			Access_id: apiKey,
 		},
-		params: {
-			market,
-			order_id,
-			timestamp,
-			windowtime,
-		},
+		params,
 	});
 };

@@ -5,9 +5,10 @@
         "baseUrl": ".",
         "paths": {
           "@root/*": ["./*"],
-          "@constants/*": ["src/constants/*"],
-          "@libs/*": ["src/libs/*"],
-          "@errors/*": ["src/errors/*"],
+          "@constants/*": ["./src/constants/*"],
+          "@libs/*": ["./src/libs/*"],
+          "@errors/*": ["./src/errors/*"],
+          "@utils/*": ["./src/utils/*"],
         }
     },
     "exclude": [

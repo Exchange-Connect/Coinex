@@ -113,3 +113,5 @@ docs/
 #remove dev dependency files
 .eslintrc.json
 jsdoc.json
+
+test/

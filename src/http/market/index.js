@@ -3,7 +3,9 @@
  * @module Market
  * @requires axios
  */
-const axios = require("axios").default;
+const { BASE_URLS, METHOD_TYPE } = require("@root/src/constants/index");
+const { executeRequest } = require("@libs/index");
+const { signParams } = require("@utils/index");
 
 /**
  * Acquire All Market List
@@ -12,8 +14,17 @@ const axios = require("axios").default;
  * @returns {Promise<MarketListResults>} Promise object represents the result of the request
  */
 module.exports.acquireAllMarketList = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/market/list",
+		params,
 	});
 };
 
@@ -24,8 +35,17 @@ module.exports.acquireAllMarketList = function () {
  * @returns {Promise<MarketInfoResults>} Promise object represents the result of the request
  */
 module.exports.acquireAllMarketInfo = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/market/info",
+		params,
 	});
 };
 
@@ -37,11 +57,19 @@ module.exports.acquireAllMarketInfo = function () {
  * @returns {Promise<MarketInfoResult>} Promise object represents the result of the request
  */
 module.exports.acquireSingleMarketInfo = function (market) {
-	return axios({
-		url: "/market/detail",
-		params: {
-			market,
+	const apiSecret = this.apiSecret;
+	const params = {
+		market,
+	};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
+		url: "/market/detail",
+		params,
 	});
 };
 
@@ -51,17 +79,26 @@ module.exports.acquireSingleMarketInfo = function (market) {
  * @function acquireMarketDepth
  * @param {String} market Market Name
  * @param {'0'|'0.1'|'0.01'|'0.001'|'0.0001'|'0.00001'|'0.000001'|'0.0000001'|'0.00000001'} merge Depth Sequence Merge
- * @param {5|10|20|50} [limit=20]
+ * @param {Object} options Optional Parameters
+ * @param {5|10|20|50} [options.limit=20]
  * @returns {Promise<MarketDepthResult>} Promise object represents the result of the request
  */
-module.exports.acquireMarketDepth = function (market, merge, limit = 20) {
-	return axios({
-		url: "/market/depth",
-		params: {
-			market,
-			merge,
-			limit,
+module.exports.acquireMarketDepth = function (market, merge, { limit = 20 }) {
+	const apiSecret = this.apiSecret;
+	const params = {
+		market,
+		merge,
+		limit,
+	};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
+		url: "/market/depth",
+		params,
 	});
 };
 
@@ -71,12 +108,25 @@ module.exports.acquireMarketDepth = function (market, merge, limit = 20) {
  * @function acquireMarketDepth
  * @description Get the latest transaction data of a single market, applicable to spot and margin markets
  * @param {String} market Market Name
- * @param {Number} last_id Transaction ID, 0 means get from the latest record
- * @param {Number} [limit=100] ( Max. 1000 )
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.last_id=0] Transaction ID, 0 means get from the latest record
+ * @param {Number} [options.limit=100] ( Max. 1000 )
  * @returns {Promise<TransactionDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireLatestTransactionData = function (market, last_id, limit = 100) {
-	return axios({
+module.exports.acquireLatestTransactionData = function (market, { last_id = 0, limit = 100 }) {
+	const apiSecret = this.apiSecret;
+	const params = {
+		market,
+		last_id,
+		limit,
+	};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/market/deals",
 		params: {
 			market,
@@ -93,17 +143,26 @@ module.exports.acquireLatestTransactionData = function (market, last_id, limit =
  * @description Get k-line data of a single market, applicable to spot and margin markets
  * @param {String} market Market Name
  * @param {"1min"|"3min"|"5min"|"15min"|"30min"|"1hour"|"4hour"|"6hour"|"1day"|"3day"|"1week"} type Timeframe
- * @param {Number} [limit=100] ( Max. 1000 )
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.limit=100] ( Max. 1000 )
  * @returns {Promise<KlineDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireKlineData = function (market, type, limit = 100) {
-	return axios({
-		url: "/market/kline",
-		params: {
-			market,
-			type,
-			limit,
+module.exports.acquireKlineData = function (market, type, { limit = 100 }) {
+	const apiSecret = this.apiSecret;
+	const params = {
+		market,
+		type,
+		limit,
+	};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
+		url: "/market/kline",
+		params,
 	});
 };
 
@@ -115,11 +174,19 @@ module.exports.acquireKlineData = function (market, type, limit = 100) {
  * @returns {Promise<SingleMarketStatisticsResult>} Promise object represents the result of the request
  */
 module.exports.acquireSingleMarketStatistics = function (market) {
-	return axios({
-		url: "/market/ticker",
-		params: {
-			market,
+	const apiSecret = this.apiSecret;
+	const params = {
+		market,
+	};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
+		url: "/market/ticker",
+		params,
 	});
 };
 
@@ -130,8 +197,17 @@ module.exports.acquireSingleMarketStatistics = function (market) {
  * @returns {Promise<AllMarketStatisticsResults>} Promise object represents the result of the request
  */
 module.exports.acquireAllMarketStatistics = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/market/ticker/all",
+		params,
 	});
 };
 
@@ -142,8 +218,17 @@ module.exports.acquireAllMarketStatistics = function () {
  * @returns {Promise<CurrencyRateResults>} Promise object represents the result of the request
  */
 module.exports.acquireCurrencyRate = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/common/currency/rate",
+		params,
 	});
 };
 
@@ -155,11 +240,17 @@ module.exports.acquireCurrencyRate = function () {
  * @returns {Promise<AssetAllocationResults>} Promise object represents the result of the request
  */
 module.exports.acquireAssetAllocation = function (coin_type) {
-	return axios({
-		url: "/common/asset/config",
-		params: {
-			coin_type,
+	const apiSecret = this.apiSecret;
+	const params = { coin_type };
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
+		url: "/common/asset/config",
+		params,
 	});
 };
 
@@ -170,8 +261,17 @@ module.exports.acquireAssetAllocation = function (coin_type) {
  * @returns {Promise<AMMMarketResults>} Promise object represents the result of the request
  */
 module.exports.acquireAMMMarketList = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/amm/market",
+		params,
 	});
 };
 
@@ -182,7 +282,16 @@ module.exports.acquireAMMMarketList = function () {
  * @returns {Promise<MarginMarketResults>} Promise object represents the result of the request
  */
 module.exports.acquireMarginMarketList = function () {
-	return axios({
+	const apiSecret = this.apiSecret;
+	const params = {};
+
+	return executeRequest({
+		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/market",
+		params,
 	});
 };

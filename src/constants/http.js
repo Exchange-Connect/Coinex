@@ -7,6 +7,7 @@ module.exports.BASE_URLS = {
 	FUTURES: "https://api.coinex.com/perpetual/v1",
 };
 
+
 /**
  * Enum for Http Method Types.
  * @readonly
@@ -25,7 +26,6 @@ module.exports.METHOD_TYPE = {
 };
 
 const {
-
 	//Invalid Errors
 	// InvalidError, Base
 	InvalidArgumentError,
@@ -48,7 +48,6 @@ const {
 	MarketDoesNotExistError,
 	PositionDoesNotExitsError,
 	AccessIDDoesNotExistError,
-
 } = require("@errors/index");
 
 /**
@@ -123,7 +122,7 @@ module.exports.RESPONSE_CODES = {
 	213: {
 		message: "Requests submitted too frequently",
 		description: "Requests submitted too frequently",
-	},//RequestTooFrequentlyOnAPIError
+	}, //RequestTooFrequentlyOnAPIError
 	227: {
 		message: "The timestamp is wrong, the timestamp must be within ±60s of the server time",
 		description: "The timestamp is wrong, the timestamp must be within ±60s of the server time",
@@ -188,7 +187,7 @@ module.exports.RESPONSE_CODES = {
 	3107: {
 		message: "balance update repeate",
 		description: "Repeated balance update",
-	},// UnavailableBalanceDueToRepeatingUpdateError
+	}, // UnavailableBalanceDueToRepeatingUpdateError
 	3108: {
 		message: "amount exceed limit",
 		description: "The position amount exceeds the upper limit",
@@ -393,7 +392,7 @@ module.exports.RESPONSE_CODES = {
 	4016: {
 		message: "read only",
 		description: "Readable only",
-	},//ReadonlyResourceOnAPIError
+	}, //ReadonlyResourceOnAPIError
 };
 
 /**

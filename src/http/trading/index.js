@@ -5,54 +5,55 @@
  */
 
 const axios = require("axios").default;
-const { METHOD_TYPE } = require("@root/src/constants/index");
+const { METHOD_TYPE } = require("@constants/index");
+const { signParams } = require("@utils/index");
 
 /**
  * [Submit Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade001_limit_order}
  * @async
  * @function submitLimitOrder
- * @param {String} access_id Key ID
+ * @param {String} amount Order amount, the minimum order amount is determined by the market
  * @param {String} market Market name
  * @param {"sell"|"buy"} type Operation (sell: ask order, buy: bid order)
- * @param {String} amount Order amount, the minimum order amount is determined by the market
  * @param {String} price Order price, accurate to 8 decimals
  * @param {String} [source_id] User-defined number and return
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {String} [client_id] client_id is the custom ID of the order.Currently it only supports uppercase and lowercase letters, numbers, hyphens and underscores, and within 32 bytes limit.
  * @param {"true"|"false"} [hide] Whether to hide the submission (true: hidden, false: not hidden)
  * @param {"NORMAL"|"IOC"|"FOK"|"MAKER_ONLY"} [option] Order strategy (default is NORMAL) (Normal: NORMAL, Immediate or Cancel: IOC, Fill or Kill: FOK, Maker Only: MAKER_ONLY)
+ * @param {String} [access_id] Key ID
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<SubmitLimitOrderResult>} Promise object represents the result of the request
  */
 module.exports.submitLimitOrder = function (
-	access_id,
+	amount,
 	market,
 	type,
-	amount,
 	price,
-	source_id,
-	account_id,
-	client_id,
-	hide,
-	option,
-	tonce = Date.now()
+	{ source_id, account_id, client_id, hide, option, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		amount,
+		market,
+		type,
+		price,
+		source_id,
+		account_id,
+		client_id,
+		hide,
+		option,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/limit",
-		params: {
-			access_id,
-			market,
-			type,
-			amount,
-			price,
-			source_id,
-			account_id,
-			client_id,
-			hide,
-			option,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/limit",
+		params,
 	});
 };
 
@@ -60,24 +61,38 @@ module.exports.submitLimitOrder = function (
  * [Submit Limit Orders In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade002_batch_limit_orders}
  * @async
  * @function submitLimitOrdersInBatch
- * @param {String} access_id access_id
- * @param {String} batch_orders Multi-order json format string //TODO: Needs to be described
+ * @param {Object[]} batch_orders Multi-order json format string
+ * @param {"sell"|"buy"} batch_orders[].type Order Direction (sell: Sell Order, buy: Buy Order)
+ * @param {String} batch_orders[].amount Order amount, the min. order amount is determined by the market
+ * @param {String} batch_orders[].price Order price, 8-digit decimal
+ * @param {String} [batch_orders[].source_id] User-Defined ID
  * @param {String} market Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitLimitOrdersInBatch = function (access_id, batch_orders, market, account_id, tonce = Date.now()) {
+module.exports.submitLimitOrdersInBatch = function (
+	batch_orders,
+	market,
+	{ account_id, access_id, tonce = Date.now() }
+) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		batch_orders,
+		market,
+		account_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/limit/batch",
-		params: {
-			access_id,
-			batch_orders,
-			market,
-			account_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/limit/batch",
+		params,
 	});
 };
 
@@ -85,36 +100,39 @@ module.exports.submitLimitOrdersInBatch = function (access_id, batch_orders, mar
  * [Submit Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade003_market_order}
  * @async
  * @function submitMarketOrder
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {"sell"|"buy"} type (sell: ask order, buy: bid order)
  * @param {String} amount Order amount, the minimum order amount is determined by the market
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {String} [client_id] User-defined order id
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitMarketOrder = function (
-	access_id,
 	market,
 	type,
 	amount,
-	account_id,
-	client_id,
-	tonce = Date.now()
+	{ account_id, client_id, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		type,
+		amount,
+		account_id,
+		client_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/market",
-		params: {
-			access_id,
-			market,
-			type,
-			amount,
-			account_id,
-			client_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/market",
+		params,
 	});
 };
 
@@ -122,42 +140,44 @@ module.exports.submitMarketOrder = function (
  * [Submit IOC Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade004_IOC_order}
  * @async
  * @function submitIOCOrder
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {"sell"|"buy"} type (sell: ask order, buy: bid order)
  * @param {String} amount Order amount, the minimum order amount is determined by the market
  * @param {String} price Order price, determined by the market
  * @param {String} [source_id] User-defined id
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
- * @param {String} [client_id] User-defined order id
+ * @param {String} [client_id] User-defined Order ID
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitIOCOrder = function (
-	access_id,
 	market,
 	type,
 	amount,
 	price,
-	source_id,
-	account_id,
-	client_id,
-	tonce = Date.now()
+	{ source_id, account_id, client_id, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		type,
+		amount,
+		price,
+		source_id,
+		account_id,
+		client_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/ioc",
-		params: {
-			access_id,
-			market,
-			type,
-			amount,
-			price,
-			source_id,
-			account_id,
-			client_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/ioc",
+		params,
 	});
 };
 
@@ -165,7 +185,6 @@ module.exports.submitIOCOrder = function (
  * [Submit Stop-Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade005_stop_limit_order}
  * @async
  * @function submitStopLimitOrder
- * @param {String} access_id Key ID
  * @param {String} market Market name
  * @param {"sell"|"buy"} type Operation (sell: ask order, buy: bid order)
  * @param {String} amount Order amount, the minimum order amount is determined by the market
@@ -176,40 +195,41 @@ module.exports.submitIOCOrder = function (
  * @param {String} [client_id] client_id is the custom ID of the order.Currently it only supports uppercase and lowercase letters, numbers, hyphens and underscores, and within 32 bytes limit.
  * @param {"true"|"false"} [hide] Whether to hide the submission (true: hidden, false: not hidden)
  * @param {"NORMAL"|"IOC"|"FOK"|"MAKER_ONLY"} [option] Order strategy (default is NORMAL) (Normal: NORMAL, Immediate or Cancel: IOC, Fill or Kill: FOK, Maker Only: MAKER_ONLY)
+ * @param {String} [access_id] Key ID
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopLimitOrder = function (
-	access_id,
 	market,
 	type,
 	amount,
 	price,
 	stop_price,
-	source_id,
-	account_id,
-	client_id,
-	hide,
-	option,
-	tonce = Date.now()
+	{ source_id, account_id, client_id, hide, option, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		type,
+		amount,
+		price,
+		stop_price,
+		source_id,
+		account_id,
+		client_id,
+		hide,
+		option,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/stop/limit",
-		params: {
-			access_id,
-			market,
-			type,
-			amount,
-			price,
-			stop_price,
-			source_id,
-			account_id,
-			client_id,
-			hide,
-			option,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/limit",
+		params,
 	});
 };
 
@@ -217,7 +237,6 @@ module.exports.submitStopLimitOrder = function (
  * [Submit Stop-Market Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade006_stop_market_order}
  * @async
  * @function submitStopMarketOrder
- * @param {String} access_id Key ID
  * @param {String} market Market name
  * @param {"sell"|"buy"} type Operation (sell: ask order, buy: bid order)
  * @param {String} amount Order amount, the minimum order amount is determined by the market
@@ -227,38 +246,39 @@ module.exports.submitStopLimitOrder = function (
  * @param {String} [client_id] client_id is the custom ID of the order.Currently it only supports uppercase and lowercase letters, numbers, hyphens and underscores, and within 32 bytes limit.
  * @param {"true"|"false"} [hide] Whether to hide the submission (true: hidden, false: not hidden)
  * @param {"NORMAL"|"IOC"|"FOK"|"MAKER_ONLY"} [option] Order strategy (default is NORMAL) (Normal: NORMAL, Immediate or Cancel: IOC, Fill or Kill: FOK, Maker Only: MAKER_ONLY)
+ * @param {String} [access_id] Key ID
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopMarketOrder = function (
-	access_id,
 	market,
 	type,
 	amount,
 	stop_price,
-	source_id,
-	account_id,
-	client_id,
-	hide,
-	option,
-	tonce = Date.now()
+	{ source_id, account_id, client_id, hide, option, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		type,
+		amount,
+		stop_price,
+		source_id,
+		account_id,
+		client_id,
+		hide,
+		option,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/stop/market",
-		params: {
-			access_id,
-			market,
-			type,
-			amount,
-			stop_price,
-			source_id,
-			account_id,
-			client_id,
-			hide,
-			option,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/market",
+		params,
 	});
 };
 
@@ -266,22 +286,28 @@ module.exports.submitStopMarketOrder = function (
  * [Inquire Order Status]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade007_order_status}
  * @async
  * @function inquireOrderStatus
- * @param {String} access_id access_id
  * @param {String} id Order No.
  * @param {String} market Market name
+ * @param {String} [access_id] access_id
  * @param {String} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireOrderStatus = function (access_id, id, market, tonce = Date.now()) {
+module.exports.inquireOrderStatus = function (id, market, { access_id, tonce = Date.now() }) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		id,
+		market,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/status",
-		params: {
-			access_id,
-			id,
-			market,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/status",
+		params,
 	});
 };
 
@@ -289,22 +315,28 @@ module.exports.inquireOrderStatus = function (access_id, id, market, tonce = Dat
  * [Inquire Order Status In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade008_batch_orders_status}
  * @async
  * @function inquireOrderStatusInBatch
- * @param {String} access_id access_id
  * @param {String} batch_ids Order IDs separated by comma, such as : “1,2,3”
  * @param {String} market Market name
+ * @param {String} [access_id] access_id
  * @param {String} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireOrderStatusInBatch = function (access_id, batch_ids, market, tonce = Date.now()) {
+module.exports.inquireOrderStatusInBatch = function (batch_ids, market, access_id, tonce = Date.now()) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		batch_ids,
+		market,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/status/batch",
-		params: {
-			access_id,
-			batch_ids,
-			market,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/status/batch",
+		params,
 	});
 };
 
@@ -312,33 +344,35 @@ module.exports.inquireOrderStatusInBatch = function (access_id, batch_ids, marke
  * [Inquire Executed Order Detail]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade009_order_deals}
  * @async
  * @function inquireExecutedOrderDetail
- * @param {String} access_id access_id
  * @param {String} id Order No.
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.inquireExecutedOrderDetail = function (
-	access_id,
 	id,
-	account_id,
-	page = 1,
-	limit = 10,
-	tonce = Date.now()
+	{ account_id, page = 1, limit = 10, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		id,
+		account_id,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/deals",
-		params: {
-			access_id,
-			id,
-			account_id,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/deals",
+		params,
 	});
 };
 
@@ -346,33 +380,39 @@ module.exports.inquireExecutedOrderDetail = function (
  * [Inquire Stop Order History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade010_stop_finished_order}
  * @async
  * @function inquireStopOrderHistory
- * @param {String} access_id access_id
  * @param {String} [market] Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number of entries per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireStopOrderHistory = function (
-	access_id,
+module.exports.inquireStopOrderHistory = function ({
 	market,
 	account_id,
 	page = 1,
 	limit = 10,
-	tonce = Date.now()
-) {
+	access_id,
+	tonce = Date.now(),
+} = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/stop/finished",
-		params: {
-			access_id,
-			market,
-			account_id,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/finished",
+		params,
 	});
 };
 
@@ -380,39 +420,39 @@ module.exports.inquireStopOrderHistory = function (
  * [Inquire Unexecuted Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade011_pending_order}
  * @async
  * @function inquireUnexecutedOrder
- * @param {String} access_id access_id
+ * @param {"sell"|"buy"} type Operation (sell: ask order, buy: bid order)
  * @param {String} [market] Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
- * @param {"sell"|"buy"} type Operation (sell: ask order, buy: bid order)
  * @param {String} [client_id] User-defined id
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number of entries per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.inquireUnexecutedOrder = function (
-	access_id,
-	market,
-	account_id,
 	type,
-	client_id,
-	page = 1,
-	limit = 10,
-	tonce = Date.now()
+	{ market, account_id, client_id, page = 1, limit = 10, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		type,
+		market,
+		account_id,
+		client_id,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/pending",
-		params: {
-			access_id,
-			market,
-			account_id,
-			type,
-			client_id,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/pending",
+		params,
 	});
 };
 
@@ -420,7 +460,6 @@ module.exports.inquireUnexecutedOrder = function (
  * [Inquire Order History]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade012_finished_order}
  * @async
  * @function inquireOrderHistory
- * @param {String} access_id access_id
  * @param {Number} start_time Start time
  * @param {Number} end_time End time
  * @param {String} [market] Market name
@@ -430,38 +469,37 @@ module.exports.inquireUnexecutedOrder = function (
  * @param {Number} [stop_order_id] Stop order ID
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number of entries per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.inquireOrderHistory = function (
-	access_id,
 	start_time,
 	end_time,
-	market,
-	account_id,
-	type,
-	client_id,
-	stop_order_id,
-	page = 1,
-	limit = 10,
-	tonce = Date.now()
+	{ market, account_id, type, client_id, stop_order_id, page = 1, limit = 10, access_id, tonce = Date.now() } = {}
 ) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		start_time,
+		end_time,
+		market,
+		account_id,
+		type,
+		client_id,
+		stop_order_id,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/finished",
-		params: {
-			access_id,
-			start_time,
-			end_time,
-			market,
-			account_id,
-			type,
-			client_id,
-			stop_order_id,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/finished",
+		params,
 	});
 };
 
@@ -469,36 +507,42 @@ module.exports.inquireOrderHistory = function (
  * [Inquire Unexecuted Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade013_stop_pending_order}
  * @async
  * @function inquireUnexecutedStopOrder
- * @param {String} access_id access_id
  * @param {String} [market] Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {"sell"|"buy"} [type] Operation (sell: ask order, buy: bid order)
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number of entries per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUnexecutedStopOrder = function (
-	access_id,
+module.exports.inquireUnexecutedStopOrder = function ({
 	market,
 	account_id,
 	type,
 	page = 1,
 	limit = 10,
-	tonce = Date.now()
-) {
+	access_id,
+	tonce = Date.now(),
+} = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		type,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/stop/pending",
-		params: {
-			access_id,
-			market,
-			account_id,
-			type,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/pending",
+		params,
 	});
 };
 
@@ -506,7 +550,6 @@ module.exports.inquireUnexecutedStopOrder = function (
  * [Inquire User Transaction Records]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade014_user_deals}
  * @async
  * @function inquireUserTransactionRecords
- * @param {String} access_id access_id
  * @param {String} [market] Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {"sell"|"buy"} [type] Operation (sell: ask order, buy: bid order)
@@ -514,11 +557,11 @@ module.exports.inquireUnexecutedStopOrder = function (
  * @param {Number} [end_time] End Time
  * @param {Number} [page=1] Page number, starting from 1
  * @param {Number} [limit=10] Number per page, Max. 100
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.inquireUserTransactionRecords = function (
-	access_id,
+module.exports.inquireUserTransactionRecords = function ({
 	market,
 	account_id,
 	type,
@@ -526,22 +569,29 @@ module.exports.inquireUserTransactionRecords = function (
 	end_time,
 	page = 1,
 	limit = 10,
-	tonce = Date.now()
-) {
+	access_id,
+	tonce = Date.now(),
+} = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		type,
+		start_time,
+		end_time,
+		page,
+		limit,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.GET,
-		url: "/order/user/deals",
-		params: {
-			access_id,
-			market,
-			account_id,
-			type,
-			start_time,
-			end_time,
-			page,
-			limit,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/user/deals",
+		params,
 	});
 };
 
@@ -549,26 +599,32 @@ module.exports.inquireUserTransactionRecords = function (
  * [Cancel Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade015_cancel_order}
  * @async
  * @function cancelOrder
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {Number} [id] Order ID
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {"sell"|"buy"} [type] Operation (sell: ask order, buy: bid order)
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrder = function (access_id, market, id, account_id, type, tonce = Date.now()) {
+module.exports.cancelOrder = function (market, { id, account_id, type, access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		id,
+		account_id,
+		type,
+		params,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url: "/order/pending",
-		params: {
-			access_id,
-			market,
-			id,
-			account_id,
-			type,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/pending",
 	});
 };
 
@@ -576,24 +632,30 @@ module.exports.cancelOrder = function (access_id, market, id, account_id, type, 
  * [Cancel Orders In Batch]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade016_batch_cancel_order}
  * @async
  * @function cancelOrdersInBatch
- * @param {String} access_id access_id
  * @param {String} batch_ids Order IDs separated by comma, such as : “1,2,3”
  * @param {String} market Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrdersInBatch = function (access_id, batch_ids, market, account_id, tonce = Date.now()) {
+module.exports.cancelOrdersInBatch = function (batch_ids, market, { account_id, access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		batch_ids,
+		market,
+		account_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url: "/order/pending/batch",
-		params: {
-			access_id,
-			batch_ids,
-			market,
-			account_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/pending/batch",
+		params,
 	});
 };
 
@@ -601,22 +663,28 @@ module.exports.cancelOrdersInBatch = function (access_id, batch_ids, market, acc
  * [Cancel All Orders]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade017_cancel_all_orders}
  * @async
  * @function cancelAllOrders
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllOrders = function (access_id, market, account_id, tonce = Date.now()) {
+module.exports.cancelAllOrders = function (market, account_id, { access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url: "/order/pending",
-		params: {
-			access_id,
-			market,
-			account_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/pending",
+		params,
 	});
 };
 
@@ -624,24 +692,30 @@ module.exports.cancelAllOrders = function (access_id, market, account_id, tonce 
  * [Cancel Unexecuted Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade018_cancle_stop_pending_order}
  * @async
  * @function cancelUnexecutedStopOrder
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
  * @param {"sell"|"buy"} [type] Operation (sell: ask order, buy: bid order)
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelUnexecutedStopOrder = function (access_id, market, account_id, type, tonce = Date.now()) {
+module.exports.cancelUnexecutedStopOrder = function (market, { account_id, type, access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		type,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url: "/order/stop/pending/<int:order_id>",
-		params: {
-			access_id,
-			market,
-			account_id,
-			type,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/pending/<int:order_id>",
+		params,
 	});
 };
 
@@ -649,22 +723,28 @@ module.exports.cancelUnexecutedStopOrder = function (access_id, market, account_
  * [Cancel All Unexecuted Stop Orders]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade019_cancel_all_stop_pending_order}
  * @async
  * @function cancelAllUnexecutedStopOrders
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {Number} [account_id] Spot account ID: 0, Margin account ID: See Acquire Market Info in Margin Account
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllUnexecutedStopOrders = function (access_id, market, account_id, tonce = Date.now()) {
+module.exports.cancelAllUnexecutedStopOrders = function (market, { account_id, access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		account_id,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.DELETE,
-		url: "/order/stop/pending",
-		params: {
-			access_id,
-			market,
-			account_id,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/pending",
+		params,
 	});
 };
 
@@ -675,9 +755,16 @@ module.exports.cancelAllUnexecutedStopOrders = function (access_id, market, acco
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireUserTradingFeeRate = function () {
+	const { apiSecret } = this;
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
 		url: "/order/user/trade/fee",
+		params,
 	});
 };
 
@@ -688,9 +775,16 @@ module.exports.acquireUserTradingFeeRate = function () {
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.acquireMarketTransactionInfo = function () {
+	const { apiSecret } = this;
+	const params = {};
+
 	return axios({
 		method: METHOD_TYPE.GET,
+		headers: {
+			authorization: signParams(apiSecret, params),
+		},
 		url: "/order/market/trade/info",
+		params,
 	});
 };
 
@@ -698,26 +792,32 @@ module.exports.acquireMarketTransactionInfo = function () {
  * [Modify a normal order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade022_modify_order}
  * @async
  * @function modifyanormalorder
- * @param {String} access_id access_id
  * @param {String} market Market name
  * @param {String} id Order No.
  * @param {String} [amount] Order amount, the minimum order amount is determined by the market
  * @param {String} [price] Order price, determined by the market
+ * @param {String} [access_id] access_id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.modifyANormalOrder = function (access_id, market, id, amount, price, tonce = Date.now()) {
+module.exports.modifyANormalOrder = function (market, id, { amount, price, access_id, tonce = Date.now() } = {}) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		id,
+		amount,
+		price,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/modify",
-		params: {
-			access_id,
-			market,
-			id,
-			amount,
-			price,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/modify",
+		params,
 	});
 };
 
@@ -725,27 +825,37 @@ module.exports.modifyANormalOrder = function (access_id, market, id, amount, pri
  * [Modify Stop Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade023_modify_stop_order}
  * @async
  * @function modifyStopOrder
- * @param {String} access_id Key Id
  * @param {String} market Market name
  * @param {String} id Order No.
  * @param {String} [amount] Order amount, the minimum order amount is determined by the market
  * @param {String} [price] Order price, accurate to 8 decimals
  * @param {String} [stop_price] Stop price, accurate to 8 decimals
+ * @param {String} [access_id] Key Id
  * @param {Number} [tonce=Date.now()] Millisecond timestamp, the acceptable error range from server time is ±60s
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.modifyStopOrder = function (access_id, market, id, amount, price, stop_price, tonce = Date.now()) {
+module.exports.modifyStopOrder = function (
+	market,
+	id,
+	{ amount, price, stop_price, access_id, tonce = Date.now() } = {}
+) {
+	const { apiKey, apiSecret } = this;
+	const params = {
+		market,
+		id,
+		amount,
+		price,
+		stop_price,
+		access_id: access_id ? access_id : apiKey,
+		tonce,
+	};
+
 	return axios({
 		method: METHOD_TYPE.POST,
-		url: "/order/stop/modify",
-		params: {
-			access_id,
-			market,
-			id,
-			amount,
-			price,
-			stop_price,
-			tonce,
+		headers: {
+			authorization: signParams(apiSecret, params),
 		},
+		url: "/order/stop/modify",
+		params,
 	});
 };

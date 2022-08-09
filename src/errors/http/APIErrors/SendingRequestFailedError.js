@@ -1,1 +1,2 @@
-module.exports = class SendingRequestFailedError extends Error {};
+const APIError = require("./APIError");
+module.exports = class SendingRequestFailedError extends APIError {};

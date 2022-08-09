@@ -32,8 +32,10 @@
   },
   "_moduleAliases": {
     "@root": ".",
-    "@constants": "./constants",
-    "@errors": "./errors"
+    "@constants": "./src/constants",
+    "@errors": "./src/errors",
+    "@libs": "./src/libs",
+    "@utils": "./src/utils"
   },
   "devDependencies": {
     "docdash": "^1.2.0",

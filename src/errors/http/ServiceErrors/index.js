@@ -1,5 +1,5 @@
 module.exports = {
-	ServiceError: require("./InvalidArgumentError"),
+	ServiceError: require("./ServiceError"),
 	InternalServiceError: require("./InternalServiceError"),
 	ServiceTimeoutError: require("./ServiceTimeoutError"),
 	ServiceUnavailableError: require("./ServiceUnavailableError"),
