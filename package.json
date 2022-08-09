@@ -1,7 +1,7 @@
 {
   "name": "@exchange-connect/coinex",
   "private": false,
-  "version": "0.6.12",
+  "version": "0.7.0",
   "type": "commonjs",
   "description": "Coinex ( https://www.coinex.com ) SDK",
   "main": "./src/index.js",
