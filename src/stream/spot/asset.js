@@ -5,7 +5,6 @@
 
 const { connections } = require("../connections");
 const methodBaseName = "asset";
-const methodId = 15;
 
 /**
  * Subscribe to Assets Realtime Data
@@ -15,15 +14,14 @@ const methodId = 15;
  * @param {Array<String>} markets Markets Name
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (markets, onData) {
+module.exports.subscribe = async function (markets, onData) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.subscribe`,
 		onUpdateMethod = `${methodBaseName}.update`,
-		params = markets,
-		id = methodId;
-	client.send({ method, params, id }, onUpdateMethod, onData);
+		params = markets;
+	return await client.send({ method, params }, onUpdateMethod, onData);
 };
 
 /**
@@ -32,14 +30,13 @@ module.exports.subscribe = function (markets, onData) {
  * @function unsubscribe
  * @memberof Streams.spot.assets
  */
-module.exports.unsubscribe = function () {
+module.exports.unsubscribe = async function () {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.unsubscribe`,
-		params = [],
-		id = methodId;
-	client.send({ method, params, id });
+		params = [];
+	return await client.send({ method, params });
 };
 
 /**
@@ -50,14 +47,13 @@ module.exports.unsubscribe = function () {
  * @param {Array<String>} markets Markets Name
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = function (markets) {
+module.exports.query = async function (markets) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.query`,
-		params = markets,
-		id = methodId;
-	client.send({ method, params, id });
+		params = markets;
+	return await client.send({ method, params });
 };
 
 /**
@@ -67,14 +63,13 @@ module.exports.query = function (markets) {
  * @memberof Streams.spot.assets
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.queryAll = function () {
+module.exports.queryAll = async function () {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.account_query_all`,
-		params = [],
-		id = methodId;
-	client.send({ method, params, id });
+		params = [];
+	return await client.send({ method, params });
 };
 
 /**
@@ -86,12 +81,11 @@ module.exports.queryAll = function () {
  * @param {Array<String>} markets Markets Name
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.queryAccount = function (account, markets) {
+module.exports.queryAccount = async function (account, markets) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.query_account`,
-		params = [account, markets],
-		id = methodId;
-	client.send({ method, params, id });
+		params = [account, markets];
+	return await client.send({ method, params });
 };

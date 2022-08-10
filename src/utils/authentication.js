@@ -9,9 +9,19 @@ function sortObjectAlphabetically(object) {
 		}, {});
 }
 
-module.exports.signParams = function (secret, params) {
+module.exports.signParams = function (secret, params, type = "md5") {
+	if (type == "sha256") {
+		params.timestamp = params.tonce;
+		delete params.tonce;
+	}
+
 	const queryStringOfParams =
 		new URLSearchParams(sortObjectAlphabetically(params)).toString() + `&secret_key=${secret}`;
 
-	return crypto.createHash("md5").update(queryStringOfParams).digest("hex").toUpperCase();
+	let hash = crypto.createHash(type).update(queryStringOfParams).digest("hex");
+
+	if (type == "md5") hash = hash.toUpperCase();
+	else if (type == "sha256") hash = hash.toLowerCase();
+
+	return hash;
 };
