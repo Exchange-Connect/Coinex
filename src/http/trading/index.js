@@ -1,12 +1,11 @@
 /**
  * @fileOverview Trading API Endpoints
  * @module Trading
- * @requires axios
  */
 
-const axios = require("axios").default;
-const { METHOD_TYPE } = require("@constants/index");
-const { signParams } = require("@utils/index");
+const { BASE_URLS, METHOD_TYPE } = require("../../constants");
+const { executeRequest } = require("../../libs");
+const { signParams } = require("../../utils");
 
 /**
  * [Submit Limit Order]{@link https://viabtc.github.io/coinex_api_en_doc/spot/#docsspot003_trade001_limit_order}
@@ -47,8 +46,9 @@ module.exports.submitLimitOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -86,8 +86,9 @@ module.exports.submitLimitOrdersInBatch = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -126,8 +127,9 @@ module.exports.submitMarketOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -171,8 +173,9 @@ module.exports.submitIOCOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -223,8 +226,9 @@ module.exports.submitStopLimitOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -272,8 +276,9 @@ module.exports.submitStopMarketOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -301,8 +306,9 @@ module.exports.inquireOrderStatus = function (id, market, { access_id, tonce = D
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -330,8 +336,9 @@ module.exports.inquireOrderStatusInBatch = function (batch_ids, market, access_i
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -366,8 +373,9 @@ module.exports.inquireExecutedOrderDetail = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -406,8 +414,9 @@ module.exports.inquireStopOrderHistory = function ({
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -446,8 +455,9 @@ module.exports.inquireUnexecutedOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -493,8 +503,9 @@ module.exports.inquireOrderHistory = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -536,8 +547,9 @@ module.exports.inquireUnexecutedStopOrder = function ({
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -585,8 +597,9 @@ module.exports.inquireUserTransactionRecords = function ({
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -619,8 +632,9 @@ module.exports.cancelOrder = function (market, { id, account_id, type, access_id
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -649,8 +663,9 @@ module.exports.cancelOrdersInBatch = function (batch_ids, market, { account_id, 
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -678,8 +693,9 @@ module.exports.cancelAllOrders = function (market, account_id, { access_id, tonc
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -709,8 +725,9 @@ module.exports.cancelUnexecutedStopOrder = function (market, { account_id, type,
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -738,8 +755,9 @@ module.exports.cancelAllUnexecutedStopOrders = function (market, { account_id, a
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.DELETE,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -758,8 +776,9 @@ module.exports.acquireUserTradingFeeRate = function () {
 	const { apiSecret } = this;
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -778,8 +797,9 @@ module.exports.acquireMarketTransactionInfo = function () {
 	const { apiSecret } = this;
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -811,8 +831,9 @@ module.exports.modifyANormalOrder = function (market, id, { amount, price, acces
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
@@ -850,8 +871,9 @@ module.exports.modifyStopOrder = function (
 		tonce,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.GENERAL,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},

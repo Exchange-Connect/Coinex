@@ -1,12 +1,11 @@
 /**
  * @fileOverview Futures API Endpoints
  * @module Futures
- * @requires axios
  */
 
-const axios = require("axios").default;
-const { METHOD_TYPE } = require("@root/src/constants/index");
-const { signParams } = require("@utils/index");
+const { BASE_URLS, METHOD_TYPE } = require("../../constants");
+const { executeRequest } = require("../../libs");
+const { signParams } = require("../../utils");
 
 /**
  * [Ping]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http004_ping}
@@ -17,8 +16,9 @@ const { signParams } = require("@utils/index");
 module.exports.ping = function () {
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		// headers: {
 		// 	authorization: signParams(apiSecret, params),
 		// },
@@ -36,8 +36,9 @@ module.exports.ping = function () {
 module.exports.systemTime = function () {
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/time",
 		params,
 	});
@@ -52,8 +53,9 @@ module.exports.systemTime = function () {
 module.exports.marketList = function () {
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/list",
 		params,
 	});
@@ -68,8 +70,9 @@ module.exports.marketList = function () {
 module.exports.positionLevel = function () {
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/limit_config",
 		params,
 	});
@@ -85,8 +88,9 @@ module.exports.positionLevel = function () {
 module.exports.marketStatus = function (market) {
 	const params = { market };
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "https://api.coinex.com/perpetual/v1/market/ticker",
 		params,
 	});
@@ -101,8 +105,9 @@ module.exports.marketStatus = function (market) {
 module.exports.allMarketStatus = function () {
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/ticker/all",
 		params,
 	});
@@ -124,8 +129,9 @@ module.exports.marketDepth = function (market, merge, limit) {
 		limit,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/depth",
 		params,
 	});
@@ -148,8 +154,9 @@ module.exports.latestTransactionInTheMarket = function (market, { last_id, limit
 		limit,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/deals",
 		params,
 	});
@@ -171,8 +178,9 @@ module.exports.marketKLine = function (market, type, limit = 1000) {
 		limit,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/kline",
 		params,
 	});
@@ -201,8 +209,9 @@ module.exports.userTransaction = function (market, side, offset, limit, { start_
 		end_time,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/user_deals",
 		params,
 	});
@@ -230,8 +239,9 @@ module.exports.adjustLeverage = function (market, leverage, position_type, times
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/adjust_leverage",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -263,8 +273,9 @@ module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, s
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/market/position_expect",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -284,8 +295,9 @@ module.exports.assetQuery = function () {
 	const { apiKey, apiSecret } = this;
 	const params = {};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/asset/query",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -321,8 +333,9 @@ module.exports.submitLimitOrder = function (
 	const { apiKey, apiSecret } = this;
 	const params = { market, side, amount, price, timestamp, effect_type, option, client_id, windowtime };
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_limit",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -356,7 +369,7 @@ module.exports.submitMarketOrder = function (market, side, amount, timestamp, { 
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_market",
 		headers: {
@@ -410,8 +423,9 @@ module.exports.submitStopLimitOrder = function (
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_stop_limit",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -458,8 +472,9 @@ module.exports.submitStopMarketOrder = function (
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_stop_market",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -489,8 +504,9 @@ module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, { wi
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_batch",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -525,8 +541,9 @@ module.exports.cancelOrder = function (market, order_id, timestamp, { windowtime
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -556,8 +573,9 @@ module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) 
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_all",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -587,8 +605,9 @@ module.exports.cancelStopOrder = function (market, order_id, timestamp, { window
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_stop",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -618,8 +637,9 @@ module.exports.cancelAllStopOrders = function (market, timestamp, { side, window
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.POST,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_stop_all",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -653,8 +673,9 @@ module.exports.queryPendingOrders = function (market, side, offset, timestamp, {
 		limit,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/pending",
 		headers: {
 			Authorization: signParams(apiSecret, params),
@@ -684,8 +705,9 @@ module.exports.orderStatus = function (market, order_id, timestamp, windowtime) 
 		windowtime,
 	};
 
-	return axios({
+	return executeRequest({
 		method: METHOD_TYPE.GET,
+		baseURL: BASE_URLS.FUTURES,
 		url: "/order/status",
 		headers: {
 			Authorization: signParams(apiSecret, params),

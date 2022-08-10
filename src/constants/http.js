@@ -7,7 +7,6 @@ module.exports.BASE_URLS = {
 	FUTURES: "https://api.coinex.com/perpetual/v1",
 };
 
-
 /**
  * Enum for Http Method Types.
  * @readonly
@@ -48,7 +47,7 @@ const {
 	MarketDoesNotExistError,
 	PositionDoesNotExitsError,
 	AccessIDDoesNotExistError,
-} = require("@errors/index");
+} = require("../errors");
 
 /**
  * Response Code Map.

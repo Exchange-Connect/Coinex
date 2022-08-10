@@ -1,11 +1,10 @@
 /**
  * @fileOverview Market API Endpoints
  * @module Market
- * @requires axios
  */
-const { BASE_URLS, METHOD_TYPE } = require("@root/src/constants/index");
-const { executeRequest } = require("@libs/index");
-const { signParams } = require("@utils/index");
+const { BASE_URLS, METHOD_TYPE } = require("../../constants");
+const { executeRequest } = require("../../libs");
+const { signParams } = require("../../utils");
 
 /**
  * Acquire All Market List

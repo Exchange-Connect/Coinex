@@ -1,5 +1,3 @@
-require("module-alias/register");
-
 const { initialize } = require("./stream/connections");
 
 module.exports = class Coinex {

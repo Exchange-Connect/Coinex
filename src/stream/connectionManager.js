@@ -1,5 +1,5 @@
 const WebSocketClient = require("ws");
-const { WEBSOCKET_CONNECTION_STATES } = require("@constants/index");
+const { WEBSOCKET_CONNECTION_STATES } = require("../constants");
 const { signParams } = require("../utils");
 
 class WebSocket {

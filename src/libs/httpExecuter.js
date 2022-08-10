@@ -1,6 +1,6 @@
 const axios = require("axios").default;
-const { SendingRequestFailedError, NoResponseFromServerError } = require("@errors/index");
-const { RESPONSE_CODES } = require("@constants/index");
+const { SendingRequestFailedError, NoResponseFromServerError } = require("../errors");
+const { RESPONSE_CODES } = require("../constants");
 
 module.exports.executeRequest = async function (options) {
 	let response;
