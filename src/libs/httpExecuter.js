@@ -29,9 +29,9 @@ module.exports.executeRequest = async function (options) {
 	}
 
 	if (response.data && response.data.code !== 0) {
-		console.log(RESPONSE_CODES[response.data.code]);
+		console.log(RESPONSE_CODES[response.data.code], options);
 		throw new RESPONSE_CODES[response.data.code].error();
 	}
-
+	console.log(response.data.data);
 	return response.data.data;
 };

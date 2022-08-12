@@ -19,9 +19,6 @@ module.exports.ping = function () {
 	return executeRequest({
 		method: METHOD_TYPE.GET,
 		baseURL: BASE_URLS.FUTURES,
-		// headers: {
-		// 	authorization: signParams(apiSecret, params),
-		// },
 		url: "/ping",
 		params,
 	});
@@ -197,9 +194,10 @@ module.exports.marketKLine = function (market, type, limit = 1000) {
  * @param {Object} options Optional Parameters
  * @param {Number} [options.start_time] Start
  * @param {Number} [options.end_time] End
+ * @param {Number} [options.timestamp=Date.now()] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.userTransaction = function (market, side, offset, limit, { start_time, end_time } = {}) {
+module.exports.userTransaction = function (market, side, offset, limit, { start_time, end_time, timestamp = Date.now() } = {}) {
 	const params = {
 		market,
 		side,
@@ -207,6 +205,7 @@ module.exports.userTransaction = function (market, side, offset, limit, { start_
 		limit,
 		start_time,
 		end_time,
+		timestamp
 	};
 
 	return executeRequest({
@@ -224,19 +223,19 @@ module.exports.userTransaction = function (market, side, offset, limit, { start_
  * @param {String} market Market name
  * @param {String} leverage Margin
  * @param {1|2} position_type Position Type (1 Isolated Margin, 2 Cross Margin)
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now()] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.adjustLeverage = function (market, leverage, position_type, timestamp, { windowtime } = {}) {
+module.exports.adjustLeverage = function (market, leverage, position_type, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		leverage,
 		position_type,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -244,8 +243,8 @@ module.exports.adjustLeverage = function (market, leverage, position_type, times
 		baseURL: BASE_URLS.FUTURES,
 		url: "/market/adjust_leverage",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -258,19 +257,19 @@ module.exports.adjustLeverage = function (market, leverage, position_type, times
  * @param {String} market Market name
  * @param {String} price Price
  * @param {1|2} side 1: sell 2: buy
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now()] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, side, timestamp, { windowtime } = {}) {
+module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, side, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		price,
 		side,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -278,8 +277,8 @@ module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, s
 		baseURL: BASE_URLS.FUTURES,
 		url: "/market/position_expect",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -289,20 +288,25 @@ module.exports.estimatedAmountOfPositionsToBeOpened = function (market, price, s
  * [Asset Query]{@link https://viabtc.github.io/coinex_api_en_doc/futures/#docsfutures001_http016_asset_query}
  * @async
  * @function assetQuery
+ * @param {Object} options Optional Parameters
+ * @param {Number} [options.timestamp=Date.now()]
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.assetQuery = function () {
+module.exports.assetQuery = function ({ timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
-	const params = {};
+	const params = {
+		timestamp,
+	};
 
 	return executeRequest({
 		method: METHOD_TYPE.GET,
 		baseURL: BASE_URLS.FUTURES,
 		url: "/asset/query",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
+		params,
 	});
 };
 
@@ -314,12 +318,12 @@ module.exports.assetQuery = function () {
  * @param {1|2} side Order type (1: short sell, 2: long buy)
  * @param {String} amount Amount
  * @param {String} price Price
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {1|2|3} [options.effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
  * @param {0|1|2|3} [options.option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
  * @param {String} [options.client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitLimitOrder = function (
@@ -327,8 +331,7 @@ module.exports.submitLimitOrder = function (
 	side,
 	amount,
 	price,
-	timestamp,
-	{ effect_type = 1, option = 0, client_id, windowtime } = {}
+	{ effect_type = 1, option = 0, client_id, windowtime, timestamp = Date.now() } = {}
 ) {
 	const { apiKey, apiSecret } = this;
 	const params = { market, side, amount, price, timestamp, effect_type, option, client_id, windowtime };
@@ -338,8 +341,8 @@ module.exports.submitLimitOrder = function (
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_limit",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -352,29 +355,34 @@ module.exports.submitLimitOrder = function (
  * @param {String} market Market name
  * @param {1|2} side Order type (1: short sell, 2: long buy)
  * @param {String} amount Amount
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {String} [options.client_id] Custom id, limited to 64 bytes, valid characters are uppercase and lowercase English letters, numbers, _-
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.submitMarketOrder = function (market, side, amount, timestamp, { client_id, windowtime } = {}) {
+module.exports.submitMarketOrder = function (
+	market,
+	side,
+	amount,
+	{ client_id, windowtime, timestamp = Date.now() } = {}
+) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		side,
 		amount,
-		timestamp,
 		client_id,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
 		method: METHOD_TYPE.POST,
 		url: "/order/put_market",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -390,12 +398,12 @@ module.exports.submitMarketOrder = function (market, side, amount, timestamp, { 
  * @param {String} amount Amount
  * @param {String} stop_price Stop Price
  * @param {String} price Price
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {1|2|3} [options.effect_type=1] Order effective type (1: always valid, 2: immediate or cancel, 3: fill or kill, Default is 1)
  * @param {0|1|2|3} [options.option=0] Option (1: place maker orders only, 2: hidden order, 3: place maker orders only and hide the order, Default is 0)
  * @param {String} [options.client_id] Custom ID. This field is for identification only, supporting uppercase and lowercase letters, numbers, _ -, within 64 bytes
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopLimitOrder = function (
@@ -405,8 +413,7 @@ module.exports.submitStopLimitOrder = function (
 	amount,
 	stop_price,
 	price,
-	timestamp,
-	{ effect_type = 1, option = 0, client_id, windowtime } = {}
+	{ effect_type = 1, option = 0, client_id, windowtime, timestamp = Date.now() } = {}
 ) {
 	const { apiKey, apiSecret } = this;
 	const params = {
@@ -416,11 +423,11 @@ module.exports.submitStopLimitOrder = function (
 		amount,
 		stop_price,
 		price,
-		timestamp,
 		effect_type,
 		option,
 		client_id,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -428,8 +435,8 @@ module.exports.submitStopLimitOrder = function (
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_stop_limit",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -444,10 +451,10 @@ module.exports.submitStopLimitOrder = function (
  * @param {1|2|3} stop_type Trigger type (1: Triggered by the latest transaction price, 2: Triggered by the mark price, 3: Triggered by the index price)
  * @param {String} amount Amount
  * @param {String} stop_price Stop Price
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {String} [options.client_id] Client id
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
 module.exports.submitStopMarketOrder = function (
@@ -456,9 +463,7 @@ module.exports.submitStopMarketOrder = function (
 	stop_type,
 	amount,
 	stop_price,
-	timestamp,
-	client_id,
-	windowtime
+	{ client_id, windowtime, timestamp = Date.now() } = {}
 ) {
 	const { apiKey, apiSecret } = this;
 	const params = {
@@ -467,9 +472,9 @@ module.exports.submitStopMarketOrder = function (
 		stop_type,
 		amount,
 		stop_price,
-		timestamp,
 		client_id,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -477,8 +482,8 @@ module.exports.submitStopMarketOrder = function (
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/put_stop_market",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -490,18 +495,18 @@ module.exports.submitStopMarketOrder = function (
  * @function cancelOrderInBatch
  * @param {String} market Market name
  * @param {String} order_ids In the ID list of unexecuted orders, use “p” to separate multiple IDs
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, { windowtime } = {}) {
+module.exports.cancelOrderInBatch = function (market, order_ids, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		order_ids,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -509,8 +514,8 @@ module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, { wi
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_batch",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params: {
 			market,
@@ -527,18 +532,18 @@ module.exports.cancelOrderInBatch = function (market, order_ids, timestamp, { wi
  * @function cancelOrder
  * @param {String} market Market name
  * @param {Number} order_id Unexecuted order ID
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelOrder = function (market, order_id, timestamp, { windowtime } = {}) {
+module.exports.cancelOrder = function (market, order_id, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		order_id,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -546,8 +551,8 @@ module.exports.cancelOrder = function (market, order_id, timestamp, { windowtime
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -558,19 +563,19 @@ module.exports.cancelOrder = function (market, order_id, timestamp, { windowtime
  * @async
  * @function cancelAllOrders
  * @param {String} market Market name
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {0|1|2} [options.side] Order type (0: All 1: Sell, 2: Buy)
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) {
+module.exports.cancelAllOrders = function (market, { side, windowtime, timestamp = Date.now() }) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
-		timestamp,
 		side,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -578,8 +583,8 @@ module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) 
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_all",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -591,18 +596,18 @@ module.exports.cancelAllOrders = function (market, timestamp, side, windowtime) 
  * @function cancelStopOrder
  * @param {String} market Market name
  * @param {Number} order_id Unexecuted order ID
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelStopOrder = function (market, order_id, timestamp, { windowtime } = {}) {
+module.exports.cancelStopOrder = function (market, order_id, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		order_id,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -610,8 +615,8 @@ module.exports.cancelStopOrder = function (market, order_id, timestamp, { window
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_stop",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -622,19 +627,19 @@ module.exports.cancelStopOrder = function (market, order_id, timestamp, { window
  * @async
  * @function cancelAllStopOrders
  * @param {String} market Market name
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {0|1|2} [options.side] Order type (0: All 1: Sell, 2: Buy)
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.cancelAllStopOrders = function (market, timestamp, { side, windowtime } = {}) {
+module.exports.cancelAllStopOrders = function (market, { side, windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
-		timestamp,
 		side,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -642,8 +647,8 @@ module.exports.cancelAllStopOrders = function (market, timestamp, { side, window
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/cancel_stop_all",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -656,21 +661,26 @@ module.exports.cancelAllStopOrders = function (market, timestamp, { side, window
  * @param {String} market Market name
  * @param {0|1|2} side Order type (0: All 1: Sell, 2: Buy)
  * @param {Number} offset Offset, that is, from which one to get
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window (unit: milliseconds)
  * @param {Number} [options.limit=20] Limit The number of records obtained at one time, the default is 20 and the maximum is 100
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.queryPendingOrders = function (market, side, offset, timestamp, { windowtime, limit = 20 } = {}) {
+module.exports.queryPendingOrders = function (
+	market,
+	side,
+	offset,
+	{ windowtime, limit = 20, timestamp = Date.now() } = {}
+) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		side,
 		offset,
-		timestamp,
 		windowtime,
 		limit,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -678,8 +688,8 @@ module.exports.queryPendingOrders = function (market, side, offset, timestamp, {
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/pending",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});
@@ -691,18 +701,18 @@ module.exports.queryPendingOrders = function (market, side, offset, timestamp, {
  * @function orderStatus
  * @param {String} market Market name
  * @param {Number} order_id Order id
- * @param {Number} timestamp Client timestamp, unit: milliseconds
  * @param {Object} options Optional Parameters
  * @param {Number} [options.windowtime] Time window, unit: milliseconds
+ * @param {Number} [options.timestamp=Date.now] Client timestamp, unit: milliseconds
  * @returns {Promise<>} Promise object represents the result of the request
  */
-module.exports.orderStatus = function (market, order_id, timestamp, windowtime) {
+module.exports.orderStatus = function (market, order_id, { windowtime, timestamp = Date.now() } = {}) {
 	const { apiKey, apiSecret } = this;
 	const params = {
 		market,
 		order_id,
-		timestamp,
 		windowtime,
+		timestamp,
 	};
 
 	return executeRequest({
@@ -710,8 +720,8 @@ module.exports.orderStatus = function (market, order_id, timestamp, windowtime) 
 		baseURL: BASE_URLS.FUTURES,
 		url: "/order/status",
 		headers: {
-			Authorization: signParams(apiSecret, params),
-			Access_id: apiKey,
+			Authorization: signParams(apiSecret, params, "sha256"),
+			AccessId: apiKey,
 		},
 		params,
 	});

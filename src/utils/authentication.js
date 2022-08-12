@@ -11,12 +11,16 @@ function sortObjectAlphabetically(object) {
 
 module.exports.signParams = function (secret, params, type = "md5") {
 	if (type == "sha256") {
-		params.timestamp = params.tonce;
-		delete params.tonce;
+		if (params.tonce || params.timestamp) {
+			params.timestamp = params.tonce ? params.tonce : params.timestamp;
+			delete params.tonce;
+		}
 	}
 
 	const queryStringOfParams =
 		new URLSearchParams(sortObjectAlphabetically(params)).toString() + `&secret_key=${secret}`;
+
+	console.log(queryStringOfParams);
 
 	let hash = crypto.createHash(type).update(queryStringOfParams).digest("hex");
 
