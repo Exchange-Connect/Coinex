@@ -53,7 +53,6 @@ class WebSocket {
 			{ method, id } = data,
 			responseCallback = id ? this.callbackMapping[id] : null,
 			responseUpdate = method ? this.updateMapping[method] : null;
-		console.log(message);
 		if (!data) return;
 		if (responseCallback) {
 			if (responseUpdate) {

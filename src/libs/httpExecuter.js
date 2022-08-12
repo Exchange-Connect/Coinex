@@ -32,6 +32,5 @@ module.exports.executeRequest = async function (options) {
 		console.log(RESPONSE_CODES[response.data.code], options);
 		throw new RESPONSE_CODES[response.data.code].error();
 	}
-	console.log(response.data.data);
 	return response.data.data;
 };

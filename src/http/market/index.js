@@ -82,7 +82,7 @@ module.exports.acquireSingleMarketInfo = function (market) {
  * @param {5|10|20|50} [options.limit=20]
  * @returns {Promise<MarketDepthResult>} Promise object represents the result of the request
  */
-module.exports.acquireMarketDepth = function (market, merge, { limit = 20 }) {
+module.exports.acquireMarketDepth = function (market, merge, { limit = 20 } = {}) {
 	const apiSecret = this.apiSecret;
 	const params = {
 		market,
@@ -107,12 +107,12 @@ module.exports.acquireMarketDepth = function (market, merge, { limit = 20 }) {
  * @function acquireMarketDepth
  * @description Get the latest transaction data of a single market, applicable to spot and margin markets
  * @param {String} market Market Name
- * @param {Object} options Optional Parameters
+ * @param {Object} [options={}] Optional Parameters
  * @param {Number} [options.last_id=0] Transaction ID, 0 means get from the latest record
  * @param {Number} [options.limit=100] ( Max. 1000 )
  * @returns {Promise<TransactionDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireLatestTransactionData = function (market, { last_id = 0, limit = 100 }) {
+module.exports.acquireLatestTransactionData = function (market, { last_id = 0, limit = 100 } = {}) {
 	const apiSecret = this.apiSecret;
 	const params = {
 		market,
@@ -142,11 +142,11 @@ module.exports.acquireLatestTransactionData = function (market, { last_id = 0, l
  * @description Get k-line data of a single market, applicable to spot and margin markets
  * @param {String} market Market Name
  * @param {"1min"|"3min"|"5min"|"15min"|"30min"|"1hour"|"4hour"|"6hour"|"1day"|"3day"|"1week"} type Timeframe
- * @param {Object} options Optional Parameters
+ * @param {Object} [options={}] Optional Parameters
  * @param {Number} [options.limit=100] ( Max. 1000 )
  * @returns {Promise<KlineDataResults>} Promise object represents the result of the request
  */
-module.exports.acquireKlineData = function (market, type, { limit = 100 }) {
+module.exports.acquireKlineData = function (market, type, { limit = 100 } = {}) {
 	const apiSecret = this.apiSecret;
 	const params = {
 		market,

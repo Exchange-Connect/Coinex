@@ -20,8 +20,6 @@ module.exports.signParams = function (secret, params, type = "md5") {
 	const queryStringOfParams =
 		new URLSearchParams(sortObjectAlphabetically(params)).toString() + `&secret_key=${secret}`;
 
-	console.log(queryStringOfParams);
-
 	let hash = crypto.createHash(type).update(queryStringOfParams).digest("hex");
 
 	if (type == "md5") hash = hash.toUpperCase();
