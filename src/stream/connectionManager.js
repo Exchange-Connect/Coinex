@@ -54,26 +54,26 @@ class WebSocket {
 			responseCallback = id ? this.callbackMapping[id] : null,
 			responseUpdate = method ? this.updateMapping[method] : null;
 		if (!data) return;
-		if (responseCallback) {
-			if (responseUpdate) {
-				responseUpdate(data.result);
-			} else if (responseCallback) {
-				responseCallback(data.result);
-				this.callbackMapping[id] = undefined;
-			}
+		if (responseUpdate) {
+			responseUpdate(data.params);
+		} else if (responseCallback) {
+			responseCallback(data.result);
+			delete this.callbackMapping[id];
 		}
 	}
 
 	send(data, onUpdateMethod, onUpdate) {
 		const $this = this,
-			requestMethod = onUpdateMethod && onUpdate ? data.method : null,
+			requestMethod = onUpdateMethod && onUpdate ? onUpdateMethod : null,
 			requestId = this.generateUniqueId();
 		data.id = requestId;
 		const stringifiedData = typeof data === "object" ? JSON.stringify(data) : data;
 		this.client.send(stringifiedData);
 		return new Promise((resolve) => {
-			if (requestMethod) $this.updateMapping[requestMethod] = resolve;
-			else if (requestId) $this.callbackMapping[requestId] = resolve;
+			if (requestMethod) {
+				$this.updateMapping[requestMethod] = onUpdate;
+				$this.callbackMapping[requestId] = resolve;
+			} else if (requestId) $this.callbackMapping[requestId] = resolve;
 		});
 	}
 }

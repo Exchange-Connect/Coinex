@@ -11,7 +11,7 @@ const methodId = 15;
  * @async
  * @function subscribe
  * @memberof Streams.spot.status
- * @param {String} market Market's Name
+ * @param {String} market Market's Name (null: Subscribe to all markets)
  * @param {function} onData On Data Incomming Callback
  */
 module.exports.subscribe = function (market, onData) {
@@ -19,8 +19,8 @@ module.exports.subscribe = function (market, onData) {
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.subscribe`,
-		onUpdateMethod = "state.update",
-		params = [market],
+		onUpdateMethod = `${methodBaseName}.update`,
+		params = market ? [market] : [],
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
 };

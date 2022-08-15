@@ -47,6 +47,10 @@ const {
 	MarketDoesNotExistError,
 	PositionDoesNotExitsError,
 	AccessIDDoesNotExistError,
+	SignatureError,
+	AccessIDExpiredError,
+	IPProhibitedError,
+	APIAccessForbiddenError,
 } = require("../errors");
 
 /**
@@ -65,6 +69,7 @@ module.exports.RESPONSE_CODES = {
 	1: {
 		message: "Error",
 		description: "Error",
+		error: Error,
 	},
 	/** Invalid argument */
 	2: {
@@ -75,22 +80,27 @@ module.exports.RESPONSE_CODES = {
 	3: {
 		message: "Internal error",
 		description: "Internal error",
+		error: InternalServiceError,
 	},
 	23: {
 		message: "IP prohibited",
 		description: "IP prohibited",
+		error: IPProhibitedError,
 	},
 	24: {
 		message: "AccessID does not exist",
 		description: "AccessID does not exist",
+		error: AccessIDDoesNotExistError,
 	},
 	25: {
 		message: "Signature error",
 		description: "Signature error",
+		error: SignatureError,
 	},
 	34: {
 		message: "AccessID expired",
 		description: "AccessID expired",
+		error: AccessIDExpiredError,
 	},
 	35: {
 		message: "Service unavailable",
@@ -117,6 +127,7 @@ module.exports.RESPONSE_CODES = {
 	158: {
 		message: "No permission to use this API",
 		description: "No permission to use this API",
+		error: APIAccessForbiddenError,
 	},
 	213: {
 		message: "Requests submitted too frequently",
