@@ -64,6 +64,7 @@ module.exports.acquireBalanceInSubAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/balance",
 		params,
 	});
@@ -90,6 +91,7 @@ module.exports.acquireBalanceInAMMAccount = function ({ access_id, tonce = Date.
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/account/amm/balance",
 		params,
 	});
@@ -116,6 +118,7 @@ module.exports.acquireBalanceInFinancialAccount = function ({ access_id, tonce =
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/account/investment/balance",
 		params,
 	});
@@ -142,6 +145,7 @@ module.exports.acquireCreditInfoInAccount = function ({ access_id, tonce = Date.
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/credit/info",
 		params,
 	});
@@ -170,6 +174,7 @@ module.exports.acquireMarketInfoInMarginAccount = function (market, { access_id,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/account",
 		params,
 	});
@@ -198,6 +203,7 @@ module.exports.inquireMarginAccountSettings = function (market, { access_id, ton
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/config",
 		params,
 	});
@@ -224,6 +230,7 @@ module.exports.acquireBalanceInCreditAccount = function ({ access_id, tonce = Da
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/credit/balance",
 		params,
 	});
@@ -265,6 +272,7 @@ module.exports.acquireDepositRecord = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/coin/deposit",
 		params,
 	});
@@ -315,6 +323,7 @@ module.exports.inquireUserOperationHistory = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/account/balance/history",
 		params,
 	});
@@ -348,6 +357,7 @@ module.exports.acquireTradingFeeRate = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/account/market/fee",
 		params,
 	});
@@ -386,6 +396,7 @@ module.exports.spotAssetTransferBetweenMainAndSubAccount = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/transfer",
 		params,
 	});
@@ -426,6 +437,7 @@ module.exports.assetTransferBetweenSpotMarginAccount = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/transfer",
 		params,
 	});
@@ -463,6 +475,7 @@ module.exports.assetTransferBetweenSpotPerpetualAccount = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/contract/balance/transfer",
 		params,
 	});
@@ -504,6 +517,7 @@ module.exports.submitWithdrawalRequest = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/coin/withdraw",
 		params,
 	});
@@ -532,6 +546,7 @@ module.exports.cancelWithdrawalRequest = function (coin_withdraw_id, { access_id
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/coin/withdraw",
 		params,
 	});
@@ -566,6 +581,7 @@ module.exports.marginLoan = function (amount, coin_type, market, { renew, access
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/loan",
 		params,
 	});
@@ -600,6 +616,7 @@ module.exports.marginRepayment = function (amount, coin_type, market, { loan_id,
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/flat",
 		params,
 	});
@@ -628,6 +645,7 @@ module.exports.updateDepositAddress = function ({ smart_contract_name, access_id
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/deposit/address/<string:coin_type>",
 		params,
 	});
@@ -656,12 +674,9 @@ module.exports.inquireDepositAddress = function ({ smart_contract_name, access_i
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/deposit/address/<string:coin_type>",
-		params: {
-			smart_contract_name,
-			access_id: access_id ? access_id : apiKey,
-			tonce,
-		},
+		params,
 	});
 };
 
@@ -1142,6 +1157,7 @@ module.exports.acquireSubAccountAPIKEYDetail = function (user_auth_id, { access_
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params,
 	});
@@ -1183,6 +1199,7 @@ module.exports.editSubAccountAPIKEY = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params,
 	});
@@ -1210,6 +1227,7 @@ module.exports.deleteSubAccountAPIKEY = function (user_auth_id, { access_id, ton
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: `/sub_account/auth/api/${user_auth_id}`,
 		params,
 	});
