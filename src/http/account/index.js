@@ -722,6 +722,7 @@ module.exports.transferRecordBetweenSpotFinancialAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/investment/transfer/history",
 		params,
 	});
@@ -763,6 +764,7 @@ module.exports.acquireTransferRecordBetweenMainAndSubAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/transfer/history",
 		params,
 	});
@@ -804,6 +806,7 @@ module.exports.acquireLoanRecordInMarginAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/loan/history",
 		params,
 	});
@@ -851,6 +854,7 @@ module.exports.transferRecordBetweenSpotPerpetualAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/contract/transfer/history",
 		params,
 	});
@@ -901,6 +905,7 @@ module.exports.transferRecordBetweenMarginSpotAccount = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/margin/transfer/history",
 		params,
 	});
@@ -942,6 +947,7 @@ module.exports.acquireWithdrawalHistory = function ({
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/balance/coin/withdraw",
 		params,
 	});
@@ -972,6 +978,7 @@ module.exports.createSubAccount = function (sub_user_name, password, { access_id
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/register",
 		params,
 	});
@@ -1000,6 +1007,7 @@ module.exports.unfreezeSubAccount = function (sub_user_name, { access_id, tonce 
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/unfrozen",
 		params,
 	});
@@ -1028,6 +1036,7 @@ module.exports.freezeSubAccount = function (sub_user_name, { access_id, tonce = 
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/frozen",
 		params,
 	});
@@ -1056,6 +1065,7 @@ module.exports.editAccountSettings = function ({ cet_discount, access_id, tonce 
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/v1/account/settings",
 		params,
 	});
@@ -1095,6 +1105,7 @@ module.exports.createSubAccountAPIKEY = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/auth/api",
 		params,
 	});
@@ -1130,6 +1141,7 @@ module.exports.acquireSubAccountAPIKEYList = function (
 		headers: {
 			authorization: signParams(apiSecret, params),
 		},
+		baseURL: BASE_URLS.GENERAL,
 		url: "/sub_account/auth/api",
 		params,
 	});

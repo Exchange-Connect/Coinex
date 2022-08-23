@@ -327,6 +327,10 @@ module.exports.RESPONSE_CODES = {
 		message: "Stop-Loss price cannot be lower than the current price",
 		description: "Stop-Loss price for long positions cannot be lower than the current price",
 	},
+	3500: {
+		message: "Not Credited User",
+		description: "Not Credited User",
+	},
 	4001: {
 		message: "service unavailable",
 		description: "Service unavailable",
