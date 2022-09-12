@@ -1,10 +1,10 @@
 {
   "name": "@exchange-connect/coinex",
   "private": false,
-  "version": "0.8.8",
+  "version": "0.8.9",
   "type": "commonjs",
   "description": "Coinex ( https://www.coinex.com ) SDK",
-  "main": "./src/index.js",
+  "main": "./index.js",
   "scripts": {
     "doc": "npx jsdoc -c ./jsdoc.json -r",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Exchange-Connect/coinex#readme",
   "dependencies": {
+    "@exchange-connect/coinex": "^0.8.8",
     "axios": "^0.27.2",
     "ws": "^8.8.1"
   },

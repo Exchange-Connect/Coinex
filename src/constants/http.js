@@ -407,6 +407,10 @@ module.exports.RESPONSE_CODES = {
 		message: "read only",
 		description: "Readable only",
 	}, //ReadonlyResourceOnAPIError
+	10005: {
+		message: "invalid asset code: {}",
+		description: "invalid asset code: {}",
+	},
 };
 
 /**
