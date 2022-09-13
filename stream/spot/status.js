@@ -14,7 +14,7 @@ const methodId = 15;
  * @param {String} market Market's Name (null: Subscribe to all markets)
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (market, onData) {
+function subscribe(market, onData) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -23,7 +23,7 @@ module.exports.subscribe = function (market, onData) {
 		params = market ? [market] : [],
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Statuses Realtime Data
@@ -31,7 +31,7 @@ module.exports.subscribe = function (market, onData) {
  * @function unsubscribe
  * @memberof Streams.spot.status
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -39,7 +39,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Statuses' Data on specific market
@@ -50,7 +50,7 @@ module.exports.unsubscribe = function () {
  * @param {Number} period In Seconds, e.g. 86400 is the past 24 hours
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market, period) {
+async function query(market, period) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -58,4 +58,10 @@ module.exports.query = async function (market, period) {
 		params = [market, period],
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	query,
 };

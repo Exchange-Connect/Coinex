@@ -14,7 +14,7 @@ const methodId = 15;
  * @param {Array<String>} markets Markets' Name
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (markets, onData) {
+function subscribe(markets, onData) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -23,7 +23,7 @@ module.exports.subscribe = function (markets, onData) {
 		params = markets,
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Positions Realtime Data
@@ -31,7 +31,7 @@ module.exports.subscribe = function (markets, onData) {
  * @function unsubscribe
  * @memberof Streams.futures.position
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -39,7 +39,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Positions' Data on specific market
@@ -49,7 +49,7 @@ module.exports.unsubscribe = function () {
  * @param {Array<String>} markets Markets' Name
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (markets) {
+async function query(markets) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -57,4 +57,10 @@ module.exports.query = async function (markets) {
 		params = markets,
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	query,
 };

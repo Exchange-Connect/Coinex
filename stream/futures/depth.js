@@ -14,7 +14,7 @@ const methodId = 15;
  * @param {Array<Object>|Object} markets Market(s) Name ( Would subscribe on one or multi market(s) depending on the parameter)
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (markets, onData) {
+function subscribe(markets, onData) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -31,7 +31,7 @@ module.exports.subscribe = function (markets, onData) {
 	}
 
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Market Depth Realtime Data
@@ -39,7 +39,7 @@ module.exports.subscribe = function (markets, onData) {
  * @function unsubscribe
  * @memberof Streams.futures.depth
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -47,7 +47,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Unsubscribe from Multi-Market Depth Realtime Data
@@ -55,7 +55,7 @@ module.exports.unsubscribe = function () {
  * @function unsubscribeMulti
  * @memberof Streams.futures.depth
  */
-module.exports.unsubscribeMulti = function () {
+function unsubscribeMulti() {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -63,7 +63,7 @@ module.exports.unsubscribeMulti = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Market Depth' Data on specific market
@@ -75,7 +75,7 @@ module.exports.unsubscribeMulti = function () {
  * @param {"10"|"1"|"0"|"0.1"|"0.01"} interval Market depth aggregation level
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market, limit, interval) {
+async function query(market, limit, interval) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -83,4 +83,11 @@ module.exports.query = async function (market, limit, interval) {
 		params = [market, limit, interval],
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	unsubscribeMulti,
+	query,
 };

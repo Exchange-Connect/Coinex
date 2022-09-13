@@ -8,8 +8,8 @@ module.exports = class Coinex {
 
 		this.stream = {
 			...require("./stream"),
-			apiKey: apiKey,
-			apiSecret: apiSecret,
+			apiKey,
+			apiSecret,
 			connect() {
 				return initialize({ apiKey, apiSecret }, [
 					{
@@ -26,8 +26,8 @@ module.exports = class Coinex {
 
 		this.http = {
 			...require("./http"),
-			apiKey: apiKey,
-			apiSecret: apiSecret,
+			apiKey,
+			apiSecret,
 		};
 	}
 };

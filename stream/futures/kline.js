@@ -16,7 +16,7 @@ const methodId = 5;
  * @param {"1min"|"5min"|"15min"|"30min"|"1hour"|"2hour"|"4hour"|"6hour"|"12hour"|"1day"|"3day"|"1week"} period Period
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (market, period, onData) {
+function subscribe(market, period, onData) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -25,7 +25,7 @@ module.exports.subscribe = function (market, period, onData) {
 		params = [market, period],
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Klines' Realtime Data
@@ -33,7 +33,7 @@ module.exports.subscribe = function (market, period, onData) {
  * @function unsubscribe
  * @memberof Streams.futures.kline
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -41,7 +41,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Klines' Data on specific market
@@ -52,7 +52,7 @@ module.exports.unsubscribe = function () {
  * @param {"1min"|"5min"|"15min"|"30min"|"1hour"|"2hour"|"4hour"|"6hour"|"12hour"|"1day"|"3day"|"1week"} period Period
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market, period) {
+async function query(market, period) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -60,4 +60,10 @@ module.exports.query = async function (market, period) {
 		params = [market, period],
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	query,
 };

@@ -13,7 +13,7 @@ const methodBaseName = "depth";
  * @param {Array<Object>|Object} markets Market(s) Name ( Would subscribe on one or multi market(s) depending on the parameter)
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = async function (markets, onData) {
+async function subscribe(markets, onData) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -29,7 +29,7 @@ module.exports.subscribe = async function (markets, onData) {
 	}
 
 	return await client.send({ method, params }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Market Depth Realtime Data
@@ -37,14 +37,14 @@ module.exports.subscribe = async function (markets, onData) {
  * @function unsubscribe
  * @memberof Streams.spot.depth
  */
-module.exports.unsubscribe = async function () {
+async function unsubscribe() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.unsubscribe`,
 		params = [];
 	return await client.send({ method, params });
-};
+}
 
 /**
  * Unsubscribe from Multi-Market Depth Realtime Data
@@ -52,14 +52,14 @@ module.exports.unsubscribe = async function () {
  * @function unsubscribeMulti
  * @memberof Streams.spot.depth
  */
-module.exports.unsubscribeMulti = async function () {
+async function unsubscribeMulti() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.unsubscribe_multi`,
 		params = [];
 	return await client.send({ method, params });
-};
+}
 
 /**
  * Query the Market Depth' Data on specific market
@@ -71,11 +71,18 @@ module.exports.unsubscribeMulti = async function () {
  * @param {"10"|"1"|"0"|"0.1"|"0.01"} interval Market depth aggregation level
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market, limit, interval) {
+async function query(market, limit, interval) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
 	const method = `${methodBaseName}.query`,
 		params = [market, limit, interval];
 	return await client.send({ method, params });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	unsubscribeMulti,
+	query,
 };

@@ -15,7 +15,7 @@ const methodId = 16;
  * @param {Array<String>} markets Markets' Name
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (markets, onData) {
+function subscribe(markets, onData) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -24,7 +24,7 @@ module.exports.subscribe = function (markets, onData) {
 		params = markets,
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Latest Transactions Realtime Data
@@ -32,7 +32,7 @@ module.exports.subscribe = function (markets, onData) {
  * @function unsubscribe
  * @memberof Streams.futures.latestTransaction
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -40,7 +40,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Latest Transactions' Data on specific market
@@ -52,7 +52,7 @@ module.exports.unsubscribe = function () {
  * @param {Number} last_id The largest ID of the last returned result
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market, limit, last_id) {
+async function query(market, limit, last_id) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -60,7 +60,7 @@ module.exports.query = async function (market, limit, last_id) {
 		params = [market, limit, last_id],
 		id = methodId;
 	return await client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Assets' Data on specific market and account
@@ -75,7 +75,7 @@ module.exports.query = async function (market, limit, last_id) {
  * @param {Number} limit The number of records obtained
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.queryUser = async function (market, side, start_time, end_time, offset, limit) {
+async function queryUser(market, side, start_time, end_time, offset, limit) {
 	const client = connections.futures;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -83,4 +83,11 @@ module.exports.queryUser = async function (market, side, start_time, end_time, o
 		params = [market, side, start_time, end_time, offset, limit],
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	query,
+	queryUser,
 };

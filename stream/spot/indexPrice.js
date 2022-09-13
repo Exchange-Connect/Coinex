@@ -14,7 +14,7 @@ const methodId = 15;
  * @memberof Streams.spot.indexPrice
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (onData) {
+function subscribe(onData) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -23,7 +23,7 @@ module.exports.subscribe = function (onData) {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Index Price Realtime Data
@@ -31,7 +31,7 @@ module.exports.subscribe = function (onData) {
  * @function unsubscribe
  * @memberof Streams.spot.indexPrice
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -39,7 +39,7 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
-};
+}
 
 /**
  * Query the Index Prices' Data on specific market
@@ -49,7 +49,7 @@ module.exports.unsubscribe = function () {
  * @param {String} market Market name
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.query = async function (market) {
+async function query(market) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -57,7 +57,7 @@ module.exports.query = async function (market) {
 		params = [market],
 		id = methodId;
 	return await client.send({ method, params, id });
-};
+}
 
 /**
  * Query all of the Index Prices' Data
@@ -66,7 +66,7 @@ module.exports.query = async function (market) {
  * @memberof Streams.spot.indexPrice
  * @returns {Promise<Object>} Promise object represents the result of the request
  */
-module.exports.queryAll = async function () {
+async function queryAll() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -74,4 +74,11 @@ module.exports.queryAll = async function () {
 		params = [],
 		id = methodId;
 	return await client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
+	query,
+	queryAll,
 };

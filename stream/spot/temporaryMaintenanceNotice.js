@@ -13,7 +13,7 @@ const methodId = 15;
  * @memberof Streams.spot.temporaryMaintenanceNotice
  * @param {function} onData On Data Incomming Callback
  */
-module.exports.subscribe = function (onData) {
+function subscribe(onData) {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -22,7 +22,7 @@ module.exports.subscribe = function (onData) {
 		params = [101],
 		id = methodId;
 	client.send({ method, params, id }, onUpdateMethod, onData);
-};
+}
 
 /**
  * Unsubscribe from Temporary Maintenance Notices Realtime Data
@@ -30,7 +30,7 @@ module.exports.subscribe = function (onData) {
  * @function unsubscribe
  * @memberof Streams.spot.temporaryMaintenanceNotice
  */
-module.exports.unsubscribe = function () {
+function unsubscribe() {
 	const client = connections.spot;
 	if (!client) throw new Error("Web Socket is not Connected!");
 
@@ -38,4 +38,9 @@ module.exports.unsubscribe = function () {
 		params = [],
 		id = methodId;
 	client.send({ method, params, id });
+}
+
+module.exports = {
+	subscribe,
+	unsubscribe,
 };
