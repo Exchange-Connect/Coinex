@@ -7,10 +7,11 @@
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_",
         "exclude": [
-            "node_modules"
+            "node_modules",
+            "docs"
         ],
         "include": [
-            "src"
+            "."
         ]
     },
     "sourceType": "module",

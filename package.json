@@ -1,7 +1,7 @@
 {
   "name": "@exchange-connect/coinex",
   "private": false,
-  "version": "0.8.9",
+  "version": "0.9.0",
   "type": "commonjs",
   "description": "Coinex ( https://www.coinex.com ) SDK",
   "main": "./index.js",
@@ -26,8 +26,9 @@
   },
   "homepage": "https://github.com/Exchange-Connect/coinex#readme",
   "dependencies": {
-    "@exchange-connect/coinex": "^0.8.8",
+    "@types/node": "^18.7.16",
     "axios": "^0.27.2",
+    "node": "^18.9.0",
     "ws": "^8.8.1"
   },
   "devDependencies": {

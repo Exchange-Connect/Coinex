@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8aeb5d6-528b-4330-966c-61812e575558" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/http.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/stream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/APIError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/NoResponseFromServerError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/ReadonlyResourceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/RequestTooFrequentlyError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/SendingRequestFailedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/SignatureError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/APIErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AlreadyExistsErrors/AlreadyExistsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AlreadyExistsErrors/OrderAlreadyExistsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AlreadyExistsErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthenticationError/UnauthenticatedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/APIAccessForbiddenError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/AccessIDExpiredError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/AuthorizationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/AuthorizationFailedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/AuthorizationHeaderMissingError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/IPProhibitedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/UnauthorizedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/UserProhibitedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/AuthorizationErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/AccessIDDoesNotExistError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/AssetDoesNotExitsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/DoesNotExitsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/MarketDoesNotExistError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/OrderDoesNotExistError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/PositionDoesNotExitsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/UserDoesNotExistError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/DoesNotExistsErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ExceedsLimitErrors/ExceedsLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ExceedsLimitErrors/MarginWithdrawalExeedsLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ExceedsLimitErrors/PositionAmountExceedsLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InsufficientError/InsufficientBalanceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InsufficientError/InsufficientCounterPartiesError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InsufficientError/InsufficientMarketDepthError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidArgumentError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidCloseAmountError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidLeverageError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidMethod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/InvalidPriceSizeError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/InvalidErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/MismatchErrors/AccountMismatchError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/MismatchErrors/TimestampMismatchError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/MismatchErrors/UserMismatchError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/PositionError/PositionIsClosingError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/PositionError/PositionLiquidationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/PositionError/PositionWillBeForceLiquidatedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/AmountTooSmallError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/AskOrBidOutOfRangeError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/DelegatedAndIndexPriceDeviationIsOutOfRangeLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/DelegatedAndTriggerPriceDeviationIsOutOfRangeLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/ExecutionAndIndexPriceDeviationIsOutOfRangeLimitError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/LimitPriceHigherThanLiquidationPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/LimitPriceLowerThanLiquidationPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/LimitPriceOverLiquidationPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/MarginIsLessThanInitialError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/OrderPriceDeviationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossOrTakeProfitEqualsToIndexPrice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossOrTakeProfitEqualsToMarkPrice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossPriceHigherThanCurrentPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossPriceHigherThanForcedLiquidationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossPriceLowerThanCurrentPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopLossPriceLowerThanForcedLiquidationError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/StopOrderAmountLimitExceededError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/TakeProfitPriceHigherThanCurrentPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/TakeProfitPriceLowerThanCurrentPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/RangeLimitError/TargetPriceIsEqualToDealPriceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/InternalServiceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/ServiceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/ServiceIsBusyError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/ServiceTimeoutError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/ServiceUnavailableDuoFundingFeeSettlementError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/ServiceUnavailableError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/TradingServiceUnavailableError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/ServiceErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableBalanceDueToRepeatingUpdateError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableLiquidityError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableMarginChangeError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableMergeDepthError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableOrderError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/UnavailableTransferToAccountDueToRejectionError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/UnavailableErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/http/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/APIError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/NoResponseFromServerError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/RequestTooFrequentlyError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/SendingRequestFailedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/TimecheckError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/APIErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/AuthorizationErrors/AuthorizationFailedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/AuthorizationErrors/AuthorizationRequiredError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/AuthorizationErrors/IPProhibitedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/AuthorizationErrors/UserProhibitedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/AuthorizationErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/DoesNotExistsErrors/AccessIDDoesNotExistError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/DoesNotExistsErrors/DoesNotExitsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/DoesNotExistsErrors/MarketDoesNotExistsError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/DoesNotExistsErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InternalErrors/InternalError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InternalErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InvalidErrors/InvalidArgumentError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InvalidErrors/InvalidError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InvalidErrors/InvalidMethod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/InvalidErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/ServiceErrors/ServiceError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/ServiceErrors/ServiceIsBusyError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/ServiceErrors/ServiceTimeoutError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/ServiceErrors/ServiceUnavailableError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/ServiceErrors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/WebSocketIsNotConnectedError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/stream/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/account/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/account/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/futures/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/futures/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/market/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/market/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/trading/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/trading/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libs/httpExecuter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libs/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/connectionManager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/connections.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/asset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/depth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/kline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/latestTransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/order.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/position.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/futures/status.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/asset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/depth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/indexPrice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/kline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/latestTransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/order.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/status.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stream/spot/temporaryMaintenanceNotice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/authentication.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2EfIkUTUb7vzRrYLc4IH04ASjPy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8aeb5d6-528b-4330-966c-61812e575558" name="Default Changelist" comment="" />
+      <created>1662980354785</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662980354785</updated>
+      <workItem from="1662980357651" duration="1756000" />
+      <workItem from="1663013303313" duration="2295000" />
+      <workItem from="1663063422155" duration="211000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
