@@ -25,12 +25,12 @@ Use SDK:
 
 ```javascript
 
-const Coinex = require("@exchange-connect/coinex");
-const { INVALID_METHOD } = Coinex.errors;
+const CoinexSDK = require("@exchange-connect/coinex");
+const coinex = new CoinexSDK("YOUR_API_KEY", "YOUR_API_SECRET");
 
-const API_KEY = "YOUR_API_KEY", API_SECRET="YOUR_API_SECRET";
-const CoinexSDK = new Coinex(API_KEY, API_SECRET);
-const { acquireAllMarketInfo } = CoinexSDK.http;
+const { INVALID_METHOD } = coinex.errors;
+const { acquireAllMarketInfo } = coinex.https;
+const { futuresAssetSubscribe } = coinex.streams;
 
 //Access All of the HTTP/Rest APIs with "CoinexSDK.http"
 //For Example
