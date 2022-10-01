@@ -116,3 +116,4 @@ jsdoc.json
 
 test/
 src/
+.idea
